@@ -3,7 +3,6 @@ C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\bin\Debug\net8.0-windows\WinFo
 C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\bin\Debug\net8.0-windows\WinFormsMA.runtimeconfig.json
 C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\bin\Debug\net8.0-windows\WinFormsMA.dll
 C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\bin\Debug\net8.0-windows\WinFormsMA.pdb
-C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.Form1.resources
 C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.Properties.Resources.resources
 C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.csproj.GenerateResource.cache
 C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.GeneratedMSBuildEditorConfig.editorconfig
@@ -16,3 +15,4 @@ C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\refin
 C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.pdb
 C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.genruntimeconfig.cache
 C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\ref\WinFormsMA.dll
+C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.Login.resources
