@@ -34,3 +34,10 @@ C:\Users\cep\Source\Repos\windows-forms\WinFormsMA\obj\Debug\net8.0-windows\refi
 C:\Users\cep\Source\Repos\windows-forms\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.pdb
 C:\Users\cep\Source\Repos\windows-forms\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.genruntimeconfig.cache
 C:\Users\cep\Source\Repos\windows-forms\WinFormsMA\obj\Debug\net8.0-windows\ref\WinFormsMA.dll
+C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.csproj.AssemblyReference.cache
+C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\bin\Debug\net8.0-windows\DotNetEnv.dll
+C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\bin\Debug\net8.0-windows\Sprache.dll
+C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.csproj.Up2Date

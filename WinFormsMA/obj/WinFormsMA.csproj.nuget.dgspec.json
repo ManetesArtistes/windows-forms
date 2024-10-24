@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cep\\Source\\Repos\\windows-forms\\WinFormsMA\\WinFormsMA.csproj": {}
+    "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\WinFormsMA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cep\\Source\\Repos\\windows-forms\\WinFormsMA\\WinFormsMA.csproj": {
+    "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\WinFormsMA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cep\\Source\\Repos\\windows-forms\\WinFormsMA\\WinFormsMA.csproj",
+        "projectUniqueName": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\WinFormsMA.csproj",
         "projectName": "WinFormsMA",
-        "projectPath": "C:\\Users\\cep\\Source\\Repos\\windows-forms\\WinFormsMA\\WinFormsMA.csproj",
-        "packagesPath": "C:\\Users\\cep\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cep\\Source\\Repos\\windows-forms\\WinFormsMA\\obj\\",
+        "projectPath": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\WinFormsMA.csproj",
+        "packagesPath": "C:\\Users\\didac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cep\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\didac\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,6 +45,12 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
