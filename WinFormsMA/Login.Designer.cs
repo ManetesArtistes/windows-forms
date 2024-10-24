@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             labelTitle = new Label();
-            labelText = new Label();
+            labelUser = new Label();
             labelPassword = new Label();
-            textBoxText = new TextBox();
+            textBoxUser = new TextBox();
             textBoxPassword = new TextBox();
             buttonLogIn = new Button();
             SuspendLayout();
@@ -49,40 +49,40 @@
             labelTitle.TabIndex = 0;
             labelTitle.Text = "MANETES ARTISTES";
             // 
-            // labelText
+            // labelUser
             // 
-            labelText.AutoSize = true;
-            labelText.BackColor = Color.Transparent;
-            labelText.Font = new Font("Segoe UI", 18F);
-            labelText.Location = new Point(168, 207);
-            labelText.Name = "labelText";
-            labelText.Size = new Size(57, 32);
-            labelText.TabIndex = 1;
-            labelText.Text = "Text";
+            labelUser.AutoSize = true;
+            labelUser.BackColor = Color.Transparent;
+            labelUser.Font = new Font("Segoe UI", 18F);
+            labelUser.Location = new Point(136, 208);
+            labelUser.Name = "labelUser";
+            labelUser.Size = new Size(80, 32);
+            labelUser.TabIndex = 1;
+            labelUser.Text = "Usuari";
             // 
             // labelPassword
             // 
             labelPassword.AutoSize = true;
             labelPassword.BackColor = Color.Transparent;
             labelPassword.Font = new Font("Segoe UI", 18F);
-            labelPassword.Location = new Point(146, 257);
+            labelPassword.Location = new Point(134, 262);
             labelPassword.Name = "labelPassword";
-            labelPassword.Size = new Size(111, 32);
+            labelPassword.Size = new Size(146, 32);
             labelPassword.TabIndex = 2;
-            labelPassword.Text = "Password";
+            labelPassword.Text = "Contrasenya";
             // 
-            // textBoxText
+            // textBoxUser
             // 
-            textBoxText.Font = new Font("Segoe UI", 12F);
-            textBoxText.Location = new Point(281, 213);
-            textBoxText.Name = "textBoxText";
-            textBoxText.Size = new Size(299, 29);
-            textBoxText.TabIndex = 3;
+            textBoxUser.Font = new Font("Segoe UI", 12F);
+            textBoxUser.Location = new Point(292, 213);
+            textBoxUser.Name = "textBoxUser";
+            textBoxUser.Size = new Size(299, 29);
+            textBoxUser.TabIndex = 3;
             // 
             // textBoxPassword
             // 
             textBoxPassword.Font = new Font("Segoe UI", 12F);
-            textBoxPassword.Location = new Point(281, 266);
+            textBoxPassword.Location = new Point(292, 266);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.Size = new Size(299, 29);
             textBoxPassword.TabIndex = 4;
@@ -92,12 +92,13 @@
             // 
             buttonLogIn.FlatAppearance.BorderColor = Color.Black;
             buttonLogIn.Font = new Font("Segoe UI", 20F);
-            buttonLogIn.Location = new Point(331, 350);
+            buttonLogIn.Location = new Point(367, 327);
             buttonLogIn.Name = "buttonLogIn";
             buttonLogIn.Size = new Size(140, 62);
             buttonLogIn.TabIndex = 5;
             buttonLogIn.Text = "Log In";
             buttonLogIn.UseVisualStyleBackColor = true;
+            buttonLogIn.Click += buttonLogIn_Click;
             // 
             // Login
             // 
@@ -108,14 +109,13 @@
             ClientSize = new Size(800, 450);
             Controls.Add(buttonLogIn);
             Controls.Add(textBoxPassword);
-            Controls.Add(textBoxText);
+            Controls.Add(textBoxUser);
             Controls.Add(labelPassword);
-            Controls.Add(labelText);
+            Controls.Add(labelUser);
             Controls.Add(labelTitle);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Login";
             Text = "ManetesArtistes";
-            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -123,9 +123,9 @@
         #endregion
 
         private Label labelTitle;
-        private Label labelText;
+        private Label labelUser;
         private Label labelPassword;
-        private TextBox textBoxText;
+        private TextBox textBoxUser;
         private TextBox textBoxPassword;
         private Button buttonLogIn;
     }
