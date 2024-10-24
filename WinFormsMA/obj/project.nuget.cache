@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aKOxhF3rcBA=",
+  "dgSpecHash": "riuJHQoFNr4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\WinFormsMA.csproj",
+  "projectFilePath": "C:\\Users\\didac\\Source\\Repos\\windows-forms\\WinFormsMA\\WinFormsMA.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\didac\\.nuget\\packages\\dotnetenv\\3.1.1\\dotnetenv.3.1.1.nupkg.sha512",
     "C:\\Users\\didac\\.nuget\\packages\\microsoft.extensions.configuration\\1.1.2\\microsoft.extensions.configuration.1.1.2.nupkg.sha512",

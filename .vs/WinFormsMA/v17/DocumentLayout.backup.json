@@ -1,14 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\",
+  "WorkspaceRootPath": "C:\\Users\\didac\\source\\repos\\windows-forms\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\winformsma\\winformsma\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\windows-forms\\winformsma\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\winformsma\\winformsma\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\windows-forms\\winformsma\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\windows-forms\\winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\windows-forms\\winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\windows-forms\\winformsma\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,27 +40,64 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "BaseForm.cs",
-              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\BaseForm.cs",
+              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\BaseForm.cs",
               "RelativeDocumentMoniker": "WinFormsMA\\BaseForm.cs",
-              "ToolTip": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\BaseForm.cs*",
-              "RelativeToolTip": "WinFormsMA\\BaseForm.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\BaseForm.cs",
+              "RelativeToolTip": "WinFormsMA\\BaseForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T17:32:44.983Z",
+              "WhenOpened": "2024-10-24T18:01:36.447Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Logs.cs",
-              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\Logs.cs",
-              "RelativeDocumentMoniker": "WinFormsMA\\Logs.cs",
-              "ToolTip": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\Logs.cs",
-              "RelativeToolTip": "WinFormsMA\\Logs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Title": "BaseForm.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\BaseForm.cs",
+              "RelativeDocumentMoniker": "WinFormsMA\\BaseForm.cs",
+              "ToolTip": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\BaseForm.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WinFormsMA\\BaseForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T14:09:02.931Z",
+              "WhenOpened": "2024-10-24T18:01:34.239Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\Login.cs",
+              "RelativeDocumentMoniker": "WinFormsMA\\Login.cs",
+              "ToolTip": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\Login.cs",
+              "RelativeToolTip": "WinFormsMA\\Login.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T18:01:31.231Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": ".env",
+              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\.env",
+              "RelativeDocumentMoniker": "WinFormsMA\\.env",
+              "ToolTip": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\.env",
+              "RelativeToolTip": "WinFormsMA\\.env",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-24T17:59:29.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\Login.cs",
+              "RelativeDocumentMoniker": "WinFormsMA\\Login.cs",
+              "ToolTip": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\Login.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WinFormsMA\\Login.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T17:55:32.679Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }
