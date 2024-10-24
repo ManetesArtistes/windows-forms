@@ -29,5 +29,10 @@ namespace WinFormsMA
         {
             return EnvLoaded ? Environment.GetEnvironmentVariable(key) ?? string.Empty : string.Empty;
         }
+
+        public static void ShowDialogError()
+        {
+            MessageBox.Show("Credencials Incorrectes, torna a provar-ho.");
+        }
     }
 }

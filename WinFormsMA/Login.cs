@@ -1,6 +1,6 @@
 namespace WinFormsMA
 {
-    public partial class Login : Form
+    public partial class Login : BaseForm
     {
         public Login()
         {
@@ -24,12 +24,19 @@ namespace WinFormsMA
                 return;
             }
 
-            if ((username == user1 && password == pass1) || (username == user2 && password == pass2))
+            if (username == user1 && password == pass1)
             {
-                MessageBox.Show("Correcte");
+                
+            }
+            else if (username == user2 && password == pass2)
+            {
+                this.Hide();
+
+                Logs logsForm = new Logs();
+                logsForm.Show();
             } else
             {
-                MessageBox.Show("Incorrecte");
+                Utils.ShowDialogError();
             }
         }
     }

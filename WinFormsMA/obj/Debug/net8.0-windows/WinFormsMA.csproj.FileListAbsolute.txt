@@ -41,3 +41,5 @@ C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\bin\Debug\net8.0-windows\Micro
 C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
 C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\bin\Debug\net8.0-windows\Sprache.dll
 C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.csproj.Up2Date
+C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.Logs.resources
+C:\Users\didac\source\repos\WinFormsMA\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.BaseForm.resources
