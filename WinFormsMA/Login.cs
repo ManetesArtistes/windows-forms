@@ -18,6 +18,12 @@ namespace WinFormsMA
             string user2 = Utils.GetEnvVariable("WF_USER2");
             string pass2 = Utils.GetEnvVariable("WF_PASSWORD2");
 
+            if (!Utils.EnvLoaded)
+            {
+                MessageBox.Show("No s'ha carregat el fitxer .env. Login incorrecte.");
+                return;
+            }
+
             if ((username == user1 && password == pass1) || (username == user2 && password == pass2))
             {
                 MessageBox.Show("Correcte");
