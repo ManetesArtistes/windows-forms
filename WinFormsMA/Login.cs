@@ -13,10 +13,10 @@ namespace WinFormsMA
             string username = textBoxUser.Text;
             string password = textBoxPassword.Text;
 
-            string user1 = Utils.GetEnvVariable("USER1");
-            string pass1 = Utils.GetEnvVariable("PASSWORD1");
-            string user2 = Utils.GetEnvVariable("USER2");
-            string pass2 = Utils.GetEnvVariable("PASSWORD2");
+            string user1 = Utils.GetEnvVariable("WF_USER1");
+            string pass1 = Utils.GetEnvVariable("WF_PASSWORD1");
+            string user2 = Utils.GetEnvVariable("WF_USER2");
+            string pass2 = Utils.GetEnvVariable("WF_PASSWORD2");
 
             if ((username == user1 && password == pass1) || (username == user2 && password == pass2))
             {
