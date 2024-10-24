@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\winformsma\\winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\winformsma\\winformsma\\.env.example||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\.env.example||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\winformsma\\winformsma\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\winformsma\\winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\winformsma\\winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\winformsma\\winformsma\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\winformsma\\winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +30,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".env.example",
+              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\.env.example",
+              "RelativeDocumentMoniker": "WinFormsMA\\.env.example",
+              "ToolTip": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\.env.example",
+              "RelativeToolTip": "WinFormsMA\\.env.example",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-24T13:27:58.723Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -40,14 +57,14 @@
               "RelativeDocumentMoniker": "WinFormsMA\\.env",
               "ToolTip": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\.env",
               "RelativeToolTip": "WinFormsMA\\.env",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-24T13:11:07.075Z",
+              "WhenOpened": "2024-10-24T13:26:58.464Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Login.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\Login.cs",
               "RelativeDocumentMoniker": "WinFormsMA\\Login.cs",
@@ -59,13 +76,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\Login.cs",
               "RelativeDocumentMoniker": "WinFormsMA\\Login.cs",
               "ToolTip": "C:\\Users\\didac\\source\\repos\\WinFormsMA\\WinFormsMA\\Login.cs",
               "RelativeToolTip": "WinFormsMA\\Login.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-24T11:26:54.346Z",
               "EditorCaption": ""
