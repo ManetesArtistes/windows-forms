@@ -43,7 +43,7 @@
             labelTitle.BackColor = Color.Transparent;
             labelTitle.Font = new Font("Comic Sans MS", 35F, FontStyle.Bold);
             labelTitle.ForeColor = Color.Black;
-            labelTitle.Location = new Point(146, 67);
+            labelTitle.Location = new Point(377, 242);
             labelTitle.Name = "labelTitle";
             labelTitle.Size = new Size(537, 65);
             labelTitle.TabIndex = 0;
@@ -54,7 +54,7 @@
             labelUser.AutoSize = true;
             labelUser.BackColor = Color.Transparent;
             labelUser.Font = new Font("Segoe UI", 18F);
-            labelUser.Location = new Point(136, 208);
+            labelUser.Location = new Point(367, 383);
             labelUser.Name = "labelUser";
             labelUser.Size = new Size(80, 32);
             labelUser.TabIndex = 1;
@@ -65,7 +65,7 @@
             labelPassword.AutoSize = true;
             labelPassword.BackColor = Color.Transparent;
             labelPassword.Font = new Font("Segoe UI", 18F);
-            labelPassword.Location = new Point(134, 262);
+            labelPassword.Location = new Point(365, 437);
             labelPassword.Name = "labelPassword";
             labelPassword.Size = new Size(146, 32);
             labelPassword.TabIndex = 2;
@@ -74,7 +74,7 @@
             // textBoxUser
             // 
             textBoxUser.Font = new Font("Segoe UI", 12F);
-            textBoxUser.Location = new Point(292, 213);
+            textBoxUser.Location = new Point(523, 388);
             textBoxUser.Name = "textBoxUser";
             textBoxUser.Size = new Size(299, 29);
             textBoxUser.TabIndex = 3;
@@ -82,7 +82,7 @@
             // textBoxPassword
             // 
             textBoxPassword.Font = new Font("Segoe UI", 12F);
-            textBoxPassword.Location = new Point(292, 266);
+            textBoxPassword.Location = new Point(523, 441);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.Size = new Size(299, 29);
             textBoxPassword.TabIndex = 4;
@@ -92,7 +92,7 @@
             // 
             buttonLogIn.FlatAppearance.BorderColor = Color.Black;
             buttonLogIn.Font = new Font("Segoe UI", 20F);
-            buttonLogIn.Location = new Point(367, 327);
+            buttonLogIn.Location = new Point(598, 502);
             buttonLogIn.Name = "buttonLogIn";
             buttonLogIn.Size = new Size(140, 62);
             buttonLogIn.TabIndex = 5;
@@ -106,7 +106,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.login_background_v1;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1264, 681);
             Controls.Add(buttonLogIn);
             Controls.Add(textBoxPassword);
             Controls.Add(textBoxUser);
