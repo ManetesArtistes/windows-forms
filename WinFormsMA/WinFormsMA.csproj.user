@@ -10,6 +10,12 @@
     <Compile Update="Logs.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="NewCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Stats.cs">
       <SubType>Form</SubType>
     </Compile>

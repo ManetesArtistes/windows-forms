@@ -24,5 +24,20 @@ namespace WinFormsMA
             Login loginForm = new Login();
             loginForm.Show();
         }
+
+        private void buttonCentre_Click(object sender, EventArgs e)
+        {
+            NewCenter newCenterForm = new NewCenter();
+
+            newCenterForm.ShowDialog();
+        }
+
+        private void buttonClass_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            NewClass newClassForm = new NewClass();
+            newClassForm.Show();
+        }
     }
 }

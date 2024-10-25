@@ -98,3 +98,5 @@ C:\Users\cep\Source\Repos\ManetesArtistes\windows-forms\WinFormsMA\obj\Debug\net
 C:\Users\cep\Source\Repos\ManetesArtistes\windows-forms\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.genruntimeconfig.cache
 C:\Users\cep\Source\Repos\ManetesArtistes\windows-forms\WinFormsMA\obj\Debug\net8.0-windows\ref\WinFormsMA.dll
 C:\Users\cep\Source\Repos\ManetesArtistes\windows-forms\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.Stats.resources
+C:\Users\cep\Source\Repos\ManetesArtistes\windows-forms\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.NewCenter.resources
+C:\Users\cep\Source\Repos\ManetesArtistes\windows-forms\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.NewClass.resources
