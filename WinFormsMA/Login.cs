@@ -26,7 +26,10 @@ namespace WinFormsMA
 
             if (username == user1 && password == pass1)
             {
-                
+                this.Hide();
+
+                Stats statsForm = new Stats();
+                statsForm.Show();
             }
             else if (username == user2 && password == pass2)
             {

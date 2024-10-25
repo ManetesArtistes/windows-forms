@@ -1,26 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\didac\\source\\repos\\windows-forms\\",
+  "WorkspaceRootPath": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\windows-forms\\winformsma\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\cep\\source\\repos\\manetesartistes\\windows-forms\\winformsma\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\windows-forms\\winformsma\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\cep\\source\\repos\\manetesartistes\\windows-forms\\winformsma\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\windows-forms\\winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\cep\\source\\repos\\manetesartistes\\windows-forms\\winformsma\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\windows-forms\\winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\cep\\source\\repos\\manetesartistes\\windows-forms\\winformsma\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\windows-forms\\winformsma\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\cep\\source\\repos\\manetesartistes\\windows-forms\\winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,73 +34,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BaseForm.cs",
-              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\BaseForm.cs",
-              "RelativeDocumentMoniker": "WinFormsMA\\BaseForm.cs",
-              "ToolTip": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\BaseForm.cs",
-              "RelativeToolTip": "WinFormsMA\\BaseForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABAAAAAAAAAAA==",
+              "Title": "Logs.cs",
+              "DocumentMoniker": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\Logs.cs",
+              "RelativeDocumentMoniker": "WinFormsMA\\Logs.cs",
+              "ToolTip": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\Logs.cs",
+              "RelativeToolTip": "WinFormsMA\\Logs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T18:01:36.447Z",
+              "WhenOpened": "2024-10-25T14:18:37.316Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BaseForm.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\BaseForm.cs",
-              "RelativeDocumentMoniker": "WinFormsMA\\BaseForm.cs",
-              "ToolTip": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\BaseForm.cs [Dise\u00F1o]",
-              "RelativeToolTip": "WinFormsMA\\BaseForm.cs [Dise\u00F1o]",
+              "Title": "Stats.cs",
+              "DocumentMoniker": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\Stats.cs",
+              "RelativeDocumentMoniker": "WinFormsMA\\Stats.cs",
+              "ToolTip": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\Stats.cs*",
+              "RelativeToolTip": "WinFormsMA\\Stats.cs*",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAWwBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T18:01:34.239Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-10-25T14:18:30.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\Login.cs",
+              "RelativeDocumentMoniker": "WinFormsMA\\Login.cs",
+              "ToolTip": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\Login.cs",
+              "RelativeToolTip": "WinFormsMA\\Login.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T14:17:06.949Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\Login.cs",
-              "RelativeDocumentMoniker": "WinFormsMA\\Login.cs",
-              "ToolTip": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\Login.cs",
-              "RelativeToolTip": "WinFormsMA\\Login.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Logs.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\Logs.cs",
+              "RelativeDocumentMoniker": "WinFormsMA\\Logs.cs",
+              "ToolTip": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\Logs.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WinFormsMA\\Logs.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T18:01:31.231Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T14:10:50.029Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": ".env",
-              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\.env",
-              "RelativeDocumentMoniker": "WinFormsMA\\.env",
-              "ToolTip": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\.env",
-              "RelativeToolTip": "WinFormsMA\\.env",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-24T17:59:29.033Z",
-              "EditorCaption": ""
+              "Title": "Login.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\Login.cs",
+              "RelativeDocumentMoniker": "WinFormsMA\\Login.cs",
+              "ToolTip": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\Login.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WinFormsMA\\Login.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T17:55:32.679Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Login.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\Login.cs",
-              "RelativeDocumentMoniker": "WinFormsMA\\Login.cs",
-              "ToolTip": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\Login.cs [Dise\u00F1o]",
-              "RelativeToolTip": "WinFormsMA\\Login.cs [Dise\u00F1o]",
+              "Title": "Stats.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\Stats.cs",
+              "RelativeDocumentMoniker": "WinFormsMA\\Stats.cs",
+              "ToolTip": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\Stats.cs [Dise\u00F1o]*",
+              "RelativeToolTip": "WinFormsMA\\Stats.cs [Dise\u00F1o]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T17:55:32.679Z",
+              "WhenOpened": "2024-10-25T14:09:49.663Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]
