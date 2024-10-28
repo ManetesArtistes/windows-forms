@@ -78,7 +78,7 @@
             textBoxNewClass.Font = new Font("Comic Sans MS", 12F);
             textBoxNewClass.Location = new Point(472, 117);
             textBoxNewClass.Name = "textBoxNewClass";
-            textBoxNewClass.PlaceholderText = "Nova classe:";
+            textBoxNewClass.PlaceholderText = "Nova classe";
             textBoxNewClass.Size = new Size(282, 30);
             textBoxNewClass.TabIndex = 10;
             textBoxNewClass.TextAlign = HorizontalAlignment.Center;

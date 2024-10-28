@@ -39,5 +39,27 @@ namespace WinFormsMA
             NewClass newClassForm = new NewClass();
             newClassForm.Show();
         }
+
+        private void buttonEditCenter_Click(object sender, EventArgs e)
+        {
+            if (comboBoxCenter.Text.Length != 0)
+            {
+                NewCenter newCenterForm = new NewCenter();
+
+                newCenterForm.ShowDialog();
+            }
+        }
+
+        private void buttonEditClass_Click(object sender, EventArgs e)
+        {
+            if (comboBoxClass.Text.Length != 0)
+            {
+                this.Hide();
+
+                NewClass newClassForm = new NewClass();
+                newClassForm.Show();
+            }
+
+        }
     }
 }

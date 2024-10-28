@@ -42,16 +42,16 @@
             labelNewCenter.ForeColor = SystemColors.Window;
             labelNewCenter.Location = new Point(147, 22);
             labelNewCenter.Name = "labelNewCenter";
-            labelNewCenter.Size = new Size(315, 67);
+            labelNewCenter.Size = new Size(294, 67);
             labelNewCenter.TabIndex = 6;
-            labelNewCenter.Text = "Nou Centre:";
+            labelNewCenter.Text = "Nou Centre";
             // 
             // textBoxNewCenter
             // 
             textBoxNewCenter.Font = new Font("Comic Sans MS", 18F);
             textBoxNewCenter.Location = new Point(52, 135);
             textBoxNewCenter.Name = "textBoxNewCenter";
-            textBoxNewCenter.PlaceholderText = "Nou centre:";
+            textBoxNewCenter.PlaceholderText = "Nou centre";
             textBoxNewCenter.Size = new Size(492, 41);
             textBoxNewCenter.TabIndex = 7;
             textBoxNewCenter.TextAlign = HorizontalAlignment.Center;
