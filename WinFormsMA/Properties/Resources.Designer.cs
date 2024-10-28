@@ -61,6 +61,16 @@ namespace WinFormsMA.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap background_dark {
+            get {
+                object obj = ResourceManager.GetObject("background_dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a GDEF� �PGPOSM,��r(N\GSUB�c�-7LOS/2aL��(`cmap~��&gt;8`cvt ]b�8fpgmp�(m�ogaspglyf�q�����
         ///head�Oh6hheaaD$hmtx@W^P|loca	�ұ(��maxp1}$ nameHk�*post��ݜST�prep���������4Ds�p�����������CR_&lt;��џȄѵU���&lt;��eeSS{�������&quot;��|�������&quot;��(�������� [resto de la cadena truncado]&quot;;.
         /// </summary>
@@ -71,22 +81,32 @@ namespace WinFormsMA.Properties {
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap login_background_v1 {
-            get {
-                object obj = ResourceManager.GetObject("login_background_v1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
         internal static byte[] logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pencil {
+            get {
+                object obj = ResourceManager.GetObject("pencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wood_background {
+            get {
+                object obj = ResourceManager.GetObject("wood_background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
