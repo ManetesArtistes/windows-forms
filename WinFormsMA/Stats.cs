@@ -59,7 +59,6 @@ namespace WinFormsMA
                 NewClass newClassForm = new NewClass();
                 newClassForm.Show();
             }
-
         }
     }
 }

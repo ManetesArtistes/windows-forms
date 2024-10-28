@@ -68,12 +68,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.background;
+            BackgroundImage = Properties.Resources.background_dark;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1264, 681);
             Controls.Add(buttonLeft);
             Controls.Add(dataGridViewLogs);
             Controls.Add(labelLogs);
+            DoubleBuffered = true;
             Name = "Logs";
             Text = "Logs";
             ((System.ComponentModel.ISupportInitialize)dataGridViewLogs).EndInit();

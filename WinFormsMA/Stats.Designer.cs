@@ -41,8 +41,8 @@
             labelGame = new Label();
             labelStudent = new Label();
             groupBoxStats = new GroupBox();
-            buttonEditClass = new Button();
             buttonEditCenter = new Button();
+            buttonEditClass = new Button();
             SuspendLayout();
             // 
             // buttonLeft
@@ -186,39 +186,37 @@
             groupBoxStats.TabStop = false;
             groupBoxStats.Text = "Estadístiques";
             // 
-            // buttonEditClass
-            // 
-            buttonEditClass.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonEditClass.Location = new Point(584, 173);
-            buttonEditClass.Name = "buttonEditClass";
-            buttonEditClass.Size = new Size(32, 32);
-            buttonEditClass.TabIndex = 16;
-            buttonEditClass.Text = "☼";
-            buttonEditClass.TextAlign = ContentAlignment.BottomRight;
-            buttonEditClass.UseVisualStyleBackColor = true;
-            buttonEditClass.Click += buttonEditClass_Click;
-            // 
             // buttonEditCenter
             // 
+            buttonEditCenter.BackgroundImageLayout = ImageLayout.None;
             buttonEditCenter.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonEditCenter.Location = new Point(584, 115);
+            buttonEditCenter.Location = new Point(593, 115);
             buttonEditCenter.Name = "buttonEditCenter";
             buttonEditCenter.Size = new Size(32, 32);
-            buttonEditCenter.TabIndex = 17;
-            buttonEditCenter.Text = "☼";
-            buttonEditCenter.TextAlign = ContentAlignment.BottomRight;
+            buttonEditCenter.TabIndex = 16;
             buttonEditCenter.UseVisualStyleBackColor = true;
             buttonEditCenter.Click += buttonEditCenter_Click;
+            // 
+            // buttonEditClass
+            // 
+            buttonEditClass.BackgroundImageLayout = ImageLayout.None;
+            buttonEditClass.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonEditClass.Location = new Point(593, 174);
+            buttonEditClass.Name = "buttonEditClass";
+            buttonEditClass.Size = new Size(32, 32);
+            buttonEditClass.TabIndex = 17;
+            buttonEditClass.UseVisualStyleBackColor = true;
+            buttonEditClass.Click += buttonEditClass_Click;
             // 
             // Stats
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.background;
+            BackgroundImage = Properties.Resources.background_dark;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1264, 681);
-            Controls.Add(buttonEditCenter);
             Controls.Add(buttonEditClass);
+            Controls.Add(buttonEditCenter);
             Controls.Add(groupBoxStats);
             Controls.Add(comboBoxGame);
             Controls.Add(comboBoxStudent);
@@ -254,7 +252,7 @@
         private Label labelGame;
         private Label labelStudent;
         private GroupBox groupBoxStats;
-        private Button buttonEditClass;
         private Button buttonEditCenter;
+        private Button buttonEditClass;
     }
 }
