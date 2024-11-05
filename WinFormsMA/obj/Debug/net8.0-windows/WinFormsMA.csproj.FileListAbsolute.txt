@@ -100,6 +100,7 @@ C:\Users\cep\Source\Repos\ManetesArtistes\windows-forms\WinFormsMA\obj\Debug\net
 C:\Users\cep\Source\Repos\ManetesArtistes\windows-forms\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.Stats.resources
 C:\Users\cep\Source\Repos\ManetesArtistes\windows-forms\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.NewCenter.resources
 C:\Users\cep\Source\Repos\ManetesArtistes\windows-forms\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.NewClass.resources
+<<<<<<< HEAD
 C:\Users\didac\Source\Repos\ManetesArtistes\WinFormsMA\bin\Debug\net8.0-windows\WinFormsMA.exe
 C:\Users\didac\Source\Repos\ManetesArtistes\WinFormsMA\bin\Debug\net8.0-windows\WinFormsMA.deps.json
 C:\Users\didac\Source\Repos\ManetesArtistes\WinFormsMA\bin\Debug\net8.0-windows\WinFormsMA.runtimeconfig.json
@@ -139,3 +140,5 @@ C:\Users\didac\Source\Repos\ManetesArtistes\WinFormsMA\bin\Debug\net8.0-windows\
 C:\Users\didac\Source\Repos\ManetesArtistes\WinFormsMA\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Management.dll
 C:\Users\didac\Source\Repos\ManetesArtistes\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.SelectAdminMode.resources
 C:\Users\didac\Source\Repos\ManetesArtistes\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.JsonManagement.resources
+=======
+>>>>>>> origin/accept

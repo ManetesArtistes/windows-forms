@@ -12,6 +12,7 @@ namespace WinFormsMA
         {
             this.FormClosing += new FormClosingEventHandler(BaseForm_FormClosing);
             this.StartPosition = FormStartPosition.CenterScreen;
+<<<<<<< HEAD
             rmFocus();
         }
 
@@ -23,6 +24,8 @@ namespace WinFormsMA
             this.Controls.Add(dummyPanel);
 
             this.Load += (s, e) => this.ActiveControl = dummyPanel;
+=======
+>>>>>>> origin/accept
         }
 
         private void BaseForm_FormClosing(object sender, FormClosingEventArgs e)
