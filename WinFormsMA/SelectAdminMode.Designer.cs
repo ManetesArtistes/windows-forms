@@ -36,6 +36,7 @@
             // 
             // buttonLogs
             // 
+            buttonLogs.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonLogs.Location = new Point(300, 298);
             buttonLogs.Name = "buttonLogs";
             buttonLogs.Size = new Size(254, 107);
@@ -46,6 +47,7 @@
             // 
             // buttonJson
             // 
+            buttonJson.Font = new Font("Segoe UI", 24F);
             buttonJson.Location = new Point(701, 298);
             buttonJson.Name = "buttonJson";
             buttonJson.Size = new Size(254, 107);
