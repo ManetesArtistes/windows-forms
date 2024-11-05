@@ -4,6 +4,12 @@
     <Compile Update="BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< HEAD
+    <Compile Update="JsonManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+=======
+>>>>>>> origin/accept
     <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -16,6 +22,12 @@
     <Compile Update="NewClass.cs">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< HEAD
+    <Compile Update="SelectAdminMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+=======
+>>>>>>> origin/accept
     <Compile Update="Stats.cs">
       <SubType>Form</SubType>
     </Compile>

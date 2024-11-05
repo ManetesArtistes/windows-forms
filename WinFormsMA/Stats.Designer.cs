@@ -194,6 +194,10 @@
             buttonEditCenter.Name = "buttonEditCenter";
             buttonEditCenter.Size = new Size(32, 32);
             buttonEditCenter.TabIndex = 16;
+<<<<<<< HEAD
+            buttonEditCenter.Text = "☼";
+=======
+>>>>>>> origin/accept
             buttonEditCenter.UseVisualStyleBackColor = true;
             buttonEditCenter.Click += buttonEditCenter_Click;
             // 
@@ -205,6 +209,10 @@
             buttonEditClass.Name = "buttonEditClass";
             buttonEditClass.Size = new Size(32, 32);
             buttonEditClass.TabIndex = 17;
+<<<<<<< HEAD
+            buttonEditClass.Text = "☼";
+=======
+>>>>>>> origin/accept
             buttonEditClass.UseVisualStyleBackColor = true;
             buttonEditClass.Click += buttonEditClass_Click;
             // 

@@ -1,3 +1,5 @@
+using WinFormsMA.Logic;
+
 namespace WinFormsMA
 {
     public partial class Login : BaseForm
@@ -6,6 +8,7 @@ namespace WinFormsMA
         {
             InitializeComponent();
             Utils.LoadEnvFile();
+            this.AcceptButton = buttonLogIn;
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
@@ -35,8 +38,13 @@ namespace WinFormsMA
             {
                 this.Hide();
 
+<<<<<<< HEAD
+                SelectAdminMode SelectForm = new SelectAdminMode();
+                SelectForm.Show();
+=======
                 Logs logsForm = new Logs();
                 logsForm.Show();
+>>>>>>> origin/accept
             } else
             {
                 Utils.ShowDialogError();

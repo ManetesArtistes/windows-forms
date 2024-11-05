@@ -2,7 +2,7 @@
 using System.IO;
 using DotNetEnv;
 
-namespace WinFormsMA
+namespace WinFormsMA.Logic
 {
     internal class Utils
     {

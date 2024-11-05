@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+=======
+>>>>>>> origin/accept
 
 namespace WinFormsMA
 {
@@ -21,8 +25,13 @@ namespace WinFormsMA
         {
             this.Hide();
 
+<<<<<<< HEAD
+            SelectAdminMode SelectForm = new SelectAdminMode();
+            SelectForm.Show();
+=======
             Login loginForm = new Login();
             loginForm.Show();
+>>>>>>> origin/accept
         }
     }
 }

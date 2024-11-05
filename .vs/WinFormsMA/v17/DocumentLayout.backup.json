@@ -1,5 +1,16 @@
 {
   "Version": 1,
+<<<<<<< HEAD
+  "WorkspaceRootPath": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\manetesartistes\\winformsma\\jsonmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\jsonmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\manetesartistes\\winformsma\\jsonmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\jsonmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
   "WorkspaceRootPath": "C:\\Users\\cep\\source\\repos\\ManetesArtistes\\windows-forms\\",
   "Documents": [
     {
@@ -9,6 +20,7 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\cep\\source\\repos\\manetesartistes\\windows-forms\\winformsma\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> origin/accept
     }
   ],
   "DocumentGroupContainers": [
@@ -18,13 +30,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
+          "SelectedChildIndex": 1,
+=======
           "SelectedChildIndex": 4,
+>>>>>>> origin/accept
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
+<<<<<<< HEAD
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JsonManagement.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\WinFormsMA\\JsonManagement.cs",
+              "RelativeDocumentMoniker": "WinFormsMA\\JsonManagement.cs",
+              "ToolTip": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\WinFormsMA\\JsonManagement.cs [Dise\u00F1o]*",
+              "RelativeToolTip": "WinFormsMA\\JsonManagement.cs [Dise\u00F1o]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T17:54:47.919Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JsonManagement.cs",
+              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\WinFormsMA\\JsonManagement.cs",
+              "RelativeDocumentMoniker": "WinFormsMA\\JsonManagement.cs",
+              "ToolTip": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\WinFormsMA\\JsonManagement.cs*",
+              "RelativeToolTip": "WinFormsMA\\JsonManagement.cs*",
+              "ViewState": "AgIAACEAAAAAAAAAAAAvwD4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T17:51:43.946Z",
+=======
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
@@ -59,6 +99,7 @@
               "ViewState": "AgIAABsAAAAAAAAAAAAowCgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T16:09:00.601Z",
+>>>>>>> origin/accept
               "EditorCaption": ""
             }
           ]
