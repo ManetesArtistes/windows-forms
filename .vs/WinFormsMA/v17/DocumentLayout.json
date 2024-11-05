@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\manetesartistes\\winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\manetesartistes\\winformsma\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\manetesartistes\\winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\manetesartistes\\winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,6 +31,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Logs.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\WinFormsMA\\Logs.cs",
+              "RelativeDocumentMoniker": "WinFormsMA\\Logs.cs",
+              "ToolTip": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\WinFormsMA\\Logs.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WinFormsMA\\Logs.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T15:42:07.438Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\WinFormsMA\\Login.cs",
               "RelativeDocumentMoniker": "WinFormsMA\\Login.cs",
