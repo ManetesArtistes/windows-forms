@@ -7,18 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinFormsMA
 {
-    public partial class Logs : BaseForm
+    public partial class JsonManagement : BaseForm
     {
-        public Logs()
+        public JsonManagement()
         {
             InitializeComponent();
         }
 
-        private void buttonLeft_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
 

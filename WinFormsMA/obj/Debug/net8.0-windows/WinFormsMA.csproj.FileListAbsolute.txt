@@ -137,3 +137,5 @@ C:\Users\didac\Source\Repos\ManetesArtistes\WinFormsMA\bin\Debug\net8.0-windows\
 C:\Users\didac\Source\Repos\ManetesArtistes\WinFormsMA\bin\Debug\net8.0-windows\Serilog.dll
 C:\Users\didac\Source\Repos\ManetesArtistes\WinFormsMA\bin\Debug\net8.0-windows\System.Management.dll
 C:\Users\didac\Source\Repos\ManetesArtistes\WinFormsMA\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Management.dll
+C:\Users\didac\Source\Repos\ManetesArtistes\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.SelectAdminMode.resources
+C:\Users\didac\Source\Repos\ManetesArtistes\WinFormsMA\obj\Debug\net8.0-windows\WinFormsMA.JsonManagement.resources

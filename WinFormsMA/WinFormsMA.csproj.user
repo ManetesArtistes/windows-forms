@@ -4,6 +4,9 @@
     <Compile Update="BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="JsonManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -14,6 +17,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="NewClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SelectAdminMode.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Stats.cs">
