@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\cep\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\cep\\.nuget\\packages"
+      "C:\\Users\\didac\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\didac\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,

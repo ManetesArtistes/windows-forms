@@ -1,3 +1,5 @@
+using WinFormsMA.Logic;
+
 namespace WinFormsMA
 {
     public partial class Login : BaseForm
@@ -6,6 +8,7 @@ namespace WinFormsMA
         {
             InitializeComponent();
             Utils.LoadEnvFile();
+            this.AcceptButton = buttonLogIn;
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
