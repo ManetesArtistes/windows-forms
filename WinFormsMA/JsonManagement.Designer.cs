@@ -37,6 +37,8 @@
             comboBox2 = new ComboBox();
             labelJoc = new Label();
             dataGridViewJson = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
             buttonModify = new Button();
             buttonDelete = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewJson).BeginInit();
@@ -128,11 +130,25 @@
             // 
             // dataGridViewJson
             // 
+            dataGridViewJson.AllowUserToAddRows = false;
+            dataGridViewJson.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewJson.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewJson.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
             dataGridViewJson.Location = new Point(102, 220);
             dataGridViewJson.Name = "dataGridViewJson";
+            dataGridViewJson.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewJson.Size = new Size(1065, 424);
             dataGridViewJson.TabIndex = 8;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Fitxer";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Data d'importació";
+            Column2.Name = "Column2";
             // 
             // buttonModify
             // 
@@ -193,5 +209,7 @@
         private DataGridView dataGridViewJson;
         private Button buttonModify;
         private Button buttonDelete;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
     }
 }

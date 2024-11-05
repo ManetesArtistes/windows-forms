@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\jsonmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\manetesartistes\\winformsma\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|c:\\users\\didac\\source\\repos\\manetesartistes\\winformsma\\jsonmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2A69273-54B4-4D61-AAA5-1317F675FB9C}|WinFormsMA\\WinFormsMA.csproj|solutionrelative:winformsma\\jsonmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,20 +33,21 @@
               "ToolTip": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\WinFormsMA\\JsonManagement.cs [Dise\u00F1o]*",
               "RelativeToolTip": "WinFormsMA\\JsonManagement.cs [Dise\u00F1o]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T17:42:16.611Z",
+              "WhenOpened": "2024-11-05T17:54:47.919Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Stats.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\WinFormsMA\\Stats.cs",
-              "RelativeDocumentMoniker": "WinFormsMA\\Stats.cs",
-              "ToolTip": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\WinFormsMA\\Stats.cs [Dise\u00F1o]",
-              "RelativeToolTip": "WinFormsMA\\Stats.cs [Dise\u00F1o]",
+              "Title": "JsonManagement.cs",
+              "DocumentMoniker": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\WinFormsMA\\JsonManagement.cs",
+              "RelativeDocumentMoniker": "WinFormsMA\\JsonManagement.cs",
+              "ToolTip": "C:\\Users\\didac\\source\\repos\\ManetesArtistes\\WinFormsMA\\JsonManagement.cs*",
+              "RelativeToolTip": "WinFormsMA\\JsonManagement.cs*",
+              "ViewState": "AgIAACEAAAAAAAAAAAAvwD4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T17:41:55.225Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-11-05T17:51:43.946Z",
+              "EditorCaption": ""
             }
           ]
         }
