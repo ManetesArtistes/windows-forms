@@ -24,5 +24,15 @@ namespace WinFormsMA
             SelectAdminMode SelectForm = new SelectAdminMode();
             SelectForm.Show();
         }
+
+        private void buttonModify_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
