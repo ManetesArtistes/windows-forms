@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinFormsMA
 {
@@ -21,8 +22,8 @@ namespace WinFormsMA
         {
             this.Hide();
 
-            Login loginForm = new Login();
-            loginForm.Show();
+            SelectAdminMode SelectForm = new SelectAdminMode();
+            SelectForm.Show();
         }
     }
 }

@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             labelLogs = new Label();
-            dataGridViewLogs = new DataGridView();
             buttonLeft = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewLogs).BeginInit();
+            textBoxLogs = new TextBox();
             SuspendLayout();
             // 
             // labelLogs
@@ -46,14 +45,6 @@
             labelLogs.TabIndex = 0;
             labelLogs.Text = "Logs";
             // 
-            // dataGridViewLogs
-            // 
-            dataGridViewLogs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewLogs.Location = new Point(22, 81);
-            dataGridViewLogs.Name = "dataGridViewLogs";
-            dataGridViewLogs.Size = new Size(1222, 574);
-            dataGridViewLogs.TabIndex = 1;
-            // 
             // buttonLeft
             // 
             buttonLeft.Location = new Point(22, 25);
@@ -64,6 +55,17 @@
             buttonLeft.UseVisualStyleBackColor = true;
             buttonLeft.Click += buttonLeft_Click;
             // 
+            // textBoxLogs
+            // 
+            textBoxLogs.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxLogs.Location = new Point(22, 82);
+            textBoxLogs.Multiline = true;
+            textBoxLogs.Name = "textBoxLogs";
+            textBoxLogs.ReadOnly = true;
+            textBoxLogs.ScrollBars = ScrollBars.Vertical;
+            textBoxLogs.Size = new Size(1219, 573);
+            textBoxLogs.TabIndex = 3;
+            // 
             // Logs
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -71,13 +73,12 @@
             BackgroundImage = Properties.Resources.background_dark;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1264, 681);
+            Controls.Add(textBoxLogs);
             Controls.Add(buttonLeft);
-            Controls.Add(dataGridViewLogs);
             Controls.Add(labelLogs);
             DoubleBuffered = true;
             Name = "Logs";
             Text = "Logs";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewLogs).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -85,7 +86,7 @@
         #endregion
 
         private Label labelLogs;
-        private DataGridView dataGridViewLogs;
         private Button buttonLeft;
+        private TextBox textBoxLogs;
     }
 }

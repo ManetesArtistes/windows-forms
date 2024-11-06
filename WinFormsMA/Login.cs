@@ -38,10 +38,9 @@ namespace WinFormsMA
             {
                 this.Hide();
 
-                Logs logsForm = new Logs();
-                logsForm.Show();
-            }
-            else
+                SelectAdminMode SelectForm = new SelectAdminMode();
+                SelectForm.Show();
+            } else
             {
                 Utils.ShowDialogError();
             }
