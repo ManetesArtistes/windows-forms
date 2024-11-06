@@ -9,6 +9,8 @@ namespace WinFormsMA
             InitializeComponent();
             Utils.LoadEnvFile();
             this.AcceptButton = buttonLogIn;
+
+            testFTP();
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
@@ -43,6 +45,31 @@ namespace WinFormsMA
             } else
             {
                 Utils.ShowDialogError();
+            }
+        }
+
+        private void testFTP()
+        {
+            string ftpUrl = Utils.GetEnvVariable("FTP_URL");
+            string ftpUsername = Utils.GetEnvVariable("FTP_USERNAME");
+            string ftpPassword = Utils.GetEnvVariable("FTP_PASSWORD");
+
+            if (string.IsNullOrEmpty(ftpUrl) || string.IsNullOrEmpty(ftpUsername) || string.IsNullOrEmpty(ftpPassword))
+            {
+                MessageBox.Show("Les variables d'entorn per FTP no estan carregades correctament.");
+                return;
+            }
+
+            Ftp ftpClient = new Ftp(ftpUrl, ftpUsername, ftpPassword);
+
+            // Comprovar la connexió FTP
+            if (ftpClient.TestConnection())
+            {
+                Console.WriteLine("Connexió FTP correcta!");
+            }
+            else
+            {
+                Console.WriteLine("No s'ha pogut establir la connexió FTP.");
             }
         }
     }
