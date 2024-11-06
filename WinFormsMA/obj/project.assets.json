@@ -5190,27 +5190,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cep\\.nuget\\packages\\": {}
+    "C:\\Users\\didac\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\didac\\Source\\Repos\\ManetesArtistes\\WinFormsMA\\WinFormsMA.csproj",
+      "projectUniqueName": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\WinFormsMA.csproj",
       "projectName": "WinFormsMA",
-      "projectPath": "C:\\Users\\didac\\Source\\Repos\\ManetesArtistes\\WinFormsMA\\WinFormsMA.csproj",
+      "projectPath": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\WinFormsMA.csproj",
       "packagesPath": "C:\\Users\\didac\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\didac\\Source\\Repos\\ManetesArtistes\\WinFormsMA\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\cep\\Source\\Repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\WinFormsMA.csproj",
-      "projectName": "WinFormsMA",
-      "projectPath": "C:\\Users\\cep\\Source\\Repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\WinFormsMA.csproj",
-      "packagesPath": "C:\\Users\\cep\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cep\\Source\\Repos\\ManetesArtistes\\windows-forms\\WinFormsMA\\obj\\",
->>>>>>> origin/accept
+      "outputPath": "C:\\Users\\didac\\source\\repos\\windows-forms\\WinFormsMA\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\cep\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\didac\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
