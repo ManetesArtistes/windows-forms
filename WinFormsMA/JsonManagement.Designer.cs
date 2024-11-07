@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JsonManagement));
             buttonLeft = new Button();
             labelJson = new Label();
             labelCentre = new Label();
@@ -136,6 +137,7 @@
             dataGridViewJson.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
             dataGridViewJson.Location = new Point(102, 220);
             dataGridViewJson.Name = "dataGridViewJson";
+            dataGridViewJson.ReadOnly = true;
             dataGridViewJson.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewJson.Size = new Size(1065, 424);
             dataGridViewJson.TabIndex = 8;
@@ -144,11 +146,13 @@
             // 
             Column1.HeaderText = "Fitxer";
             Column1.Name = "Column1";
+            Column1.ReadOnly = true;
             // 
             // Column2
             // 
             Column2.HeaderText = "Data d'importació";
             Column2.Name = "Column2";
+            Column2.ReadOnly = true;
             // 
             // buttonModify
             // 
@@ -189,6 +193,7 @@
             Controls.Add(labelJson);
             Controls.Add(buttonLeft);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "JsonManagement";
             Text = "JsonManagement";
             ((System.ComponentModel.ISupportInitialize)dataGridViewJson).EndInit();

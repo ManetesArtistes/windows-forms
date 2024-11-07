@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewClass));
             buttonLeft = new Button();
             labelTitleNewClass = new Label();
             buttonCreate = new Button();
@@ -141,6 +142,7 @@
             Controls.Add(buttonLeft);
             Controls.Add(labelTitleNewClass);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NewClass";
             Text = "NewClass";
             groupBoxNewClass.ResumeLayout(false);

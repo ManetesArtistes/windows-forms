@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using WinFormsMA.Logic;
 
 namespace WinFormsMA
 {
@@ -36,7 +38,24 @@ namespace WinFormsMA
 
         private void buttonModify_Click(object sender, EventArgs e)
         {
+            if (dataGridViewJson.SelectedRows.Count > 0)
+            {
+                var studentSelected = (Student)dataGridViewJson.SelectedRows[0].DataBoundItem;
 
+                string jsonStudent = JsonConvert.SerializeObject(studentSelected, Formatting.Indented);
+
+                EditJson formEditJson = new EditJson(jsonStudent);
+                if (formEditJson.ShowDialog() == DialogResult.OK)
+                {
+                    
+               
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Si us plau, selecciona una fila per modificar.");
+            }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)

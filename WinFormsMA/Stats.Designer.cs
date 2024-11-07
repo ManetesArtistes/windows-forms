@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stats));
             buttonLeft = new Button();
             labelStats = new Label();
             labelCenter = new Label();
@@ -233,6 +234,7 @@
             Controls.Add(buttonLeft);
             Controls.Add(labelStats);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Stats";
             Text = "Estadístiques";
             ResumeLayout(false);

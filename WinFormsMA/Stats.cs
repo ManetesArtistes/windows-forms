@@ -48,6 +48,10 @@ namespace WinFormsMA
 
                 newCenterForm.ShowDialog();
             }
+            else 
+            {
+                MessageBox.Show("Selecciona un centre per modificar.");
+            }
         }
 
         private void buttonEditClass_Click(object sender, EventArgs e)
@@ -58,6 +62,10 @@ namespace WinFormsMA
 
                 NewClass newClassForm = new NewClass();
                 newClassForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una classe per modificar.");
             }
         }
     }
