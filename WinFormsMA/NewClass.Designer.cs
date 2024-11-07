@@ -107,7 +107,6 @@
             groupBoxNewClass.Size = new Size(745, 424);
             groupBoxNewClass.TabIndex = 12;
             groupBoxNewClass.TabStop = false;
-            groupBoxNewClass.Text = "Nova Classe";
             // 
             // textBoxStudent1
             // 
@@ -144,7 +143,7 @@
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NewClass";
-            Text = "NewClass";
+            Text = "Nova Classe";
             groupBoxNewClass.ResumeLayout(false);
             groupBoxNewClass.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

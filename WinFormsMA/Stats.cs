@@ -44,9 +44,9 @@ namespace WinFormsMA
         {
             if (comboBoxCenter.Text.Length != 0)
             {
-                NewCenter newCenterForm = new NewCenter();
-
-                newCenterForm.ShowDialog();
+                EditCenter editCenterForm = new EditCenter();
+                
+                editCenterForm.ShowDialog();
             }
             else 
             {
@@ -60,8 +60,8 @@ namespace WinFormsMA
             {
                 this.Hide();
 
-                NewClass newClassForm = new NewClass();
-                newClassForm.Show();
+                EditClass editClassForm = new EditClass();
+                editClassForm.Show();
             }
             else
             {
