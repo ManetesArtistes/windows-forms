@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditClass));
-            buttonCreate = new Button();
+            buttonSave = new Button();
             textBoxEditClass = new TextBox();
             labelEditClass = new Label();
             buttonLeft = new Button();
@@ -41,20 +41,20 @@
             groupBoxEditClass.SuspendLayout();
             SuspendLayout();
             // 
-            // buttonCreate
+            // buttonSave
             // 
-            buttonCreate.Font = new Font("Comic Sans MS", 12F);
-            buttonCreate.Location = new Point(773, 102);
-            buttonCreate.Name = "buttonCreate";
-            buttonCreate.Size = new Size(126, 42);
-            buttonCreate.TabIndex = 17;
-            buttonCreate.Text = "CREAR";
-            buttonCreate.UseVisualStyleBackColor = true;
+            buttonSave.Font = new Font("Comic Sans MS", 12F);
+            buttonSave.Location = new Point(775, 109);
+            buttonSave.Name = "buttonSave";
+            buttonSave.Size = new Size(126, 42);
+            buttonSave.TabIndex = 17;
+            buttonSave.Text = "GUARDAR";
+            buttonSave.UseVisualStyleBackColor = true;
             // 
             // textBoxEditClass
             // 
             textBoxEditClass.Font = new Font("Comic Sans MS", 12F);
-            textBoxEditClass.Location = new Point(465, 108);
+            textBoxEditClass.Location = new Point(467, 115);
             textBoxEditClass.Name = "textBoxEditClass";
             textBoxEditClass.PlaceholderText = "Editar classe";
             textBoxEditClass.Size = new Size(282, 30);
@@ -67,7 +67,7 @@
             labelEditClass.BackColor = Color.Transparent;
             labelEditClass.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             labelEditClass.ForeColor = SystemColors.Window;
-            labelEditClass.Location = new Point(294, 102);
+            labelEditClass.Location = new Point(296, 109);
             labelEditClass.Name = "labelEditClass";
             labelEditClass.Size = new Size(169, 35);
             labelEditClass.TabIndex = 15;
@@ -75,12 +75,13 @@
             // 
             // buttonLeft
             // 
-            buttonLeft.Location = new Point(15, 16);
+            buttonLeft.Location = new Point(17, 23);
             buttonLeft.Name = "buttonLeft";
             buttonLeft.Size = new Size(35, 35);
             buttonLeft.TabIndex = 14;
             buttonLeft.Text = "←";
             buttonLeft.UseVisualStyleBackColor = true;
+            buttonLeft.Click += buttonLeft_Click;
             // 
             // labelTitleEditClass
             // 
@@ -88,7 +89,7 @@
             labelTitleEditClass.BackColor = Color.Transparent;
             labelTitleEditClass.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelTitleEditClass.ForeColor = SystemColors.ControlLightLight;
-            labelTitleEditClass.Location = new Point(59, 20);
+            labelTitleEditClass.Location = new Point(61, 27);
             labelTitleEditClass.Name = "labelTitleEditClass";
             labelTitleEditClass.Size = new Size(122, 25);
             labelTitleEditClass.TabIndex = 13;
@@ -118,7 +119,7 @@
             groupBoxEditClass.BackgroundImageLayout = ImageLayout.Stretch;
             groupBoxEditClass.Controls.Add(textBoxStudent1);
             groupBoxEditClass.Controls.Add(pictureBox1);
-            groupBoxEditClass.Location = new Point(272, 200);
+            groupBoxEditClass.Location = new Point(274, 207);
             groupBoxEditClass.Name = "groupBoxEditClass";
             groupBoxEditClass.Size = new Size(745, 424);
             groupBoxEditClass.TabIndex = 18;
@@ -131,12 +132,13 @@
             BackgroundImage = Properties.Resources.background_dark;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1264, 681);
-            Controls.Add(buttonCreate);
+            Controls.Add(buttonSave);
             Controls.Add(textBoxEditClass);
             Controls.Add(labelEditClass);
             Controls.Add(buttonLeft);
             Controls.Add(labelTitleEditClass);
             Controls.Add(groupBoxEditClass);
+            DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EditClass";
             Text = "Editar Classe";
@@ -149,7 +151,7 @@
 
         #endregion
 
-        private Button buttonCreate;
+        private Button buttonSave;
         private TextBox textBoxEditClass;
         private Label labelEditClass;
         private Button buttonLeft;

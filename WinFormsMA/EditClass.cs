@@ -16,5 +16,13 @@ namespace WinFormsMA
         {
             InitializeComponent();
         }
+
+        private void buttonLeft_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Stats statsForm = new Stats();
+            statsForm.Show();
+        }
     }
 }

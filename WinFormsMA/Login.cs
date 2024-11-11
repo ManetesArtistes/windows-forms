@@ -42,7 +42,8 @@ namespace WinFormsMA
 
                 SelectAdminMode SelectForm = new SelectAdminMode();
                 SelectForm.Show();
-            } else
+            }
+            else
             {
                 Utils.ShowDialogError();
             }
@@ -71,6 +72,11 @@ namespace WinFormsMA
             {
                 Console.WriteLine("No s'ha pogut establir la connexió FTP.");
             }
+        }
+
+        private void pictureBoxLogo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
