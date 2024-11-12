@@ -77,5 +77,24 @@ namespace WinFormsMA.Logic
                 responseStream.CopyTo(fileStream);
             }
         }
+
+        public void CreateDirectory(string remoteDirectoryPath)
+        {
+             
+            try
+            {
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create($"{ftpUrl}/{remoteDirectoryPath}");
+                request.Method = WebRequestMethods.Ftp.MakeDirectory;
+                request.Credentials = new NetworkCredential(username, password);
+                using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+                {
+                    Console.WriteLine($"Directori creat correctament: {response.StatusDescription}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al crear el directori: {ex.Message}");
+            }
+        }
     }
 }
