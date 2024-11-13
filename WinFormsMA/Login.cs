@@ -1,16 +1,44 @@
 using WinFormsMA.Logic;
+using Newtonsoft.Json;
 
 namespace WinFormsMA
 {
     public partial class Login : BaseForm
     {
+        private List<JsonBase.Center> centers;
         public Login()
         {
             InitializeComponent();
             Utils.LoadEnvFile();
             this.AcceptButton = buttonLogIn;
-
+            centers = new List<JsonBase.Center>();
+            LoadCenters();
             testFTP();
+        }
+
+        private void LoadCenters()
+        {
+            string ftpUrl = Utils.GetEnvVariable("FTP_URL");
+            string ftpUsername = Utils.GetEnvVariable("FTP_USERNAME");
+            string ftpPassword = Utils.GetEnvVariable("FTP_PASSWORD");
+            string localFilePath = Path.Combine(Path.GetTempPath(), "jsonExemple.json");
+
+            Ftp ftpConnection = new Ftp(ftpUrl, ftpUsername, ftpPassword);
+
+            ftpConnection.DownloadFile("jsonbase/jsonExemple.json", localFilePath);
+
+            string jsonContent = File.ReadAllText(localFilePath);
+
+            JsonBase.Root root = JsonConvert.DeserializeObject<JsonBase.Root>(jsonContent);
+
+            if (root != null)
+            {
+                centers = root.Centers;
+            }
+            else
+            {
+                MessageBox.Show("No s'ha pogut carregar el fitxer JSON o està buit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
@@ -33,7 +61,7 @@ namespace WinFormsMA
             {
                 this.Hide();
 
-                Stats statsForm = new Stats();
+                Stats statsForm = new Stats(centers);
                 statsForm.Show();
             }
             else if (username == user2 && password == pass2)

@@ -14,10 +14,12 @@ namespace WinFormsMA
 {
     public partial class NewCenter : Form
     {
-        public NewCenter()
+        private List<JsonBase.Center> centers;
+        public NewCenter(List<JsonBase.Center> centers)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.centers = centers;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -35,7 +37,7 @@ namespace WinFormsMA
             }
             else
             {
-                string centerId = Guid.NewGuid().ToString();
+                string centerId = Guid.NewGuid().ToString().Substring(0,5);
                 
 
                 string ftpUrl = Utils.GetEnvVariable("FTP_URL");
@@ -51,7 +53,7 @@ namespace WinFormsMA
 
                 this.Hide();
 
-                Stats statsForm = new Stats();
+                Stats statsForm = new Stats(centers);
                 statsForm.Show();
             }
         }

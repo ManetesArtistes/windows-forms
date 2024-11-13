@@ -7,14 +7,76 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsMA.Logic;
 
 namespace WinFormsMA
 {
     public partial class Stats : BaseForm
     {
-        public Stats()
+        private List<JsonBase.Center> centers;
+        public Stats(List<JsonBase.Center> centers)
         {
             InitializeComponent();
+            this.centers = centers;
+            LoadCenters();
+        }
+
+        private void LoadCenters()
+        {
+            comboBoxCenter.Items.Clear();
+            comboBoxCenter.Items.Add("");
+
+            foreach (var center in centers)
+            {
+                comboBoxCenter.Items.Add(center.CenterName);
+            }
+
+            if (comboBoxCenter.Items.Count > 0)
+            {
+                comboBoxCenter.SelectedIndex = 0;
+            }
+            else
+            {
+                MessageBox.Show("No s'han trobat centres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void comboBoxCenter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxCenter.SelectedIndex == 0)
+            {
+                comboBoxClass.Items.Clear();
+                comboBoxClass.Items.Add("");
+                comboBoxClass.SelectedIndex = 0;
+                comboBoxClass.Enabled = false;
+            }
+            else
+            {
+                string selectedCenterName = comboBoxCenter.SelectedItem.ToString();
+                JsonBase.Center selectedCenter = centers.FirstOrDefault(center => center.CenterName == selectedCenterName);
+
+                if (selectedCenter != null)
+                {
+                    LoadClasses(selectedCenter);
+                    comboBoxClass.Enabled = true;
+                }
+            }
+        }
+
+        private void LoadClasses(JsonBase.Center selectedCenter)
+        {
+            comboBoxClass.Items.Clear();
+            comboBoxClass.Items.Add("");
+
+            foreach (var group in selectedCenter.Groups)
+            {
+                comboBoxClass.Items.Add(group.GroupName);
+            }
+
+            if (comboBoxClass.Items.Count > 0)
+            {
+                comboBoxClass.SelectedIndex = 0;
+            }
         }
 
         private void buttonLeft_Click(object sender, EventArgs e)
@@ -27,7 +89,7 @@ namespace WinFormsMA
 
         private void buttonCentre_Click(object sender, EventArgs e)
         {
-            NewCenter newCenterForm = new NewCenter();
+            NewCenter newCenterForm = new NewCenter(centers);
 
             newCenterForm.ShowDialog();
         }
@@ -36,7 +98,7 @@ namespace WinFormsMA
         {
             this.Hide();
 
-            NewClass newClassForm = new NewClass();
+            NewClass newClassForm = new NewClass(centers);
             newClassForm.Show();
         }
 
@@ -44,11 +106,11 @@ namespace WinFormsMA
         {
             if (comboBoxCenter.Text.Length != 0)
             {
-                EditCenter editCenterForm = new EditCenter();
-                
+                EditCenter editCenterForm = new EditCenter(centers);
+
                 editCenterForm.ShowDialog();
             }
-            else 
+            else
             {
                 MessageBox.Show("Selecciona un centre per modificar.");
             }
@@ -60,7 +122,7 @@ namespace WinFormsMA
             {
                 this.Hide();
 
-                EditClass editClassForm = new EditClass();
+                EditClass editClassForm = new EditClass(centers);
                 editClassForm.Show();
             }
             else
@@ -68,5 +130,7 @@ namespace WinFormsMA
                 MessageBox.Show("Selecciona una classe per modificar.");
             }
         }
+
+        
     }
 }

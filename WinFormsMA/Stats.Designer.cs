@@ -94,19 +94,20 @@
             // 
             // comboBoxCenter
             // 
+            comboBoxCenter.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCenter.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxCenter.FormattingEnabled = true;
-            comboBoxCenter.Items.AddRange(new object[] { "", "Centre1" });
             comboBoxCenter.Location = new Point(217, 115);
             comboBoxCenter.Name = "comboBoxCenter";
             comboBoxCenter.Size = new Size(309, 31);
             comboBoxCenter.TabIndex = 7;
+            comboBoxCenter.SelectedIndexChanged += comboBoxCenter_SelectedIndexChanged;
             // 
             // comboBoxClass
             // 
+            comboBoxClass.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxClass.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxClass.FormattingEnabled = true;
-            comboBoxClass.Items.AddRange(new object[] { "", "Classe1" });
             comboBoxClass.Location = new Point(217, 173);
             comboBoxClass.Name = "comboBoxClass";
             comboBoxClass.Size = new Size(309, 31);

@@ -7,15 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsMA.Logic;
 
 namespace WinFormsMA
 {
     public partial class EditCenter : Form
     {
-        public EditCenter()
+        private List<JsonBase.Center> centers;
+        public EditCenter(List<JsonBase.Center> centers)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.centers = centers;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -33,7 +36,7 @@ namespace WinFormsMA
             {
                 this.Hide();
 
-                Stats statsForm = new Stats();
+                Stats statsForm = new Stats(centers);
                 statsForm.Show();
             }
         }
