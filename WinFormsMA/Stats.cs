@@ -49,6 +49,8 @@ namespace WinFormsMA
                 comboBoxClass.Items.Add("");
                 comboBoxClass.SelectedIndex = 0;
                 comboBoxClass.Enabled = false;
+                buttonClass.Enabled = false;
+                buttonEditClass.Enabled = false;
             }
             else
             {
@@ -59,6 +61,8 @@ namespace WinFormsMA
                 {
                     LoadClasses(selectedCenter);
                     comboBoxClass.Enabled = true;
+                    buttonClass.Enabled = true;
+                    buttonEditClass.Enabled = true;
                 }
             }
         }
@@ -106,9 +110,19 @@ namespace WinFormsMA
         {
             if (comboBoxCenter.Text.Length != 0)
             {
-                EditCenter editCenterForm = new EditCenter(centers);
+                string selectedCenterName = comboBoxCenter.Text;
+                JsonBase.Center selectedCenter = centers.FirstOrDefault(center => center.CenterName == selectedCenterName);
 
-                editCenterForm.ShowDialog();
+                if (selectedCenter != null)
+                {
+                    EditCenter editCenterForm = new EditCenter(centers, selectedCenter);
+
+                    if (editCenterForm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadCenters();
+                    }
+                }
+                
             }
             else
             {

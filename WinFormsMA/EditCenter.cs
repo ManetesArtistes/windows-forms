@@ -14,13 +14,16 @@ namespace WinFormsMA
     public partial class EditCenter : Form
     {
         private List<JsonBase.Center> centers;
-        public EditCenter(List<JsonBase.Center> centers)
+        private JsonBase.Center centerToEdit;
+
+        public EditCenter(List<JsonBase.Center> centers, JsonBase.Center centerToEdit)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.centers = centers;
+            this.centerToEdit = centerToEdit;
+            textBoxEditCenter.Text = centerToEdit.CenterName;
         }
-
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -28,16 +31,18 @@ namespace WinFormsMA
 
         private void buttonAccept_Click(object sender, EventArgs e)
         {
-            if (textBoxEditCenter.Text.Length == 0)
+            string newCenterName = textBoxEditCenter.Text.Trim();
+
+            if (string.IsNullOrEmpty(newCenterName))
             {
-                MessageBox.Show("Afegeix el nom d'un centre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El nom del centre no pot estar vuit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                this.Hide();
+                centerToEdit.CenterName = newCenterName;
 
-                Stats statsForm = new Stats(centers);
-                statsForm.Show();
+               this.DialogResult= DialogResult.OK;
+               this.Close();
             }
         }
     }
