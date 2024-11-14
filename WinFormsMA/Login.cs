@@ -68,7 +68,7 @@ namespace WinFormsMA
             {
                 this.Hide();
 
-                SelectAdminMode SelectForm = new SelectAdminMode();
+                SelectAdminMode SelectForm = new SelectAdminMode(centers);
                 SelectForm.Show();
             }
             else
@@ -100,11 +100,6 @@ namespace WinFormsMA
             {
                 Console.WriteLine("No s'ha pogut establir la connexió FTP.");
             }
-        }
-
-        private void pictureBoxLogo_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

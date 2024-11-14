@@ -7,21 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsMA.Logic;
 
 namespace WinFormsMA
 {
     public partial class SelectAdminMode : BaseForm
     {
-        public SelectAdminMode()
+        private List<JsonBase.Center> centers;
+        public SelectAdminMode(List<JsonBase.Center> centers)
         {
             InitializeComponent();
+            this.centers = centers;
         }
 
         private void buttonLogs_Click(object sender, EventArgs e)
         {
             this.Hide();
 
-            Logs logsForm = new Logs();
+            Logs logsForm = new Logs(centers);
             logsForm.Show();
         }
 
@@ -29,7 +32,7 @@ namespace WinFormsMA
         {
             this.Hide();
 
-            JsonManagement JsonForm = new JsonManagement();
+            JsonManagement JsonForm = new JsonManagement(centers);
             JsonForm.Show();
         }
 

@@ -22,7 +22,7 @@ namespace WinFormsMA
         }
 
         private void LoadCenters()
-        {
+        { 
             comboBoxCenter.Items.Clear();
             comboBoxCenter.Items.Add("");
 
@@ -69,8 +69,7 @@ namespace WinFormsMA
 
         private void LoadClasses(JsonBase.Center selectedCenter)
         {
-            comboBoxClass.Items.Clear();
-            comboBoxClass.Items.Add("");
+            ClearComboBox(comboBoxClass);
 
             foreach (var group in selectedCenter.Groups)
             {
@@ -83,6 +82,51 @@ namespace WinFormsMA
             }
         }
 
+        private void comboBoxClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxClass.SelectedIndex == 0)
+            {
+                comboBoxStudent.Items.Clear();
+                comboBoxStudent.Items.Add("");
+                comboBoxStudent.SelectedIndex = 0;
+                comboBoxStudent.Enabled = false;
+            }
+            else
+            {
+                string selectedCenterName = comboBoxCenter.SelectedItem.ToString();
+                JsonBase.Center selectedCenter = centers.FirstOrDefault(center => center.CenterName == selectedCenterName);
+                string selectedClassName = comboBoxClass.SelectedItem.ToString();
+
+
+                if (selectedCenter != null)
+                {
+                    LoadStudents(selectedCenter, selectedClassName);
+                    comboBoxStudent.Enabled = true;
+                }
+            }
+        }
+
+        private void LoadStudents(JsonBase.Center selectedCenter, string selectedClassName)
+        {
+            ClearComboBox(comboBoxStudent);
+
+            var selectedGroup = selectedCenter.Groups.FirstOrDefault(group => group.GroupName == selectedClassName);
+
+            if (selectedGroup != null)
+            {
+                foreach (var student in selectedGroup.Students)
+                {
+                    comboBoxStudent.Items.Add(student.StudentName);
+                }
+            }
+        }
+
+        private void ClearComboBox(ComboBox comboBox)
+        {
+            comboBox.Items.Clear();
+            comboBox.Items.Add("");
+            comboBox.SelectedIndex = 0;
+        }
         private void buttonLeft_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -122,7 +166,7 @@ namespace WinFormsMA
                         LoadCenters();
                     }
                 }
-                
+
             }
             else
             {
@@ -144,7 +188,5 @@ namespace WinFormsMA
                 MessageBox.Show("Selecciona una classe per modificar.");
             }
         }
-
-        
     }
 }

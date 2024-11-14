@@ -37,9 +37,7 @@
             comboBoxClass = new ComboBox();
             buttonCentre = new Button();
             buttonClass = new Button();
-            comboBoxGame = new ComboBox();
             comboBoxStudent = new ComboBox();
-            labelGame = new Label();
             labelStudent = new Label();
             groupBoxStats = new GroupBox();
             buttonEditCenter = new Button();
@@ -112,6 +110,7 @@
             comboBoxClass.Name = "comboBoxClass";
             comboBoxClass.Size = new Size(309, 31);
             comboBoxClass.TabIndex = 8;
+            comboBoxClass.SelectedIndexChanged += comboBoxClass_SelectedIndexChanged;
             // 
             // buttonCentre
             // 
@@ -135,35 +134,15 @@
             buttonClass.UseVisualStyleBackColor = true;
             buttonClass.Click += buttonClass_Click;
             // 
-            // comboBoxGame
-            // 
-            comboBoxGame.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBoxGame.FormattingEnabled = true;
-            comboBoxGame.Location = new Point(823, 175);
-            comboBoxGame.Name = "comboBoxGame";
-            comboBoxGame.Size = new Size(309, 31);
-            comboBoxGame.TabIndex = 14;
-            // 
             // comboBoxStudent
             // 
+            comboBoxStudent.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxStudent.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxStudent.FormattingEnabled = true;
-            comboBoxStudent.Location = new Point(823, 117);
+            comboBoxStudent.Location = new Point(823, 144);
             comboBoxStudent.Name = "comboBoxStudent";
             comboBoxStudent.Size = new Size(309, 31);
             comboBoxStudent.TabIndex = 13;
-            // 
-            // labelGame
-            // 
-            labelGame.AutoSize = true;
-            labelGame.BackColor = Color.Transparent;
-            labelGame.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
-            labelGame.ForeColor = SystemColors.Window;
-            labelGame.Location = new Point(711, 171);
-            labelGame.Name = "labelGame";
-            labelGame.Size = new Size(56, 35);
-            labelGame.TabIndex = 12;
-            labelGame.Text = "Joc";
             // 
             // labelStudent
             // 
@@ -171,7 +150,7 @@
             labelStudent.BackColor = Color.Transparent;
             labelStudent.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             labelStudent.ForeColor = SystemColors.Window;
-            labelStudent.Location = new Point(711, 111);
+            labelStudent.Location = new Point(711, 138);
             labelStudent.Name = "labelStudent";
             labelStudent.Size = new Size(97, 35);
             labelStudent.TabIndex = 11;
@@ -222,9 +201,7 @@
             Controls.Add(buttonEditClass);
             Controls.Add(buttonEditCenter);
             Controls.Add(groupBoxStats);
-            Controls.Add(comboBoxGame);
             Controls.Add(comboBoxStudent);
-            Controls.Add(labelGame);
             Controls.Add(labelStudent);
             Controls.Add(buttonClass);
             Controls.Add(buttonCentre);
@@ -252,9 +229,7 @@
         private ComboBox comboBoxClass;
         private Button buttonCentre;
         private Button buttonClass;
-        private ComboBox comboBoxGame;
         private ComboBox comboBoxStudent;
-        private Label labelGame;
         private Label labelStudent;
         private GroupBox groupBoxStats;
         private Button buttonEditCenter;

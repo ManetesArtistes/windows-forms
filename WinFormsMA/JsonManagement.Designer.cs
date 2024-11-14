@@ -33,15 +33,15 @@
             labelJson = new Label();
             labelCentre = new Label();
             comboBoxCenter = new ComboBox();
-            comboBox1 = new ComboBox();
+            comboBoxClass = new ComboBox();
             labelClass = new Label();
-            comboBox2 = new ComboBox();
-            labelJoc = new Label();
             dataGridViewJson = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
             buttonModify = new Button();
             buttonDelete = new Button();
+            buttonImport = new Button();
+            button1 = new Button();
+            File = new DataGridViewTextBoxColumn();
+            Importacio = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridViewJson).BeginInit();
             SuspendLayout();
             // 
@@ -81,19 +81,25 @@
             // 
             // comboBoxCenter
             // 
+            comboBoxCenter.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCenter.Font = new Font("Comic Sans MS", 9F);
             comboBoxCenter.FormattingEnabled = true;
             comboBoxCenter.Location = new Point(197, 102);
             comboBoxCenter.Name = "comboBoxCenter";
-            comboBoxCenter.Size = new Size(210, 23);
+            comboBoxCenter.Size = new Size(210, 25);
             comboBoxCenter.TabIndex = 3;
+            comboBoxCenter.SelectedIndexChanged += comboBoxCenter_SelectedIndexChanged;
             // 
-            // comboBox1
+            // comboBoxClass
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(570, 100);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(210, 23);
-            comboBox1.TabIndex = 5;
+            comboBoxClass.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxClass.Font = new Font("Comic Sans MS", 9F);
+            comboBoxClass.FormattingEnabled = true;
+            comboBoxClass.Location = new Point(570, 100);
+            comboBoxClass.Name = "comboBoxClass";
+            comboBoxClass.Size = new Size(210, 25);
+            comboBoxClass.TabIndex = 5;
+            comboBoxClass.SelectedIndexChanged += comboBoxClass_SelectedIndexChanged;
             // 
             // labelClass
             // 
@@ -108,51 +114,18 @@
             labelClass.TabIndex = 4;
             labelClass.Text = "Classe";
             // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(920, 98);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(210, 23);
-            comboBox2.TabIndex = 7;
-            // 
-            // labelJoc
-            // 
-            labelJoc.AutoSize = true;
-            labelJoc.BackColor = Color.Transparent;
-            labelJoc.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            labelJoc.ForeColor = SystemColors.ControlLightLight;
-            labelJoc.Location = new Point(862, 92);
-            labelJoc.Name = "labelJoc";
-            labelJoc.RightToLeft = RightToLeft.No;
-            labelJoc.Size = new Size(52, 32);
-            labelJoc.TabIndex = 6;
-            labelJoc.Text = "Joc";
-            // 
             // dataGridViewJson
             // 
             dataGridViewJson.AllowUserToAddRows = false;
             dataGridViewJson.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewJson.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewJson.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
+            dataGridViewJson.Columns.AddRange(new DataGridViewColumn[] { File, Importacio });
             dataGridViewJson.Location = new Point(102, 220);
             dataGridViewJson.Name = "dataGridViewJson";
             dataGridViewJson.ReadOnly = true;
             dataGridViewJson.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewJson.Size = new Size(1065, 424);
             dataGridViewJson.TabIndex = 8;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Fitxer";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Data d'importació";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
             // 
             // buttonModify
             // 
@@ -174,6 +147,36 @@
             buttonDelete.UseVisualStyleBackColor = true;
             buttonDelete.Click += buttonDelete_Click;
             // 
+            // buttonImport
+            // 
+            buttonImport.Location = new Point(958, 184);
+            buttonImport.Name = "buttonImport";
+            buttonImport.Size = new Size(95, 30);
+            buttonImport.TabIndex = 11;
+            buttonImport.Text = "Importar JSON";
+            buttonImport.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(1077, 184);
+            button1.Name = "button1";
+            button1.Size = new Size(90, 30);
+            button1.TabIndex = 12;
+            button1.Text = "Exportar JSON";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // File
+            // 
+            File.HeaderText = "File";
+            File.Name = "File";
+            File.ReadOnly = true;
+            // 
+            // Importacio
+            // 
+            Importacio.HeaderText = "Data importació";
+            Importacio.Name = "Importacio";
+            Importacio.ReadOnly = true;
+            // 
             // JsonManagement
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -181,12 +184,12 @@
             BackgroundImage = Properties.Resources.background_dark;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1264, 681);
+            Controls.Add(button1);
+            Controls.Add(buttonImport);
             Controls.Add(buttonDelete);
             Controls.Add(buttonModify);
             Controls.Add(dataGridViewJson);
-            Controls.Add(comboBox2);
-            Controls.Add(labelJoc);
-            Controls.Add(comboBox1);
+            Controls.Add(comboBoxClass);
             Controls.Add(labelClass);
             Controls.Add(comboBoxCenter);
             Controls.Add(labelCentre);
@@ -207,14 +210,14 @@
         private Label labelJson;
         private Label labelCentre;
         private ComboBox comboBoxCenter;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxClass;
         private Label labelClass;
-        private ComboBox comboBox2;
-        private Label labelJoc;
         private DataGridView dataGridViewJson;
         private Button buttonModify;
         private Button buttonDelete;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
+        private Button buttonImport;
+        private Button button1;
+        private DataGridViewTextBoxColumn File;
+        private DataGridViewTextBoxColumn Importacio;
     }
 }
