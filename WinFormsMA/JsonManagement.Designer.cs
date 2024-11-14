@@ -40,7 +40,7 @@
             buttonDelete = new Button();
             buttonImport = new Button();
             button1 = new Button();
-            File = new DataGridViewTextBoxColumn();
+            StudentName = new DataGridViewTextBoxColumn();
             Importacio = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridViewJson).BeginInit();
             SuspendLayout();
@@ -119,7 +119,7 @@
             dataGridViewJson.AllowUserToAddRows = false;
             dataGridViewJson.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewJson.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewJson.Columns.AddRange(new DataGridViewColumn[] { File, Importacio });
+            dataGridViewJson.Columns.AddRange(new DataGridViewColumn[] { StudentName, Importacio });
             dataGridViewJson.Location = new Point(102, 220);
             dataGridViewJson.Name = "dataGridViewJson";
             dataGridViewJson.ReadOnly = true;
@@ -165,11 +165,11 @@
             button1.Text = "Exportar JSON";
             button1.UseVisualStyleBackColor = true;
             // 
-            // File
+            // StudentName
             // 
-            File.HeaderText = "File";
-            File.Name = "File";
-            File.ReadOnly = true;
+            StudentName.HeaderText = "Estudiant";
+            StudentName.Name = "StudentName";
+            StudentName.ReadOnly = true;
             // 
             // Importacio
             // 
@@ -217,7 +217,7 @@
         private Button buttonDelete;
         private Button buttonImport;
         private Button button1;
-        private DataGridViewTextBoxColumn File;
+        private DataGridViewTextBoxColumn StudentName;
         private DataGridViewTextBoxColumn Importacio;
     }
 }
