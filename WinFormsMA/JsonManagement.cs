@@ -85,7 +85,7 @@ namespace WinFormsMA
         {
             if (comboBoxClass.SelectedIndex == 0)
             {
-                dataGridViewJson.DataSource = null;
+                dataGridViewJson.Rows.Clear();
             }
             else
             {
