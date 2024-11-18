@@ -123,7 +123,10 @@ namespace WinFormsMA
             {
                 foreach (var student in selectedGroup.Students)
                 {
-                    comboBoxStudent.Items.Add(student.StudentName);
+                    if(student != null)
+                    {
+                     comboBoxStudent.Items.Add(student.StudentName);
+                    }
                 }
             }
         }
@@ -162,22 +165,21 @@ namespace WinFormsMA
 
         private void buttonEditCenter_Click(object sender, EventArgs e)
         {
-            if (comboBoxCenter.Text.Length != 0)
+            
+            string selectedCenterName = comboBoxCenter.Text;
+            JsonBase.Center selectedCenter = centers.FirstOrDefault(center => center.CenterName == selectedCenterName);
+
+            if (selectedCenter != null)
             {
-                string selectedCenterName = comboBoxCenter.Text;
-                JsonBase.Center selectedCenter = centers.FirstOrDefault(center => center.CenterName == selectedCenterName);
+                EditCenter editCenterForm = new EditCenter(centers, selectedCenter);
 
-                if (selectedCenter != null)
+                if (editCenterForm.ShowDialog() == DialogResult.OK)
                 {
-                    EditCenter editCenterForm = new EditCenter(centers, selectedCenter);
-
-                    if (editCenterForm.ShowDialog() == DialogResult.OK)
-                    {
-                        LoadCenters();
-                    }
+                    LoadCenters();
                 }
-
             }
+
+           
             else
             {
                 MessageBox.Show("Selecciona un centre per modificar.");
@@ -186,11 +188,14 @@ namespace WinFormsMA
 
         private void buttonEditClass_Click(object sender, EventArgs e)
         {
+            JsonBase.Center selectedCenter = centers.FirstOrDefault(center => center.CenterName == comboBoxCenter.SelectedItem.ToString());
+            JsonBase.Group selectedGroup = selectedCenter.Groups.FirstOrDefault(group => group.GroupName == comboBoxClass.SelectedItem.ToString());
+            
             if (comboBoxClass.Text.Length != 0)
             {
                 this.Hide();
 
-                EditClass editClassForm = new EditClass(centers);
+                EditClass editClassForm = new EditClass(centers, selectedGroup);
                 editClassForm.Show();
             }
             else
