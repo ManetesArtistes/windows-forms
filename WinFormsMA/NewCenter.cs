@@ -37,24 +37,20 @@ namespace WinFormsMA
             }
             else
             {
-                string centerId = Guid.NewGuid().ToString().Substring(0,5);
-                
+                int centerId = centers.Any() ? centers.Max(c => c.CenterId) + 1 : 1;
 
-                string ftpUrl = Utils.GetEnvVariable("FTP_URL");
-                string ftpUsername = Utils.GetEnvVariable("FTP_USERNAME");
-                string ftpPassword = Utils.GetEnvVariable("FTP_PASSWORD");
+                JsonBase.Center center = new JsonBase.Center
+                {
+                    CenterId = centerId,
+                    CenterName = centerName,
+                    Groups = null
+                };
 
-                Ftp ftpConnection = new Ftp(ftpUrl, ftpUsername, ftpPassword);
+                centers.Add(center);
 
-                string ftpCenterPath = $"{centerName}_{centerId}";
-                ftpConnection.CreateDirectory(ftpCenterPath);
 
-                MessageBox.Show("Centre creat", "Correcte", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.Hide();
-
-                Stats statsForm = new Stats(centers);
-                statsForm.Show();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
     }

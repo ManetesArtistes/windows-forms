@@ -21,8 +21,8 @@ namespace WinFormsMA
             LoadCenters();
         }
 
-        private void LoadCenters()
-        { 
+        public void LoadCenters()
+        {
             comboBoxCenter.Items.Clear();
             comboBoxCenter.Items.Add("");
 
@@ -70,15 +70,22 @@ namespace WinFormsMA
         private void LoadClasses(JsonBase.Center selectedCenter)
         {
             ClearComboBox(comboBoxClass);
-
-            foreach (var group in selectedCenter.Groups)
+            if (selectedCenter.Groups != null)
             {
-                comboBoxClass.Items.Add(group.GroupName);
-            }
+                comboBoxCenter.Enabled = true;
+                foreach (var group in selectedCenter.Groups)
+                {
+                    comboBoxClass.Items.Add(group.GroupName);
+                }
 
-            if (comboBoxClass.Items.Count > 0)
+                if (comboBoxClass.Items.Count > 0)
+                {
+                    comboBoxClass.SelectedIndex = 0;
+                }
+            } else
             {
                 comboBoxClass.SelectedIndex = 0;
+                comboBoxClass.Enabled = false;
             }
         }
 
@@ -139,7 +146,10 @@ namespace WinFormsMA
         {
             NewCenter newCenterForm = new NewCenter(centers);
 
-            newCenterForm.ShowDialog();
+            if (newCenterForm.ShowDialog() == DialogResult.OK)
+            {
+                LoadCenters();
+            }
         }
 
         private void buttonClass_Click(object sender, EventArgs e)
