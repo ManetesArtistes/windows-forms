@@ -195,9 +195,12 @@
             // 
             // pictureBoxStudent16
             // 
+            pictureBoxStudent16.BackColor = Color.Transparent;
+            pictureBoxStudent16.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent16.BackgroundImage");
+            pictureBoxStudent16.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent16.Location = new Point(631, 456);
             pictureBoxStudent16.Name = "pictureBoxStudent16";
-            pictureBoxStudent16.Size = new Size(48, 48);
+            pictureBoxStudent16.Size = new Size(54, 54);
             pictureBoxStudent16.TabIndex = 30;
             pictureBoxStudent16.TabStop = false;
             // 
@@ -213,9 +216,12 @@
             // 
             // pictureBoxStudent15
             // 
+            pictureBoxStudent15.BackColor = Color.Transparent;
+            pictureBoxStudent15.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent15.BackgroundImage");
+            pictureBoxStudent15.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent15.Location = new Point(631, 393);
             pictureBoxStudent15.Name = "pictureBoxStudent15";
-            pictureBoxStudent15.Size = new Size(48, 48);
+            pictureBoxStudent15.Size = new Size(54, 54);
             pictureBoxStudent15.TabIndex = 28;
             pictureBoxStudent15.TabStop = false;
             // 
@@ -231,9 +237,12 @@
             // 
             // pictureBoxStudent14
             // 
+            pictureBoxStudent14.BackColor = Color.Transparent;
+            pictureBoxStudent14.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent14.BackgroundImage");
+            pictureBoxStudent14.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent14.Location = new Point(631, 332);
             pictureBoxStudent14.Name = "pictureBoxStudent14";
-            pictureBoxStudent14.Size = new Size(48, 48);
+            pictureBoxStudent14.Size = new Size(54, 54);
             pictureBoxStudent14.TabIndex = 26;
             pictureBoxStudent14.TabStop = false;
             // 
@@ -249,9 +258,12 @@
             // 
             // pictureBoxStudent13
             // 
+            pictureBoxStudent13.BackColor = Color.Transparent;
+            pictureBoxStudent13.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent13.BackgroundImage");
+            pictureBoxStudent13.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent13.Location = new Point(631, 269);
             pictureBoxStudent13.Name = "pictureBoxStudent13";
-            pictureBoxStudent13.Size = new Size(48, 48);
+            pictureBoxStudent13.Size = new Size(54, 54);
             pictureBoxStudent13.TabIndex = 24;
             pictureBoxStudent13.TabStop = false;
             // 
@@ -267,9 +279,12 @@
             // 
             // pictureBoxStudent12
             // 
+            pictureBoxStudent12.BackColor = Color.Transparent;
+            pictureBoxStudent12.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent12.BackgroundImage");
+            pictureBoxStudent12.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent12.Location = new Point(631, 208);
             pictureBoxStudent12.Name = "pictureBoxStudent12";
-            pictureBoxStudent12.Size = new Size(48, 48);
+            pictureBoxStudent12.Size = new Size(54, 54);
             pictureBoxStudent12.TabIndex = 22;
             pictureBoxStudent12.TabStop = false;
             // 
@@ -285,9 +300,12 @@
             // 
             // pictureBoxStudent11
             // 
+            pictureBoxStudent11.BackColor = Color.Transparent;
+            pictureBoxStudent11.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent11.BackgroundImage");
+            pictureBoxStudent11.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent11.Location = new Point(631, 145);
             pictureBoxStudent11.Name = "pictureBoxStudent11";
-            pictureBoxStudent11.Size = new Size(48, 48);
+            pictureBoxStudent11.Size = new Size(54, 54);
             pictureBoxStudent11.TabIndex = 20;
             pictureBoxStudent11.TabStop = false;
             // 
@@ -303,9 +321,12 @@
             // 
             // pictureBoxStudent10
             // 
+            pictureBoxStudent10.BackColor = Color.Transparent;
+            pictureBoxStudent10.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent10.BackgroundImage");
+            pictureBoxStudent10.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent10.Location = new Point(631, 84);
             pictureBoxStudent10.Name = "pictureBoxStudent10";
-            pictureBoxStudent10.Size = new Size(48, 48);
+            pictureBoxStudent10.Size = new Size(54, 54);
             pictureBoxStudent10.TabIndex = 18;
             pictureBoxStudent10.TabStop = false;
             // 
@@ -321,9 +342,12 @@
             // 
             // pictureBoxStudent9
             // 
+            pictureBoxStudent9.BackColor = Color.Transparent;
+            pictureBoxStudent9.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent9.BackgroundImage");
+            pictureBoxStudent9.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent9.Location = new Point(631, 21);
             pictureBoxStudent9.Name = "pictureBoxStudent9";
-            pictureBoxStudent9.Size = new Size(48, 48);
+            pictureBoxStudent9.Size = new Size(54, 54);
             pictureBoxStudent9.TabIndex = 16;
             pictureBoxStudent9.TabStop = false;
             // 
@@ -339,9 +363,12 @@
             // 
             // pictureBoxStudent8
             // 
+            pictureBoxStudent8.BackColor = Color.Transparent;
+            pictureBoxStudent8.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent8.BackgroundImage");
+            pictureBoxStudent8.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent8.Location = new Point(20, 457);
             pictureBoxStudent8.Name = "pictureBoxStudent8";
-            pictureBoxStudent8.Size = new Size(48, 48);
+            pictureBoxStudent8.Size = new Size(54, 54);
             pictureBoxStudent8.TabIndex = 14;
             pictureBoxStudent8.TabStop = false;
             // 
@@ -357,9 +384,12 @@
             // 
             // pictureBoxStudent7
             // 
+            pictureBoxStudent7.BackColor = Color.Transparent;
+            pictureBoxStudent7.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent7.BackgroundImage");
+            pictureBoxStudent7.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent7.Location = new Point(20, 394);
             pictureBoxStudent7.Name = "pictureBoxStudent7";
-            pictureBoxStudent7.Size = new Size(48, 48);
+            pictureBoxStudent7.Size = new Size(54, 54);
             pictureBoxStudent7.TabIndex = 12;
             pictureBoxStudent7.TabStop = false;
             // 
@@ -375,9 +405,12 @@
             // 
             // pictureBoxStudent6
             // 
+            pictureBoxStudent6.BackColor = Color.Transparent;
+            pictureBoxStudent6.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent6.BackgroundImage");
+            pictureBoxStudent6.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent6.Location = new Point(20, 333);
             pictureBoxStudent6.Name = "pictureBoxStudent6";
-            pictureBoxStudent6.Size = new Size(48, 48);
+            pictureBoxStudent6.Size = new Size(54, 54);
             pictureBoxStudent6.TabIndex = 10;
             pictureBoxStudent6.TabStop = false;
             // 
@@ -393,9 +426,12 @@
             // 
             // pictureBoxStudent5
             // 
+            pictureBoxStudent5.BackColor = Color.Transparent;
+            pictureBoxStudent5.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent5.BackgroundImage");
+            pictureBoxStudent5.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent5.Location = new Point(20, 270);
             pictureBoxStudent5.Name = "pictureBoxStudent5";
-            pictureBoxStudent5.Size = new Size(48, 48);
+            pictureBoxStudent5.Size = new Size(54, 54);
             pictureBoxStudent5.TabIndex = 8;
             pictureBoxStudent5.TabStop = false;
             // 
@@ -411,9 +447,12 @@
             // 
             // pictureBoxStudent4
             // 
+            pictureBoxStudent4.BackColor = Color.Transparent;
+            pictureBoxStudent4.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent4.BackgroundImage");
+            pictureBoxStudent4.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent4.Location = new Point(20, 209);
             pictureBoxStudent4.Name = "pictureBoxStudent4";
-            pictureBoxStudent4.Size = new Size(48, 48);
+            pictureBoxStudent4.Size = new Size(54, 54);
             pictureBoxStudent4.TabIndex = 6;
             pictureBoxStudent4.TabStop = false;
             // 
@@ -429,9 +468,12 @@
             // 
             // pictureBoxStudent3
             // 
+            pictureBoxStudent3.BackColor = Color.Transparent;
+            pictureBoxStudent3.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent3.BackgroundImage");
+            pictureBoxStudent3.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent3.Location = new Point(20, 146);
             pictureBoxStudent3.Name = "pictureBoxStudent3";
-            pictureBoxStudent3.Size = new Size(48, 48);
+            pictureBoxStudent3.Size = new Size(54, 54);
             pictureBoxStudent3.TabIndex = 4;
             pictureBoxStudent3.TabStop = false;
             // 
@@ -447,9 +489,12 @@
             // 
             // pictureBoxStudent2
             // 
+            pictureBoxStudent2.BackColor = Color.Transparent;
+            pictureBoxStudent2.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent2.BackgroundImage");
+            pictureBoxStudent2.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent2.Location = new Point(20, 85);
             pictureBoxStudent2.Name = "pictureBoxStudent2";
-            pictureBoxStudent2.Size = new Size(48, 48);
+            pictureBoxStudent2.Size = new Size(54, 54);
             pictureBoxStudent2.TabIndex = 2;
             pictureBoxStudent2.TabStop = false;
             // 
@@ -470,7 +515,7 @@
             pictureBoxStudent1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBoxStudent1.Location = new Point(20, 22);
             pictureBoxStudent1.Name = "pictureBoxStudent1";
-            pictureBoxStudent1.Size = new Size(48, 48);
+            pictureBoxStudent1.Size = new Size(54, 54);
             pictureBoxStudent1.TabIndex = 0;
             pictureBoxStudent1.TabStop = false;
             // 
