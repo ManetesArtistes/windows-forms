@@ -35,22 +35,6 @@
             textBoxNewClass = new TextBox();
             labelNewClass = new Label();
             groupBoxNewClass = new GroupBox();
-            textBoxStudent1 = new TextBox();
-            pictureBoxStudent1 = new PictureBox();
-            textBoxStudent2 = new TextBox();
-            pictureBoxStudent2 = new PictureBox();
-            textBoxStudent4 = new TextBox();
-            pictureBoxStudent4 = new PictureBox();
-            textBoxStudent3 = new TextBox();
-            pictureBoxStudent3 = new PictureBox();
-            textBoxStudent8 = new TextBox();
-            pictureBoxStudent8 = new PictureBox();
-            textBoxStudent7 = new TextBox();
-            pictureBoxStudent7 = new PictureBox();
-            textBoxStudent6 = new TextBox();
-            pictureBoxStudent6 = new PictureBox();
-            textBoxStudent5 = new TextBox();
-            pictureBoxStudent5 = new PictureBox();
             textBoxStudent16 = new TextBox();
             pictureBoxStudent16 = new PictureBox();
             textBoxStudent15 = new TextBox();
@@ -67,15 +51,23 @@
             pictureBoxStudent10 = new PictureBox();
             textBoxStudent9 = new TextBox();
             pictureBoxStudent9 = new PictureBox();
+            textBoxStudent8 = new TextBox();
+            pictureBoxStudent8 = new PictureBox();
+            textBoxStudent7 = new TextBox();
+            pictureBoxStudent7 = new PictureBox();
+            textBoxStudent6 = new TextBox();
+            pictureBoxStudent6 = new PictureBox();
+            textBoxStudent5 = new TextBox();
+            pictureBoxStudent5 = new PictureBox();
+            textBoxStudent4 = new TextBox();
+            pictureBoxStudent4 = new PictureBox();
+            textBoxStudent3 = new TextBox();
+            pictureBoxStudent3 = new PictureBox();
+            textBoxStudent2 = new TextBox();
+            pictureBoxStudent2 = new PictureBox();
+            textBoxStudent1 = new TextBox();
+            pictureBoxStudent1 = new PictureBox();
             groupBoxNewClass.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStudent16).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStudent15).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStudent14).BeginInit();
@@ -84,6 +76,14 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxStudent11).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStudent10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStudent9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent1).BeginInit();
             SuspendLayout();
             // 
             // buttonLeft
@@ -182,150 +182,6 @@
             groupBoxNewClass.Size = new Size(1214, 519);
             groupBoxNewClass.TabIndex = 12;
             groupBoxNewClass.TabStop = false;
-            // 
-            // textBoxStudent1
-            // 
-            textBoxStudent1.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxStudent1.Location = new Point(76, 33);
-            textBoxStudent1.Name = "textBoxStudent1";
-            textBoxStudent1.PlaceholderText = "Alumne 1";
-            textBoxStudent1.Size = new Size(482, 30);
-            textBoxStudent1.TabIndex = 1;
-            textBoxStudent1.TextAlign = HorizontalAlignment.Center;
-            // 
-            // pictureBoxStudent1
-            // 
-            pictureBoxStudent1.Location = new Point(20, 22);
-            pictureBoxStudent1.Name = "pictureBoxStudent1";
-            pictureBoxStudent1.Size = new Size(48, 48);
-            pictureBoxStudent1.TabIndex = 0;
-            pictureBoxStudent1.TabStop = false;
-            // 
-            // textBoxStudent2
-            // 
-            textBoxStudent2.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxStudent2.Location = new Point(76, 96);
-            textBoxStudent2.Name = "textBoxStudent2";
-            textBoxStudent2.PlaceholderText = "Alumne 2";
-            textBoxStudent2.Size = new Size(482, 30);
-            textBoxStudent2.TabIndex = 3;
-            textBoxStudent2.TextAlign = HorizontalAlignment.Center;
-            // 
-            // pictureBoxStudent2
-            // 
-            pictureBoxStudent2.Location = new Point(20, 85);
-            pictureBoxStudent2.Name = "pictureBoxStudent2";
-            pictureBoxStudent2.Size = new Size(48, 48);
-            pictureBoxStudent2.TabIndex = 2;
-            pictureBoxStudent2.TabStop = false;
-            // 
-            // textBoxStudent4
-            // 
-            textBoxStudent4.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxStudent4.Location = new Point(76, 220);
-            textBoxStudent4.Name = "textBoxStudent4";
-            textBoxStudent4.PlaceholderText = "Alumne 4";
-            textBoxStudent4.Size = new Size(482, 30);
-            textBoxStudent4.TabIndex = 7;
-            textBoxStudent4.TextAlign = HorizontalAlignment.Center;
-            // 
-            // pictureBoxStudent4
-            // 
-            pictureBoxStudent4.Location = new Point(20, 209);
-            pictureBoxStudent4.Name = "pictureBoxStudent4";
-            pictureBoxStudent4.Size = new Size(48, 48);
-            pictureBoxStudent4.TabIndex = 6;
-            pictureBoxStudent4.TabStop = false;
-            // 
-            // textBoxStudent3
-            // 
-            textBoxStudent3.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxStudent3.Location = new Point(76, 157);
-            textBoxStudent3.Name = "textBoxStudent3";
-            textBoxStudent3.PlaceholderText = "Alumne 3";
-            textBoxStudent3.Size = new Size(482, 30);
-            textBoxStudent3.TabIndex = 5;
-            textBoxStudent3.TextAlign = HorizontalAlignment.Center;
-            // 
-            // pictureBoxStudent3
-            // 
-            pictureBoxStudent3.Location = new Point(20, 146);
-            pictureBoxStudent3.Name = "pictureBoxStudent3";
-            pictureBoxStudent3.Size = new Size(48, 48);
-            pictureBoxStudent3.TabIndex = 4;
-            pictureBoxStudent3.TabStop = false;
-            // 
-            // textBoxStudent8
-            // 
-            textBoxStudent8.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxStudent8.Location = new Point(76, 468);
-            textBoxStudent8.Name = "textBoxStudent8";
-            textBoxStudent8.PlaceholderText = "Alumne 8";
-            textBoxStudent8.Size = new Size(482, 30);
-            textBoxStudent8.TabIndex = 15;
-            textBoxStudent8.TextAlign = HorizontalAlignment.Center;
-            // 
-            // pictureBoxStudent8
-            // 
-            pictureBoxStudent8.Location = new Point(20, 457);
-            pictureBoxStudent8.Name = "pictureBoxStudent8";
-            pictureBoxStudent8.Size = new Size(48, 48);
-            pictureBoxStudent8.TabIndex = 14;
-            pictureBoxStudent8.TabStop = false;
-            // 
-            // textBoxStudent7
-            // 
-            textBoxStudent7.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxStudent7.Location = new Point(76, 405);
-            textBoxStudent7.Name = "textBoxStudent7";
-            textBoxStudent7.PlaceholderText = "Alumne 7";
-            textBoxStudent7.Size = new Size(482, 30);
-            textBoxStudent7.TabIndex = 13;
-            textBoxStudent7.TextAlign = HorizontalAlignment.Center;
-            // 
-            // pictureBoxStudent7
-            // 
-            pictureBoxStudent7.Location = new Point(20, 394);
-            pictureBoxStudent7.Name = "pictureBoxStudent7";
-            pictureBoxStudent7.Size = new Size(48, 48);
-            pictureBoxStudent7.TabIndex = 12;
-            pictureBoxStudent7.TabStop = false;
-            // 
-            // textBoxStudent6
-            // 
-            textBoxStudent6.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxStudent6.Location = new Point(76, 344);
-            textBoxStudent6.Name = "textBoxStudent6";
-            textBoxStudent6.PlaceholderText = "Alumne 6";
-            textBoxStudent6.Size = new Size(482, 30);
-            textBoxStudent6.TabIndex = 11;
-            textBoxStudent6.TextAlign = HorizontalAlignment.Center;
-            // 
-            // pictureBoxStudent6
-            // 
-            pictureBoxStudent6.Location = new Point(20, 333);
-            pictureBoxStudent6.Name = "pictureBoxStudent6";
-            pictureBoxStudent6.Size = new Size(48, 48);
-            pictureBoxStudent6.TabIndex = 10;
-            pictureBoxStudent6.TabStop = false;
-            // 
-            // textBoxStudent5
-            // 
-            textBoxStudent5.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxStudent5.Location = new Point(76, 281);
-            textBoxStudent5.Name = "textBoxStudent5";
-            textBoxStudent5.PlaceholderText = "Alumne 5";
-            textBoxStudent5.Size = new Size(482, 30);
-            textBoxStudent5.TabIndex = 9;
-            textBoxStudent5.TextAlign = HorizontalAlignment.Center;
-            // 
-            // pictureBoxStudent5
-            // 
-            pictureBoxStudent5.Location = new Point(20, 270);
-            pictureBoxStudent5.Name = "pictureBoxStudent5";
-            pictureBoxStudent5.Size = new Size(48, 48);
-            pictureBoxStudent5.TabIndex = 8;
-            pictureBoxStudent5.TabStop = false;
             // 
             // textBoxStudent16
             // 
@@ -471,6 +327,153 @@
             pictureBoxStudent9.TabIndex = 16;
             pictureBoxStudent9.TabStop = false;
             // 
+            // textBoxStudent8
+            // 
+            textBoxStudent8.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxStudent8.Location = new Point(76, 468);
+            textBoxStudent8.Name = "textBoxStudent8";
+            textBoxStudent8.PlaceholderText = "Alumne 8";
+            textBoxStudent8.Size = new Size(482, 30);
+            textBoxStudent8.TabIndex = 15;
+            textBoxStudent8.TextAlign = HorizontalAlignment.Center;
+            // 
+            // pictureBoxStudent8
+            // 
+            pictureBoxStudent8.Location = new Point(20, 457);
+            pictureBoxStudent8.Name = "pictureBoxStudent8";
+            pictureBoxStudent8.Size = new Size(48, 48);
+            pictureBoxStudent8.TabIndex = 14;
+            pictureBoxStudent8.TabStop = false;
+            // 
+            // textBoxStudent7
+            // 
+            textBoxStudent7.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxStudent7.Location = new Point(76, 405);
+            textBoxStudent7.Name = "textBoxStudent7";
+            textBoxStudent7.PlaceholderText = "Alumne 7";
+            textBoxStudent7.Size = new Size(482, 30);
+            textBoxStudent7.TabIndex = 13;
+            textBoxStudent7.TextAlign = HorizontalAlignment.Center;
+            // 
+            // pictureBoxStudent7
+            // 
+            pictureBoxStudent7.Location = new Point(20, 394);
+            pictureBoxStudent7.Name = "pictureBoxStudent7";
+            pictureBoxStudent7.Size = new Size(48, 48);
+            pictureBoxStudent7.TabIndex = 12;
+            pictureBoxStudent7.TabStop = false;
+            // 
+            // textBoxStudent6
+            // 
+            textBoxStudent6.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxStudent6.Location = new Point(76, 344);
+            textBoxStudent6.Name = "textBoxStudent6";
+            textBoxStudent6.PlaceholderText = "Alumne 6";
+            textBoxStudent6.Size = new Size(482, 30);
+            textBoxStudent6.TabIndex = 11;
+            textBoxStudent6.TextAlign = HorizontalAlignment.Center;
+            // 
+            // pictureBoxStudent6
+            // 
+            pictureBoxStudent6.Location = new Point(20, 333);
+            pictureBoxStudent6.Name = "pictureBoxStudent6";
+            pictureBoxStudent6.Size = new Size(48, 48);
+            pictureBoxStudent6.TabIndex = 10;
+            pictureBoxStudent6.TabStop = false;
+            // 
+            // textBoxStudent5
+            // 
+            textBoxStudent5.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxStudent5.Location = new Point(76, 281);
+            textBoxStudent5.Name = "textBoxStudent5";
+            textBoxStudent5.PlaceholderText = "Alumne 5";
+            textBoxStudent5.Size = new Size(482, 30);
+            textBoxStudent5.TabIndex = 9;
+            textBoxStudent5.TextAlign = HorizontalAlignment.Center;
+            // 
+            // pictureBoxStudent5
+            // 
+            pictureBoxStudent5.Location = new Point(20, 270);
+            pictureBoxStudent5.Name = "pictureBoxStudent5";
+            pictureBoxStudent5.Size = new Size(48, 48);
+            pictureBoxStudent5.TabIndex = 8;
+            pictureBoxStudent5.TabStop = false;
+            // 
+            // textBoxStudent4
+            // 
+            textBoxStudent4.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxStudent4.Location = new Point(76, 220);
+            textBoxStudent4.Name = "textBoxStudent4";
+            textBoxStudent4.PlaceholderText = "Alumne 4";
+            textBoxStudent4.Size = new Size(482, 30);
+            textBoxStudent4.TabIndex = 7;
+            textBoxStudent4.TextAlign = HorizontalAlignment.Center;
+            // 
+            // pictureBoxStudent4
+            // 
+            pictureBoxStudent4.Location = new Point(20, 209);
+            pictureBoxStudent4.Name = "pictureBoxStudent4";
+            pictureBoxStudent4.Size = new Size(48, 48);
+            pictureBoxStudent4.TabIndex = 6;
+            pictureBoxStudent4.TabStop = false;
+            // 
+            // textBoxStudent3
+            // 
+            textBoxStudent3.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxStudent3.Location = new Point(76, 157);
+            textBoxStudent3.Name = "textBoxStudent3";
+            textBoxStudent3.PlaceholderText = "Alumne 3";
+            textBoxStudent3.Size = new Size(482, 30);
+            textBoxStudent3.TabIndex = 5;
+            textBoxStudent3.TextAlign = HorizontalAlignment.Center;
+            // 
+            // pictureBoxStudent3
+            // 
+            pictureBoxStudent3.Location = new Point(20, 146);
+            pictureBoxStudent3.Name = "pictureBoxStudent3";
+            pictureBoxStudent3.Size = new Size(48, 48);
+            pictureBoxStudent3.TabIndex = 4;
+            pictureBoxStudent3.TabStop = false;
+            // 
+            // textBoxStudent2
+            // 
+            textBoxStudent2.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxStudent2.Location = new Point(76, 96);
+            textBoxStudent2.Name = "textBoxStudent2";
+            textBoxStudent2.PlaceholderText = "Alumne 2";
+            textBoxStudent2.Size = new Size(482, 30);
+            textBoxStudent2.TabIndex = 3;
+            textBoxStudent2.TextAlign = HorizontalAlignment.Center;
+            // 
+            // pictureBoxStudent2
+            // 
+            pictureBoxStudent2.Location = new Point(20, 85);
+            pictureBoxStudent2.Name = "pictureBoxStudent2";
+            pictureBoxStudent2.Size = new Size(48, 48);
+            pictureBoxStudent2.TabIndex = 2;
+            pictureBoxStudent2.TabStop = false;
+            // 
+            // textBoxStudent1
+            // 
+            textBoxStudent1.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxStudent1.Location = new Point(76, 33);
+            textBoxStudent1.Name = "textBoxStudent1";
+            textBoxStudent1.PlaceholderText = "Alumne 1";
+            textBoxStudent1.Size = new Size(482, 30);
+            textBoxStudent1.TabIndex = 1;
+            textBoxStudent1.TextAlign = HorizontalAlignment.Center;
+            // 
+            // pictureBoxStudent1
+            // 
+            pictureBoxStudent1.BackColor = Color.Transparent;
+            pictureBoxStudent1.BackgroundImage = (Image)resources.GetObject("pictureBoxStudent1.BackgroundImage");
+            pictureBoxStudent1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBoxStudent1.Location = new Point(20, 22);
+            pictureBoxStudent1.Name = "pictureBoxStudent1";
+            pictureBoxStudent1.Size = new Size(48, 48);
+            pictureBoxStudent1.TabIndex = 0;
+            pictureBoxStudent1.TabStop = false;
+            // 
             // NewClass
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -491,14 +494,6 @@
             Text = "Nova Classe";
             groupBoxNewClass.ResumeLayout(false);
             groupBoxNewClass.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStudent16).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStudent15).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStudent14).EndInit();
@@ -507,6 +502,14 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxStudent11).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStudent10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxStudent9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxStudent1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
