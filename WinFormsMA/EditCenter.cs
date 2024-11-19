@@ -39,10 +39,18 @@ namespace WinFormsMA
             }
             else
             {
-                centerToEdit.CenterName = newCenterName;
+                if (centers.Any(c => c != centerToEdit && c.CenterName.Equals(newCenterName, StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show("Ja existeix un centre amb aquest nom", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    centerToEdit.CenterName = newCenterName;
 
-               this.DialogResult= DialogResult.OK;
-               this.Close();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                
             }
         }
     }

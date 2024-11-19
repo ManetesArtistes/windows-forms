@@ -157,9 +157,11 @@ namespace WinFormsMA
 
         private void buttonClass_Click(object sender, EventArgs e)
         {
+            JsonBase.Center selectedCenter = centers.FirstOrDefault(center => center.CenterName == comboBoxCenter.SelectedItem.ToString());
+            
             this.Hide();
 
-            NewClass newClassForm = new NewClass(centers);
+            NewClass newClassForm = new NewClass(centers, selectedCenter);
             newClassForm.Show();
         }
 
@@ -195,7 +197,7 @@ namespace WinFormsMA
             {
                 this.Hide();
 
-                EditClass editClassForm = new EditClass(centers, selectedGroup);
+                EditClass editClassForm = new EditClass(centers, selectedGroup, selectedCenter);
                 editClassForm.Show();
             }
             else

@@ -31,26 +31,33 @@ namespace WinFormsMA
         {
             string centerName = textBoxNewCenter.Text.Trim();
 
-            if (centerName.Length == 0)
+            if (string.IsNullOrEmpty(centerName))
             {
                 MessageBox.Show("Afegeix el nom d'un centre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                int centerId = centers.Any() ? centers.Max(c => c.CenterId) + 1 : 1;
-
-                JsonBase.Center center = new JsonBase.Center
+                if (centers.Any(c => c.CenterName.Equals(centerName, StringComparison.OrdinalIgnoreCase)))
                 {
-                    CenterId = centerId,
-                    CenterName = centerName,
-                    Groups = null
-                };
+                    MessageBox.Show("Ja existeix un centre amb aquest nom", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    int centerId = centers.Any() ? centers.Max(c => c.CenterId) + 1 : 1;
 
-                centers.Add(center);
+                    JsonBase.Center center = new JsonBase.Center
+                    {
+                        CenterId = centerId,
+                        CenterName = centerName,
+                        Groups = null
+                    };
+
+                    centers.Add(center);
 
 
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
         }
     }
