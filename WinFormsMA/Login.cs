@@ -1,44 +1,16 @@
 using WinFormsMA.Logic;
-using Newtonsoft.Json;
 
 namespace WinFormsMA
 {
     public partial class Login : BaseForm
     {
-        private List<JsonBase.Center> centers;
         public Login()
         {
             InitializeComponent();
             Utils.LoadEnvFile();
-            this.AcceptButton = buttonLogIn;
-            centers = new List<JsonBase.Center>();
-            LoadCenters();
             testFTP();
-        }
 
-        private void LoadCenters()
-        {
-            string ftpUrl = Utils.GetEnvVariable("FTP_URL");
-            string ftpUsername = Utils.GetEnvVariable("FTP_USERNAME");
-            string ftpPassword = Utils.GetEnvVariable("FTP_PASSWORD");
-            string localFilePath = Path.Combine(Path.GetTempPath(), "jsonExemple.json");
-
-            Ftp ftpConnection = new Ftp(ftpUrl, ftpUsername, ftpPassword);
-
-            ftpConnection.DownloadFile("jsonbase/jsonExemple.json", localFilePath);
-
-            string jsonContent = File.ReadAllText(localFilePath);
-
-            JsonBase.Root root = JsonConvert.DeserializeObject<JsonBase.Root>(jsonContent);
-
-            if (root != null)
-            {
-                centers = root.Centers;
-            }
-            else
-            {
-                MessageBox.Show("No s'ha pogut carregar el fitxer JSON o està buit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            this.AcceptButton = buttonLogIn;
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
@@ -61,14 +33,14 @@ namespace WinFormsMA
             {
                 this.Hide();
 
-                Stats statsForm = new Stats(centers);
+                Stats statsForm = new Stats();
                 statsForm.Show();
             }
             else if (username == user2 && password == pass2)
             {
                 this.Hide();
 
-                SelectAdminMode SelectForm = new SelectAdminMode(centers);
+                SelectAdminMode SelectForm = new SelectAdminMode();
                 SelectForm.Show();
             }
             else
@@ -79,27 +51,18 @@ namespace WinFormsMA
 
         private void testFTP()
         {
-            string ftpUrl = Utils.GetEnvVariable("FTP_URL");
-            string ftpUsername = Utils.GetEnvVariable("FTP_USERNAME");
-            string ftpPassword = Utils.GetEnvVariable("FTP_PASSWORD");
-
-            if (string.IsNullOrEmpty(ftpUrl) || string.IsNullOrEmpty(ftpUsername) || string.IsNullOrEmpty(ftpPassword))
+            try
             {
-                MessageBox.Show("Les variables d'entorn per FTP no estan carregades correctament.");
-                return;
+                var (ftpUrl, ftpUsername, ftpPassword) = Utils.GetFtpVariables();
+
+                Ftp ftpClient = new Ftp(ftpUrl, ftpUsername, ftpPassword);
+                ftpClient.TestFtpConnection();
             }
-
-            Ftp ftpClient = new Ftp(ftpUrl, ftpUsername, ftpPassword);
-
-            // Comprovar la connexió FTP
-            if (ftpClient.TestConnection())
+            catch (Exception ex)
             {
-                Console.WriteLine("Connexió FTP correcta!");
-            }
-            else
-            {
-                Console.WriteLine("No s'ha pogut establir la connexió FTP.");
+                MessageBox.Show($"Error amb la connexió FTP: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

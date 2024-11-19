@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using WinFormsMA.Logic;
+﻿using WinFormsMA.Logic;
 
 namespace WinFormsMA
 {
@@ -32,7 +23,6 @@ namespace WinFormsMA
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-
             if (string.IsNullOrWhiteSpace(textBoxNewClass.Text))
             {
                 MessageBox.Show("Afegeix una classe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -65,11 +55,21 @@ namespace WinFormsMA
                         }
                     }
 
+                    // Afegeix el nou grup a selectedCenter
                     selectedCenter.Groups.Add(newGroup);
+
+                    // Assegura't que centers també es mantingui actualitzada.
+                    int centerIndex = centers.FindIndex(center => center.CenterName == selectedCenter.CenterName);
+                    if (centerIndex >= 0)
+                    {
+                        centers[centerIndex] = selectedCenter; // Actualitza la llista de centres
+                    }
+
                     MessageBox.Show("Classe creada correctament");
 
+                    // Torna a Stats amb la llista actualitzada
                     this.Hide();
-                    Stats statsForm = new Stats(centers);
+                    Stats statsForm = new Stats(centers); // Passem la llista actualitzada
                     statsForm.Show();
                 }
             }
