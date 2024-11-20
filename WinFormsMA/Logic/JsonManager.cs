@@ -23,8 +23,8 @@ namespace WinFormsMA.Logic
                 if (File.Exists(localFilePath))
                 {
                     string jsonData = File.ReadAllText(localFilePath);
-                    var jsonObject = JsonConvert.DeserializeObject<JsonBase.Root>(jsonData);
-                    Centers = jsonObject?.Centers ?? new List<Center>();
+                    var jsonObject = JsonConvert.DeserializeObject<JsonBase>(jsonData); // Deserialitza directament a JsonBase
+                    Centers = jsonObject?.Centers ?? new List<Center>(); // Assigna la llista de centres
                 }
                 else
                 {
@@ -42,9 +42,9 @@ namespace WinFormsMA.Logic
         {
             try
             {
-                var jsonObject = new JsonBase.Root { Centers = Centers };
+                var jsonObject = new JsonBase { Centers = Centers }; // Construeix un JsonBase
                 string jsonData = JsonConvert.SerializeObject(jsonObject, Formatting.Indented);
-                File.WriteAllText(localFilePath, jsonData);
+                File.WriteAllText(localFilePath, jsonData); // Desa el fitxer
                 Console.WriteLine("Local JSON file saved.");
             }
             catch (Exception ex)

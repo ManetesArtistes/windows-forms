@@ -1,28 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using WinFormsMA.Logic;
 
 namespace WinFormsMA
 {
     public partial class EditCenter : Form
     {
-        private List<JsonBase.Center> centers;
-        private JsonBase.Center centerToEdit;
+        private List<Center> centers;
+        private Center centerToEdit;
 
-        public EditCenter(List<JsonBase.Center> centers, JsonBase.Center centerToEdit)
+        public EditCenter(List<Center> centers, Center centerToEdit)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.centers = centers;
             this.centerToEdit = centerToEdit;
-            textBoxEditCenter.Text = centerToEdit.CenterName;
+            textBoxEditCenter.Text = centerToEdit.Name;
         }
+
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -34,22 +27,21 @@ namespace WinFormsMA
 
             if (string.IsNullOrEmpty(newCenterName))
             {
-                MessageBox.Show("El nom del centre no pot estar vuit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El nom del centre no pot estar buit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (centers.Any(c => c != centerToEdit && c.CenterName.Equals(newCenterName, StringComparison.OrdinalIgnoreCase)))
+                if (centers.Any(c => c != centerToEdit && c.Name.Equals(newCenterName, StringComparison.OrdinalIgnoreCase)))
                 {
                     MessageBox.Show("Ja existeix un centre amb aquest nom", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    centerToEdit.CenterName = newCenterName;
+                    centerToEdit.Name = newCenterName;
 
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
-                
             }
         }
     }

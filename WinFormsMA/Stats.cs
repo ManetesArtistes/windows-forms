@@ -4,34 +4,24 @@ namespace WinFormsMA
 {
     public partial class Stats : BaseForm
     {
-        private List<JsonBase.Center> centers;
-        private Ftp ftp;
+        private List<Center> centers;
+        private JsonManager jsonManager;
 
-        public Stats()
+        public Stats(JsonManager jsonManager)
         {
             InitializeComponent();
+            this.jsonManager = jsonManager;
+            centers = jsonManager.Centers;
             LoadCenters();
         }
 
-        public Stats(Ftp ftp, List<JsonBase.Center> centers)
-        {
-            InitializeComponent();
-            this.ftp = ftp;
-            this.centers = centers;
-            LoadCenters();
-        }
-
-        // Càrrega dels centres des del servidor FTP
         private void LoadCenters()
         {
             try
             {
-                // Utilitza el client FTP existent
-                centers = ftp.GetCenters();
-
                 if (centers == null || centers.Count == 0)
                 {
-                    MessageBox.Show("No s'han trobat centres al servidor FTP.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No s'han trobat centres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -39,7 +29,7 @@ namespace WinFormsMA
 
                 foreach (var center in centers)
                 {
-                    comboBoxCenter.Items.Add(center.CenterName);
+                    comboBoxCenter.Items.Add(center.Name); // S'utilitza `Name` en lloc de `CenterName`
                 }
 
                 if (comboBoxCenter.Items.Count > 0)
@@ -53,13 +43,12 @@ namespace WinFormsMA
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error carregant els centres des del servidor FTP: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                centers = new List<JsonBase.Center>(); // Llista buida per evitar errors
+                MessageBox.Show($"Error carregant els centres: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                centers = new List<Center>(); // Llista buida per evitar errors
             }
         }
 
-        // Càrrega de classes associades al centre seleccionat
-        private void LoadClasses(JsonBase.Center selectedCenter)
+        private void LoadClasses(Center selectedCenter)
         {
             ClearComboBox(comboBoxClass);
 
@@ -69,7 +58,7 @@ namespace WinFormsMA
 
                 foreach (var group in selectedCenter.Groups)
                 {
-                    comboBoxClass.Items.Add(group.GroupName);
+                    comboBoxClass.Items.Add(group.Name); // S'utilitza `Name` en lloc de `GroupName`
                 }
 
                 if (comboBoxClass.Items.Count > 0)
@@ -83,20 +72,19 @@ namespace WinFormsMA
             }
         }
 
-        // Càrrega d'estudiants per classe seleccionada
-        private void LoadStudents(JsonBase.Center selectedCenter, string selectedClassName)
+        private void LoadStudents(Center selectedCenter, string selectedClassName)
         {
             ClearComboBox(comboBoxStudent);
 
-            var selectedGroup = selectedCenter?.Groups?.FirstOrDefault(group => group.GroupName == selectedClassName);
+            var selectedGroup = selectedCenter?.Groups?.FirstOrDefault(group => group.Name == selectedClassName); // `Name` en lloc de `GroupName`
 
             if (selectedGroup?.Students != null)
             {
                 foreach (var student in selectedGroup.Students)
                 {
-                    if (!string.IsNullOrEmpty(student?.StudentName))
+                    if (!string.IsNullOrEmpty(student?.Name)) // `Name` en lloc de `StudentName`
                     {
-                        comboBoxStudent.Items.Add(student.StudentName);
+                        comboBoxStudent.Items.Add(student.Name);
                     }
                 }
 
@@ -107,7 +95,6 @@ namespace WinFormsMA
             }
         }
 
-        // Netejar un ComboBox
         private void ClearComboBox(ComboBox comboBox)
         {
             comboBox.Items.Clear();
@@ -115,7 +102,6 @@ namespace WinFormsMA
             comboBox.SelectedIndex = 0;
         }
 
-        // Gestió de la selecció del centre
         private void comboBoxCenter_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxCenter.SelectedIndex == 0)
@@ -128,7 +114,7 @@ namespace WinFormsMA
             else
             {
                 string selectedCenterName = comboBoxCenter.SelectedItem.ToString();
-                var selectedCenter = centers.FirstOrDefault(center => center.CenterName == selectedCenterName);
+                var selectedCenter = centers.FirstOrDefault(center => center.Name == selectedCenterName);
 
                 if (selectedCenter != null)
                 {
@@ -140,7 +126,6 @@ namespace WinFormsMA
             }
         }
 
-        // Gestió de la selecció de la classe
         private void comboBoxClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxClass.SelectedIndex == 0)
@@ -151,7 +136,7 @@ namespace WinFormsMA
             else
             {
                 string selectedCenterName = comboBoxCenter.SelectedItem.ToString();
-                var selectedCenter = centers.FirstOrDefault(center => center.CenterName == selectedCenterName);
+                var selectedCenter = centers.FirstOrDefault(center => center.Name == selectedCenterName);
                 string selectedClassName = comboBoxClass.SelectedItem.ToString();
 
                 if (selectedCenter != null)
@@ -162,7 +147,6 @@ namespace WinFormsMA
             }
         }
 
-        // Botó per anar a la pàgina de login
         private void buttonLeft_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -170,10 +154,9 @@ namespace WinFormsMA
             loginForm.Show();
         }
 
-        // Crear un nou centre
         private void buttonCentre_Click(object sender, EventArgs e)
         {
-            var newCenterForm = new NewCenter(ftp, centers);
+            var newCenterForm = new NewCenter(jsonManager, centers);
 
             if (newCenterForm.ShowDialog() == DialogResult.OK)
             {
@@ -181,10 +164,9 @@ namespace WinFormsMA
             }
         }
 
-        // Crear una nova classe
         private void buttonClass_Click(object sender, EventArgs e)
         {
-            var selectedCenter = centers.FirstOrDefault(center => center.CenterName == comboBoxCenter.SelectedItem.ToString());
+            var selectedCenter = centers.FirstOrDefault(center => center.Name == comboBoxCenter.SelectedItem.ToString());
 
             if (selectedCenter != null)
             {
@@ -194,11 +176,10 @@ namespace WinFormsMA
             }
         }
 
-        // Editar un centre existent
         private void buttonEditCenter_Click(object sender, EventArgs e)
         {
             string selectedCenterName = comboBoxCenter.Text;
-            var selectedCenter = centers.FirstOrDefault(center => center.CenterName == selectedCenterName);
+            var selectedCenter = centers.FirstOrDefault(center => center.Name == selectedCenterName);
 
             if (selectedCenter != null)
             {
@@ -215,11 +196,10 @@ namespace WinFormsMA
             }
         }
 
-        // Editar una classe existent
         private void buttonEditClass_Click(object sender, EventArgs e)
         {
-            var selectedCenter = centers.FirstOrDefault(center => center.CenterName == comboBoxCenter.SelectedItem.ToString());
-            var selectedGroup = selectedCenter?.Groups.FirstOrDefault(group => group.GroupName == comboBoxClass.SelectedItem.ToString());
+            var selectedCenter = centers.FirstOrDefault(center => center.Name == comboBoxCenter.SelectedItem.ToString());
+            var selectedGroup = selectedCenter?.Groups.FirstOrDefault(group => group.Name == comboBoxClass.SelectedItem.ToString());
 
             if (selectedGroup != null)
             {

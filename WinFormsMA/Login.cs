@@ -4,11 +4,14 @@ namespace WinFormsMA
 {
     public partial class Login : BaseForm
     {
+        private Ftp ftpClient;
+        private JsonManager jsonManager;
+
         public Login()
         {
             InitializeComponent();
             Utils.LoadEnvFile();
-            testFTP();
+            InitializeFtpClient();
 
             this.AcceptButton = buttonLogIn;
         }
@@ -33,15 +36,21 @@ namespace WinFormsMA
             {
                 this.Hide();
 
-                Stats statsForm = new Stats();
+                jsonManager = new JsonManager("path/to/local/json", ftpClient); // Proporciona el camí correcte
+                jsonManager.LoadFromJson(); // Carrega els centres abans d'obrir el formulari
+
+                Stats statsForm = new Stats(jsonManager); // Passa `JsonManager` com a argument
                 statsForm.Show();
             }
             else if (username == user2 && password == pass2)
             {
                 this.Hide();
 
-                SelectAdminMode SelectForm = new SelectAdminMode();
-                SelectForm.Show();
+                jsonManager = new JsonManager("path/to/local/json", ftpClient); // Proporciona el camí correcte
+                jsonManager.LoadFromJson(); // Carrega els centres abans d'obrir el formulari
+
+                SelectAdminMode selectForm = new SelectAdminMode(jsonManager.Centers); // Passa la llista de centres
+                selectForm.Show();
             }
             else
             {
@@ -49,20 +58,22 @@ namespace WinFormsMA
             }
         }
 
-        private void testFTP()
+        private void InitializeFtpClient()
         {
             try
             {
                 var (ftpUrl, ftpUsername, ftpPassword) = Utils.GetFtpVariables();
 
-                Ftp ftpClient = new Ftp(ftpUrl, ftpUsername, ftpPassword);
-                ftpClient.TestFtpConnection();
+                ftpClient = new Ftp(ftpUrl, ftpUsername, ftpPassword);
+                if (!ftpClient.TestConnection())
+                {
+                    MessageBox.Show("No es pot establir la connexió amb el servidor FTP.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error amb la connexió FTP: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error inicialitzant el client FTP: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }

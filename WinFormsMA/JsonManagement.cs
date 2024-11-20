@@ -5,8 +5,9 @@ namespace WinFormsMA
 {
     public partial class JsonManagement : BaseForm
     {
-        private List<JsonBase.Center> centers;
-        public JsonManagement(List<JsonBase.Center> centers)
+        private List<Center> centers;
+
+        public JsonManagement(List<Center> centers)
         {
             InitializeComponent();
             this.centers = centers;
@@ -20,7 +21,7 @@ namespace WinFormsMA
 
             foreach (var center in centers)
             {
-                comboBoxCenter.Items.Add(center.CenterName);
+                comboBoxCenter.Items.Add(center.Name); // `Name` en lloc de `CenterName`
             }
 
             if (comboBoxCenter.Items.Count > 0)
@@ -46,7 +47,7 @@ namespace WinFormsMA
             else
             {
                 string selectedCenterName = comboBoxCenter.SelectedItem.ToString();
-                JsonBase.Center selectedCenter = centers.FirstOrDefault(center => center.CenterName == selectedCenterName);
+                Center selectedCenter = centers.FirstOrDefault(center => center.Name == selectedCenterName); // `Name` en lloc de `CenterName`
 
                 if (selectedCenter != null)
                 {
@@ -56,14 +57,14 @@ namespace WinFormsMA
             }
         }
 
-        private void LoadClasses(JsonBase.Center selectedCenter)
+        private void LoadClasses(Center selectedCenter)
         {
             comboBoxClass.Items.Clear();
             comboBoxClass.Items.Add("");
 
             foreach (var group in selectedCenter.Groups)
             {
-                comboBoxClass.Items.Add(group.GroupName);
+                comboBoxClass.Items.Add(group.Name); // `Name` en lloc de `GroupName`
             }
 
             if (comboBoxClass.Items.Count > 0)
@@ -81,7 +82,7 @@ namespace WinFormsMA
             else
             {
                 string selectedCenterName = comboBoxCenter.SelectedItem.ToString();
-                JsonBase.Center selectedCenter = centers.FirstOrDefault(center => center.CenterName == selectedCenterName);
+                Center selectedCenter = centers.FirstOrDefault(center => center.Name == selectedCenterName); // `Name` en lloc de `CenterName`
                 string selectedClassName = comboBoxClass.SelectedItem.ToString();
 
                 if (selectedCenter != null)
@@ -91,17 +92,17 @@ namespace WinFormsMA
             }
         }
 
-        private void LoadStudents(JsonBase.Center selectedCenter, string selectedClassName)
+        private void LoadStudents(Center selectedCenter, string selectedClassName)
         {
             dataGridViewJson.Rows.Clear();
 
-            var selectedGroup = selectedCenter.Groups.FirstOrDefault(group => group.GroupName == selectedClassName);
+            var selectedGroup = selectedCenter.Groups.FirstOrDefault(group => group.Name == selectedClassName); // `Name` en lloc de `GroupName`
 
             if (selectedGroup != null)
             {
                 foreach (var student in selectedGroup.Students)
                 {
-                    dataGridViewJson.Rows.Add(student.StudentName, null);
+                    dataGridViewJson.Rows.Add(student.Name, null); // `Name` en lloc de `StudentName`
                 }
             }
         }
@@ -110,25 +111,28 @@ namespace WinFormsMA
         {
             this.Hide();
 
-            SelectAdminMode SelectForm = new SelectAdminMode(centers);
-            SelectForm.Show();
+            SelectAdminMode selectForm = new SelectAdminMode(centers);
+            selectForm.Show();
         }
 
         private void buttonModify_Click(object sender, EventArgs e)
         {
             if (dataGridViewJson.SelectedRows.Count > 0)
             {
-                var studentSelected = (Student)dataGridViewJson.SelectedRows[0].DataBoundItem;
+                // Obté la fila seleccionada i crea l'objecte `Student`
+                var selectedRow = dataGridViewJson.SelectedRows[0];
+                var studentName = selectedRow.Cells[0].Value?.ToString();
 
-                string jsonStudent = JsonConvert.SerializeObject(studentSelected, Formatting.Indented);
+                var student = new Student { Name = studentName }; // Crear l'objecte `Student`
+
+                // Serialitza el `Student` a JSON
+                string jsonStudent = JsonConvert.SerializeObject(student, Formatting.Indented);
 
                 EditJson formEditJson = new EditJson(jsonStudent);
                 if (formEditJson.ShowDialog() == DialogResult.OK)
                 {
-
-
+                    // Implementa els canvis necessaris després d'editar
                 }
-
             }
             else
             {
@@ -138,7 +142,7 @@ namespace WinFormsMA
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            // Comprovar si hi ha alguna fila seleccionada
+            // Comprova si hi ha alguna fila seleccionada
             if (dataGridViewJson.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dataGridViewJson.SelectedRows[0];
@@ -148,7 +152,7 @@ namespace WinFormsMA
                 {
                     dataGridViewJson.Rows.Remove(selectedRow);
 
-                    // També esborrar l'element de la font de dades.
+                    // Implementa la lògica per esborrar l'estudiant també de la font de dades
                 }
             }
             else

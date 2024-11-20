@@ -1,32 +1,34 @@
-﻿namespace WinFormsMA
+﻿using WinFormsMA.Logic;
+
+namespace WinFormsMA
 {
     public partial class SelectAdminMode : BaseForm
     {
-        private List<JsonBase.Center> centers;
+        private List<Center> centers;
 
         public SelectAdminMode()
         {
             InitializeComponent();
-            this.centers = centers ?? new List<JsonBase.Center>(); // Assegurem que no sigui nul
+            this.centers = new List<Center>(); // Inicialització de la llista de centres
         }
 
-        public SelectAdminMode(List<JsonBase.Center> centers)
+        public SelectAdminMode(List<Center> centers)
         {
             InitializeComponent();
-            this.centers = centers ?? new List<JsonBase.Center>(); // Assegurem que no sigui nul
+            this.centers = centers ?? new List<Center>(); // Assegurem que no sigui nul
         }
 
         private void buttonLogs_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var logsForm = new Logs(centers);
+            var logsForm = new Logs(centers); // Passa la llista de centres al formulari de logs
             logsForm.Show();
         }
 
         private void buttonJson_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var jsonForm = new JsonManagement(centers);
+            var jsonForm = new JsonManagement(centers); // Passa la llista de centres al formulari de gestió JSON
             jsonForm.Show();
         }
 

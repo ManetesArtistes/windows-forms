@@ -4,14 +4,14 @@ namespace WinFormsMA
 {
     public partial class NewCenter : Form
     {
-        private List<JsonBase.Center> centers;
-        private Ftp ftp;
+        private List<Center> centers;
+        private JsonManager jsonManager;
 
-        public NewCenter(Ftp ftp, List<JsonBase.Center> centers)
+        public NewCenter(JsonManager jsonManager, List<Center> centers)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-            this.ftp = ftp;
+            this.jsonManager = jsonManager;
             this.centers = centers;
         }
 
@@ -28,22 +28,25 @@ namespace WinFormsMA
             {
                 MessageBox.Show("Afegeix el nom d'un centre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (centers.Any(c => c.CenterName.Equals(centerName, StringComparison.OrdinalIgnoreCase)))
+            else if (centers.Any(c => c.Name.Equals(centerName, StringComparison.OrdinalIgnoreCase)))
             {
                 MessageBox.Show("Ja existeix un centre amb aquest nom", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                int centerId = centers.Any() ? centers.Max(c => c.CenterId) + 1 : 1;
+                int centerId = centers.Any() ? centers.Max(c => c.Id) + 1 : 1;
 
-                JsonBase.Center center = new JsonBase.Center
+                // Crea el nou objecte Center
+                var center = new Center
                 {
-                    CenterId = centerId,
-                    CenterName = centerName,
-                    Groups = null
+                    Id = centerId,
+                    Name = centerName,
+                    Groups = new List<Group>() // Inicialitza una llista buida
                 };
 
-                ftp.AddCenter(center); // Utilitza el mètode centralitzat
+                // Utilitza JsonManager per afegir el centre i desar els canvis
+                jsonManager.AddCenter(center);
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

@@ -1,31 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using WinFormsMA.Logic;
 
 namespace WinFormsMA
 {
     public partial class Logs : BaseForm
     {
-        private List<JsonBase.Center> centers;
-        public Logs(List<JsonBase.Center> centers)
+        private List<Center> centers;
+
+        public Logs(List<Center> centers)
         {
             InitializeComponent();
-            this.centers = centers;
+            this.centers = centers ?? new List<Center>(); // Assegura que la llista no sigui nul·la
         }
 
         private void buttonLeft_Click(object sender, EventArgs e)
         {
             this.Hide();
 
-            SelectAdminMode SelectForm = new SelectAdminMode(centers);
-            SelectForm.Show();
+            // Passa la llista de centres correctament al formulari `SelectAdminMode`
+            SelectAdminMode selectForm = new SelectAdminMode(centers);
+            selectForm.Show();
         }
     }
 }
