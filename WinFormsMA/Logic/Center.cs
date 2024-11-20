@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace WinFormsMA.Logic
 {
-    internal class Center
+    public class Center
     {
+        [JsonProperty("center_id")]
         public int Id { get; set; }
+
+        [JsonProperty("center_name")]
         public string Name { get; set; }
-        public Group[] Groups { get; set; }
 
-        public Center() { }
+        [JsonProperty("groups")]
+        public List<Group> Groups { get; set; }
 
-        public Center(int id, string name, Group[] groups)
+        public Center()
         {
-            this.Id = id;
-            this.Name = name;
-            this.Groups = groups;
+            Groups = new List<Group>();
         }
-
     }
 }

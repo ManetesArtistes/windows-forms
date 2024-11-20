@@ -5,6 +5,7 @@ namespace WinFormsMA
     public partial class Stats : BaseForm
     {
         private List<JsonBase.Center> centers;
+        private Ftp ftp;
 
         public Stats()
         {
@@ -12,10 +13,11 @@ namespace WinFormsMA
             LoadCenters();
         }
 
-        public Stats(List<JsonBase.Center> centers)
+        public Stats(Ftp ftp, List<JsonBase.Center> centers)
         {
             InitializeComponent();
-            this.centers = centers;  // En aquest cas, només inicialitzem amb centres passats
+            this.ftp = ftp;
+            this.centers = centers;
             LoadCenters();
         }
 
@@ -24,9 +26,8 @@ namespace WinFormsMA
         {
             try
             {
-                var (ftpUrl, ftpUsername, ftpPassword) = Utils.GetFtpVariables();
-                Ftp ftpClient = new Ftp(ftpUrl, ftpUsername, ftpPassword);
-                centers = ftpClient.GetCenters();
+                // Utilitza el client FTP existent
+                centers = ftp.GetCenters();
 
                 if (centers == null || centers.Count == 0)
                 {
@@ -172,7 +173,7 @@ namespace WinFormsMA
         // Crear un nou centre
         private void buttonCentre_Click(object sender, EventArgs e)
         {
-            var newCenterForm = new NewCenter(centers);
+            var newCenterForm = new NewCenter(ftp, centers);
 
             if (newCenterForm.ShowDialog() == DialogResult.OK)
             {

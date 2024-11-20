@@ -1,29 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace WinFormsMA.Logic
 {
-    internal class Draw
+    public class Draw
     {
-
+        [JsonProperty("draw_id")]
         public int Id { get; set; }
+
+        [JsonProperty("timestamp")]
         public string Timestamp { get; set; }
+
+        [JsonProperty("duration")]
         public string Duration { get; set; }
-        public int[] UsedColors { get; set; }
+
+        [JsonProperty("usedColors")]
+        public List<int> UsedColors { get; set; }
+
+        [JsonProperty("accuracity")]
         public int Accuracity { get; set; }
-
-        public Draw() { }
-
-        public Draw(int id, string timestamp, string duration, int[] usedColors, int accuracity)
-        {
-            this.Id = id;
-            this.Timestamp = timestamp; 
-            this.Duration = duration;
-            this.UsedColors = usedColors;
-            this.Accuracity = accuracity;
-        }
     }
 }

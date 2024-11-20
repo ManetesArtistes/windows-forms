@@ -1,6 +1,4 @@
-﻿using WinFormsMA.Logic;
-
-namespace WinFormsMA
+﻿namespace WinFormsMA
 {
     public partial class SelectAdminMode : BaseForm
     {

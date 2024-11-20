@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinFormsMA.Logic;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinFormsMA
