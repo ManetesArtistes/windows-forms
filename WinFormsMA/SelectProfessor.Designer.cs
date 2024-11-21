@@ -1,6 +1,6 @@
 ﻿namespace WinFormsMA
 {
-    partial class Stats
+    partial class SelectProfessor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stats));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectProfessor));
             buttonLeft = new Button();
             labelStats = new Label();
             labelCenter = new Label();

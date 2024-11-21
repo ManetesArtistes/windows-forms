@@ -6,6 +6,12 @@
         {
             this.FormClosing += new FormClosingEventHandler(BaseForm_FormClosing);
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            // Configura la finestra perquè no sigui redimensionable
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // Evita redimensionament
+            this.MaximizeBox = false; // Deshabilita el botó de maximitzar
+            this.MinimizeBox = true; // Permet minimitzar si ho desitges
+
             rmFocus();
         }
 

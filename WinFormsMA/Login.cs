@@ -40,7 +40,7 @@ namespace WinFormsMA
                 jsonManager = new JsonManager("path/to/local/json", ftpClient); // Proporciona el camí correcte
                 jsonManager.LoadFromJson(); // Carrega els centres abans d'obrir el formulari
 
-                Stats statsForm = new Stats(jsonManager); // Passa `JsonManager` com a argument
+                SelectProfessor statsForm = new SelectProfessor(jsonManager); // Passa `JsonManager` com a argument
                 statsForm.Show();
             }
             else if (username == user2 && password == pass2)

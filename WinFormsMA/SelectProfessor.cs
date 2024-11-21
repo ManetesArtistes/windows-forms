@@ -3,12 +3,12 @@ using WinFormsMA.Logic.Services;
 
 namespace WinFormsMA
 {
-    public partial class Stats : BaseForm
+    public partial class SelectProfessor : BaseForm
     {
         private List<Center> centers;
         private JsonManager jsonManager;
 
-        public Stats(JsonManager jsonManager)
+        public SelectProfessor(JsonManager jsonManager)
         {
             InitializeComponent();
             this.jsonManager = jsonManager;
