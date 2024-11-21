@@ -199,5 +199,55 @@ namespace WinFormsMA
                 MessageBox.Show($"Error descarregant el fitxer JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void buttonImport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Crear el diàleg per seleccionar el fitxer
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+                    openFileDialog.Title = "Selecciona un fitxer JSON per importar";
+
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Obté el camí complet del fitxer seleccionat
+                        string selectedFilePath = openFileDialog.FileName;
+
+                        // Obtenir el nom del fitxer seleccionat
+                        string originalFileName = Path.GetFileName(selectedFilePath);
+
+                        // Genera un nom únic per al servidor
+                        string newFileName = GenerateUniqueFileName(originalFileName);
+
+                        // Defineix el camí complet al servidor FTP
+                        string remotePath = $"imports/{newFileName}";
+
+                        // Obtenir les credencials FTP
+                        var (ftpUrl, ftpUsername, ftpPassword) = Utils.GetFtpVariables();
+                        Ftp ftpClient = new Ftp(ftpUrl, ftpUsername, ftpPassword);
+
+                        // Pujar el fitxer al servidor FTP
+                        ftpClient.UploadFile(selectedFilePath, remotePath);
+
+                        MessageBox.Show($"Fitxer pujat correctament al servidor:\n{remotePath}", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error pujant el fitxer JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string GenerateUniqueFileName(string originalFileName)
+        {
+            string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            string fileExtension = Path.GetExtension(originalFileName);
+            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(originalFileName);
+
+            return $"{fileNameWithoutExtension}_{timestamp}{fileExtension}";
+        }
     }
 }

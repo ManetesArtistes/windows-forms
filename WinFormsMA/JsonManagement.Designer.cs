@@ -41,7 +41,7 @@
             buttonModify = new Button();
             buttonDelete = new Button();
             buttonImport = new Button();
-            button1 = new Button();
+            buttonExport = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewJson).BeginInit();
             SuspendLayout();
             // 
@@ -167,16 +167,17 @@
             buttonImport.TabIndex = 11;
             buttonImport.Text = "Importar JSON";
             buttonImport.UseVisualStyleBackColor = true;
+            buttonImport.Click += buttonImport_Click;
             // 
-            // button1
+            // buttonExport
             // 
-            button1.Location = new Point(1077, 184);
-            button1.Name = "button1";
-            button1.Size = new Size(90, 30);
-            button1.TabIndex = 12;
-            button1.Text = "Exportar JSON";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
+            buttonExport.Location = new Point(1077, 184);
+            buttonExport.Name = "buttonExport";
+            buttonExport.Size = new Size(90, 30);
+            buttonExport.TabIndex = 12;
+            buttonExport.Text = "Exportar JSON";
+            buttonExport.UseVisualStyleBackColor = true;
+            buttonExport.Click += button1_Click_1;
             // 
             // JsonManagement
             // 
@@ -185,7 +186,7 @@
             BackgroundImage = Properties.Resources.background_dark;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1264, 681);
-            Controls.Add(button1);
+            Controls.Add(buttonExport);
             Controls.Add(buttonImport);
             Controls.Add(buttonDelete);
             Controls.Add(buttonModify);
@@ -217,7 +218,7 @@
         private Button buttonModify;
         private Button buttonDelete;
         private Button buttonImport;
-        private Button button1;
+        private Button buttonExport;
         private DataGridViewTextBoxColumn StudentName;
         private DataGridViewTextBoxColumn Importacio;
     }

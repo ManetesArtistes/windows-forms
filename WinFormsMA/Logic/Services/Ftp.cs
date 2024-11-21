@@ -60,6 +60,7 @@ namespace WinFormsMA.Logic.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error uploading file: {ex.Message}");
+                throw;
             }
         }
 
