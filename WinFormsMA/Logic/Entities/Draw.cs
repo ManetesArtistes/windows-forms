@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace WinFormsMA.Logic
+namespace WinFormsMA.Logic.Entities
 {
     public class Draw
     {

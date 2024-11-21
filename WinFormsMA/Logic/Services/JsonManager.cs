@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
+using WinFormsMA.Logic.Entities;
+using WinFormsMA.Logic.Utilities;
 
-namespace WinFormsMA.Logic
+namespace WinFormsMA.Logic.Services
 {
     public class JsonManager
     {

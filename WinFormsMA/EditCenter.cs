@@ -1,4 +1,4 @@
-﻿using WinFormsMA.Logic;
+﻿using WinFormsMA.Logic.Entities;
 
 namespace WinFormsMA
 {

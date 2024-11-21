@@ -1,6 +1,6 @@
 ﻿using DotNetEnv;
 
-namespace WinFormsMA.Logic
+namespace WinFormsMA.Logic.Utilities
 {
     internal class Utils
     {

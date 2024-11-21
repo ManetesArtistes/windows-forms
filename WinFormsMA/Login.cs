@@ -1,4 +1,5 @@
-using WinFormsMA.Logic;
+using WinFormsMA.Logic.Services;
+using WinFormsMA.Logic.Utilities;
 
 namespace WinFormsMA
 {

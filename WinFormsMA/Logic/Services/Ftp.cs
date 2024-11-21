@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace WinFormsMA.Logic
+namespace WinFormsMA.Logic.Services
 {
     public class Ftp
     {

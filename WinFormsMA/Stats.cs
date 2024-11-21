@@ -1,4 +1,5 @@
-﻿using WinFormsMA.Logic;
+﻿using WinFormsMA.Logic.Entities;
+using WinFormsMA.Logic.Services;
 
 namespace WinFormsMA
 {
@@ -11,8 +12,20 @@ namespace WinFormsMA
         {
             InitializeComponent();
             this.jsonManager = jsonManager;
-            centers = jsonManager.Centers;
-            LoadCenters();
+
+            try
+            {
+                jsonManager.DownloadJsonFromFtp("json/manetes_artistes.json");
+                jsonManager.LoadFromJson();
+
+                centers = jsonManager.Centers;
+
+                LoadCenters();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error carregant el JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LoadCenters()

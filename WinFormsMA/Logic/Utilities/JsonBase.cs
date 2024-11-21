@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
+using WinFormsMA.Logic.Entities;
 
-namespace WinFormsMA.Logic
+namespace WinFormsMA.Logic.Utilities
 {
     public class JsonBase
     {
