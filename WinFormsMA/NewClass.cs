@@ -54,7 +54,7 @@ namespace WinFormsMA
                     MessageBox.Show("Classe creada correctament");
                     this.Hide();
 
-                    SelectProfessor statsForm = new SelectProfessor(new JsonManager("path/to/local/json", new Ftp("ftpUrl", "ftpUsername", "ftpPassword")));
+                    SelectProfessor statsForm = new SelectProfessor(new JsonManager(new Ftp("ftpUrl", "ftpUsername", "ftpPassword")));
                     statsForm.Show();
                 }
             }
@@ -64,7 +64,7 @@ namespace WinFormsMA
         {
             this.Hide();
 
-            SelectProfessor statsForm = new SelectProfessor(new JsonManager("path/to/local/json", new Ftp("ftpUrl", "ftpUsername", "ftpPassword")));
+            SelectProfessor statsForm = new SelectProfessor(new JsonManager(new Ftp("ftpUrl", "ftpUsername", "ftpPassword")));
             statsForm.Show();
         }
     }

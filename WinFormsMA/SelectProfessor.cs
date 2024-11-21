@@ -15,12 +15,11 @@ namespace WinFormsMA
 
             try
             {
-                jsonManager.DownloadJsonFromFtp("json/manetes_artistes.json");
-                jsonManager.LoadFromJson();
+                jsonManager.DownloadJsonFromFtp("json/manetes_artistes.json"); // Descarrega el fitxer
+                jsonManager.LoadFromJson(); // Carrega'l a la memòria
 
-                centers = jsonManager.Centers;
-
-                LoadCenters();
+                centers = jsonManager.Centers; // Assigna els centres carregats
+                LoadCenters(); // Mostra els centres al formulari
             }
             catch (Exception ex)
             {

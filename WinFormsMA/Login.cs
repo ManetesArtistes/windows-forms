@@ -37,7 +37,7 @@ namespace WinFormsMA
             {
                 this.Hide();
 
-                jsonManager = new JsonManager("path/to/local/json", ftpClient); // Proporciona el camí correcte
+                jsonManager = new JsonManager(ftpClient);
                 jsonManager.LoadFromJson(); // Carrega els centres abans d'obrir el formulari
 
                 SelectProfessor statsForm = new SelectProfessor(jsonManager); // Passa `JsonManager` com a argument
@@ -47,7 +47,7 @@ namespace WinFormsMA
             {
                 this.Hide();
 
-                jsonManager = new JsonManager("path/to/local/json", ftpClient); // Proporciona el camí correcte
+                jsonManager = new JsonManager(ftpClient); // Proporciona el camí correcte
                 jsonManager.LoadFromJson(); // Carrega els centres abans d'obrir el formulari
 
                 SelectAdminMode selectForm = new SelectAdminMode(jsonManager.Centers); // Passa la llista de centres
