@@ -122,24 +122,87 @@ namespace WinFormsMA
         {
             if (dataGridViewJson.SelectedRows.Count > 0)
             {
-                // Obté la fila seleccionada i crea l'objecte `Student`
+                // Obté la fila seleccionada i l'objecte `Student` associat
                 var selectedRow = dataGridViewJson.SelectedRows[0];
-                var studentName = selectedRow.Cells[0].Value?.ToString();
+                string studentName = selectedRow.Cells[0].Value?.ToString();
 
-                var student = new Student { Name = studentName }; // Crear l'objecte `Student`
+                if (string.IsNullOrWhiteSpace(studentName))
+                {
+                    MessageBox.Show("Selecciona un estudiant vàlid per modificar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                // Serialitza el `Student` a JSON
-                string jsonStudent = JsonConvert.SerializeObject(student, Formatting.Indented);
+                // Obté el `Center` i el `Group` seleccionats
+                string selectedCenterName = comboBoxCenter.SelectedItem.ToString();
+                string selectedClassName = comboBoxClass.SelectedItem.ToString();
 
-                EditJson formEditJson = new EditJson(jsonStudent);
+                var selectedCenter = centers.FirstOrDefault(center => center.Name == selectedCenterName);
+                var selectedGroup = selectedCenter?.Groups.FirstOrDefault(group => group.Name == selectedClassName);
+
+                if (selectedCenter == null || selectedGroup == null)
+                {
+                    MessageBox.Show("Error trobant el centre o el grup seleccionat.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var studentToModify = selectedGroup.Students.FirstOrDefault(student => student.Name == studentName);
+
+                if (studentToModify == null)
+                {
+                    MessageBox.Show("No s'ha trobat l'estudiant seleccionat.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Obrir la finestra per editar l'estudiant
+                EditJson formEditJson = new EditJson(JsonConvert.SerializeObject(studentToModify, Formatting.Indented));
+
                 if (formEditJson.ShowDialog() == DialogResult.OK)
                 {
-                    // Implementa els canvis necessaris després d'editar
+                    // Recupera el JSON modificat i actualitza l'objecte
+                    string modifiedJson = formEditJson.JsonMod;
+                    var modifiedStudent = JsonConvert.DeserializeObject<Student>(modifiedJson);
+
+                    if (modifiedStudent != null)
+                    {
+                        studentToModify.Name = modifiedStudent.Name; // Actualitza el nom (o altres propietats)
+                        SaveJsonToFile(); // Desa els canvis al fitxer JSON
+                        MessageBox.Show("Canvis guardats correctament.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadStudents(selectedCenter, selectedGroup.Name); // Refresca la vista
+                    }
                 }
             }
             else
             {
                 MessageBox.Show("Si us plau, selecciona una fila per modificar.");
+            }
+        }
+
+        private void SaveJsonToFile()
+        {
+            try
+            {
+                // Defineix el camí complet del fitxer local
+                string localDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "json");
+                string localFilePath = Path.Combine(localDirectory, "manetes_artistes.json");
+
+                // Assegura que el directori existeix
+                if (!Directory.Exists(localDirectory))
+                {
+                    Directory.CreateDirectory(localDirectory);
+                }
+
+                // Serialitza la llista de centres a JSON
+                var jsonBase = new JsonBase { Centers = centers };
+                string jsonData = JsonConvert.SerializeObject(jsonBase, Formatting.Indented);
+
+                // Desa el JSON al fitxer
+                File.WriteAllText(localFilePath, jsonData);
+
+                Console.WriteLine("Canvis desats correctament al fitxer JSON.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error desant el fitxer JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
