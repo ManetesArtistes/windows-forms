@@ -36,12 +36,12 @@
             comboBoxClass = new ComboBox();
             labelClass = new Label();
             dataGridViewJson = new DataGridView();
+            StudentName = new DataGridViewTextBoxColumn();
+            Importacio = new DataGridViewTextBoxColumn();
             buttonModify = new Button();
             buttonDelete = new Button();
             buttonImport = new Button();
             button1 = new Button();
-            StudentName = new DataGridViewTextBoxColumn();
-            Importacio = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridViewJson).BeginInit();
             SuspendLayout();
             // 
@@ -127,6 +127,18 @@
             dataGridViewJson.Size = new Size(1065, 424);
             dataGridViewJson.TabIndex = 8;
             // 
+            // StudentName
+            // 
+            StudentName.HeaderText = "Estudiant";
+            StudentName.Name = "StudentName";
+            StudentName.ReadOnly = true;
+            // 
+            // Importacio
+            // 
+            Importacio.HeaderText = "Data importació";
+            Importacio.Name = "Importacio";
+            Importacio.ReadOnly = true;
+            // 
             // buttonModify
             // 
             buttonModify.Location = new Point(101, 176);
@@ -164,18 +176,7 @@
             button1.TabIndex = 12;
             button1.Text = "Exportar JSON";
             button1.UseVisualStyleBackColor = true;
-            // 
-            // StudentName
-            // 
-            StudentName.HeaderText = "Estudiant";
-            StudentName.Name = "StudentName";
-            StudentName.ReadOnly = true;
-            // 
-            // Importacio
-            // 
-            Importacio.HeaderText = "Data importació";
-            Importacio.Name = "Importacio";
-            Importacio.ReadOnly = true;
+            button1.Click += button1_Click_1;
             // 
             // JsonManagement
             // 

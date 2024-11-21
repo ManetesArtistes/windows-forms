@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using WinFormsMA.Logic;
 using WinFormsMA.Logic.Entities;
+using WinFormsMA.Logic.Services;
+using WinFormsMA.Logic.Utilities;
 
 namespace WinFormsMA
 {
@@ -159,6 +161,42 @@ namespace WinFormsMA
             else
             {
                 MessageBox.Show("Si us plau, selecciona una fila per esborrar.");
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // Crear el diàleg per seleccionar la carpeta
+                using (FolderBrowserDialog folderBrowser = new FolderBrowserDialog())
+                {
+                    folderBrowser.ShowNewFolderButton = true;
+
+                    if (folderBrowser.ShowDialog() == DialogResult.OK)
+                    {
+                        // Obté el directori seleccionat
+                        string selectedPath = folderBrowser.SelectedPath;
+
+                        // Defineix el nom del fitxer JSON
+                        string fileName = "manetes_artistes.json";
+                        string fullFilePath = Path.Combine(selectedPath, fileName);
+
+                        // Descarrega el fitxer JSON des del servidor FTP
+                        string remotePath = "json/manetes_artistes.json";
+
+                        var (ftpUrl, ftpUsername, ftpPassword) = Utils.GetFtpVariables();
+                        Ftp ftpClient = new Ftp(ftpUrl, ftpUsername, ftpPassword);
+
+                        ftpClient.DownloadFile(remotePath, fullFilePath);
+
+                        MessageBox.Show($"Fitxer descarregat correctament a:\n{fullFilePath}", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error descarregant el fitxer JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
