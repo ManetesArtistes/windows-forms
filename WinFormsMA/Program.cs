@@ -13,7 +13,7 @@ namespace WinFormsMA
         {
             // Defineix el camí dels logs al directori del projecte
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
-            string projectPath = Path.Combine(basePath, "..", ".."); // Pujar dos nivells
+            string projectPath = Path.Combine(basePath, "..", "..", ".."); // Pujar tres nivells
             string logPath = Path.Combine(projectPath, "Logs");
 
             // Crea el directori de logs si no existeix

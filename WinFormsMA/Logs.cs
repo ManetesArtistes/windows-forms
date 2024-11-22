@@ -16,7 +16,7 @@ namespace WinFormsMA
             {
                 // Camí per pujar dos nivells al directori del projecte
                 string basePath = AppDomain.CurrentDomain.BaseDirectory;
-                string projectPath = Path.GetFullPath(Path.Combine(basePath, "..", "..")); // Puja dos nivells
+                string projectPath = Path.GetFullPath(Path.Combine(basePath, "..", "..", "..")); // Puja tres nivells
                 string logPath = Path.Combine(projectPath, "Logs");
 
                 if (!Directory.Exists(logPath))
