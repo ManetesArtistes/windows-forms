@@ -37,18 +37,18 @@ namespace WinFormsMA.Logic.Services
                 if (File.Exists(localFilePath))
                 {
                     string jsonData = File.ReadAllText(localFilePath);
-                    var jsonObject = JsonConvert.DeserializeObject<JsonBase>(jsonData); // Deserialitza directament a JsonBase
-                    Centers = jsonObject?.Centers ?? new List<Center>(); // Assigna la llista de centres
+                    var jsonObject = JsonConvert.DeserializeObject<JsonBase>(jsonData); // Deserialitza directament
+                    Centers = jsonObject?.Centers ?? new List<Center>();
                 }
                 else
                 {
-                    Console.WriteLine("Local JSON file does not exist.");
+                    Console.WriteLine("El fitxer JSON local no existeix.");
                     Centers = new List<Center>();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading JSON: {ex.Message}");
+                Console.WriteLine($"Error carregant el JSON: {ex.Message}");
             }
         }
 

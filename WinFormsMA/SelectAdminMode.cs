@@ -21,7 +21,7 @@ namespace WinFormsMA
         private void buttonLogs_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var logsForm = new Logs(centers); // Passa la llista de centres al formulari de logs
+            var logsForm = new Logs();
             logsForm.Show();
         }
 

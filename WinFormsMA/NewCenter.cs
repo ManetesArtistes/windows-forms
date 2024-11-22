@@ -14,6 +14,7 @@ namespace WinFormsMA
             StartPosition = FormStartPosition.CenterScreen;
             this.jsonManager = jsonManager;
             this.centers = centers;
+            this.AcceptButton = buttonAccept;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

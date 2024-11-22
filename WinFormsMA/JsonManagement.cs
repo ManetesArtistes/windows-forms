@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using WinFormsMA.Logic;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
 using WinFormsMA.Logic.Utilities;
@@ -164,10 +163,19 @@ namespace WinFormsMA
 
                     if (modifiedStudent != null)
                     {
-                        studentToModify.Name = modifiedStudent.Name; // Actualitza el nom (o altres propietats)
-                        SaveJsonToFile(); // Desa els canvis al fitxer JSON
+                        // Actualitza les propietats de l'estudiant original
+                        studentToModify.Name = modifiedStudent.Name;
+                        studentToModify.Id = modifiedStudent.Id;
+
+                        // Si hi ha més propietats, afegeix-les aquí
+
+                        // Torna a desar els canvis al fitxer
+                        SaveJsonToFile();
+
                         MessageBox.Show("Canvis guardats correctament.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadStudents(selectedCenter, selectedGroup.Name); // Refresca la vista
+
+                        // Refresca la vista
+                        LoadStudents(selectedCenter, selectedGroup.Name);
                     }
                 }
             }
@@ -185,20 +193,22 @@ namespace WinFormsMA
                 string localDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "json");
                 string localFilePath = Path.Combine(localDirectory, "manetes_artistes.json");
 
-                // Assegura que el directori existeix
                 if (!Directory.Exists(localDirectory))
                 {
                     Directory.CreateDirectory(localDirectory);
                 }
 
-                // Serialitza la llista de centres a JSON
+                // Comprova que la llista conté les dades correctes
+                Console.WriteLine($"Contingut de centers abans de desar: {JsonConvert.SerializeObject(centers, Formatting.Indented)}");
+
+                // Serialitza la llista de centres
                 var jsonBase = new JsonBase { Centers = centers };
                 string jsonData = JsonConvert.SerializeObject(jsonBase, Formatting.Indented);
 
                 // Desa el JSON al fitxer
                 File.WriteAllText(localFilePath, jsonData);
 
-                Console.WriteLine("Canvis desats correctament al fitxer JSON.");
+                Console.WriteLine($"Fitxer JSON desat correctament: {localFilePath}");
             }
             catch (Exception ex)
             {
@@ -208,22 +218,40 @@ namespace WinFormsMA
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            // Comprova si hi ha alguna fila seleccionada
             if (dataGridViewJson.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = dataGridViewJson.SelectedRows[0];
+                var selectedRow = dataGridViewJson.SelectedRows[0];
+                string studentName = selectedRow.Cells[0].Value?.ToString();
 
-                DialogResult dialogResult = MessageBox.Show("Estàs segur que vols esborrar l'element seleccionat?", "Confirmar Esborrat", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                if (string.IsNullOrWhiteSpace(studentName))
                 {
-                    dataGridViewJson.Rows.Remove(selectedRow);
+                    MessageBox.Show("Selecciona un estudiant vàlid per eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                    // Implementa la lògica per esborrar l'estudiant també de la font de dades
+                string selectedCenterName = comboBoxCenter.SelectedItem.ToString();
+                string selectedClassName = comboBoxClass.SelectedItem.ToString();
+
+                var selectedCenter = centers.FirstOrDefault(center => center.Name == selectedCenterName);
+                var selectedGroup = selectedCenter?.Groups.FirstOrDefault(group => group.Name == selectedClassName);
+
+                if (selectedGroup != null)
+                {
+                    var studentToRemove = selectedGroup.Students.FirstOrDefault(student => student.Name == studentName);
+                    if (studentToRemove != null)
+                    {
+                        selectedGroup.Students.Remove(studentToRemove);
+                        SaveJsonToFile(); // Desa els canvis al fitxer JSON
+                        MessageBox.Show("Estudiant eliminat correctament.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Refresca la vista
+                        LoadStudents(selectedCenter, selectedGroup.Name);
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Si us plau, selecciona una fila per esborrar.");
+                MessageBox.Show("Si us plau, selecciona una fila per eliminar.");
             }
         }
 

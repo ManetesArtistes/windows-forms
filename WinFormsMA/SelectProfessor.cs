@@ -1,4 +1,5 @@
-﻿using WinFormsMA.Logic.Entities;
+﻿using Serilog;
+using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
 
 namespace WinFormsMA
@@ -15,14 +16,27 @@ namespace WinFormsMA
 
             try
             {
-                jsonManager.DownloadJsonFromFtp("json/manetes_artistes.json"); // Descarrega el fitxer
-                jsonManager.LoadFromJson(); // Carrega'l a la memòria
+                // Descarrega i carrega el JSON des del servidor
+                jsonManager.DownloadJsonFromFtp("json/manetes_artistes.json");
+                jsonManager.LoadFromJson();
 
-                centers = jsonManager.Centers; // Assigna els centres carregats
-                LoadCenters(); // Mostra els centres al formulari
+                // Assigna els centres carregats des de JsonManager
+                centers = jsonManager.Centers;
+
+                // Comprova si s'han carregat centres abans de continuar
+                if (centers == null || centers.Count == 0)
+                {
+                    Log.Warning("No s'han trobat centres al fitxer JSON.");
+                    MessageBox.Show("No s'han trobat centres al fitxer JSON.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                Log.Information("S'han carregat {Count} centres des del JSON.", centers.Count);
+                LoadCenters();
             }
             catch (Exception ex)
             {
+                Log.Error(ex, "Error carregant el JSON.");
                 MessageBox.Show($"Error carregant el JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -41,7 +55,7 @@ namespace WinFormsMA
 
                 foreach (var center in centers)
                 {
-                    comboBoxCenter.Items.Add(center.Name); // S'utilitza `Name` en lloc de `CenterName`
+                    comboBoxCenter.Items.Add(center.Name); // Afegeix el nom del centre al ComboBox
                 }
 
                 if (comboBoxCenter.Items.Count > 0)
@@ -50,11 +64,13 @@ namespace WinFormsMA
                 }
                 else
                 {
+                    Log.Warning("No hi ha centres disponibles per carregar.");
                     MessageBox.Show("No s'han trobat centres disponibles.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
+                Log.Error(ex, "Error carregant els centres.");
                 MessageBox.Show($"Error carregant els centres: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 centers = new List<Center>(); // Llista buida per evitar errors
             }
@@ -70,16 +86,20 @@ namespace WinFormsMA
 
                 foreach (var group in selectedCenter.Groups)
                 {
-                    comboBoxClass.Items.Add(group.Name); // S'utilitza `Name` en lloc de `GroupName`
+                    comboBoxClass.Items.Add(group.Name); // Afegeix el nom del grup al ComboBox
                 }
 
                 if (comboBoxClass.Items.Count > 0)
                 {
                     comboBoxClass.SelectedIndex = 0;
                 }
+
+                Log.Information("S'han carregat {Count} classes per al centre {CenterName}.",
+                    selectedCenter.Groups.Count, selectedCenter.Name);
             }
             else
             {
+                Log.Warning("El centre {CenterName} no té classes.", selectedCenter.Name);
                 comboBoxClass.Enabled = false;
             }
         }
@@ -172,6 +192,7 @@ namespace WinFormsMA
 
             if (newCenterForm.ShowDialog() == DialogResult.OK)
             {
+                Log.Information("S'ha creat un nou centre.");
                 LoadCenters();
             }
         }
@@ -182,9 +203,17 @@ namespace WinFormsMA
 
             if (selectedCenter != null)
             {
-                this.Hide();
                 var newClassForm = new NewClass(centers, selectedCenter);
-                newClassForm.Show();
+
+                if (newClassForm.ShowDialog() == DialogResult.OK)
+                {
+                    Log.Information("S'ha creat una nova classe per al centre {CenterName}.", selectedCenter.Name);
+                    LoadClasses(selectedCenter);
+                }
+            }
+            else
+            {
+                Log.Warning("No s'ha seleccionat cap centre per afegir una classe.");
             }
         }
 
@@ -199,12 +228,14 @@ namespace WinFormsMA
 
                 if (editCenterForm.ShowDialog() == DialogResult.OK)
                 {
+                    Log.Information("S'ha editat el centre {CenterName}.", selectedCenter.Name);
                     LoadCenters();
                 }
             }
             else
             {
-                MessageBox.Show("Selecciona un centre per modificar.");
+                Log.Warning("No s'ha seleccionat cap centre per editar.");
+                MessageBox.Show("Selecciona un centre per modificar.", "Advertència", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -215,13 +246,18 @@ namespace WinFormsMA
 
             if (selectedGroup != null)
             {
-                this.Hide();
                 var editClassForm = new EditClass(centers, selectedGroup, selectedCenter);
-                editClassForm.Show();
+
+                if (editClassForm.ShowDialog() == DialogResult.OK)
+                {
+                    Log.Information("S'ha editat la classe {ClassName} del centre {CenterName}.", selectedGroup.Name, selectedCenter.Name);
+                    LoadClasses(selectedCenter);
+                }
             }
             else
             {
-                MessageBox.Show("Selecciona una classe per modificar.");
+                Log.Warning("No s'ha seleccionat cap classe per editar.");
+                MessageBox.Show("Selecciona una classe per modificar.", "Advertència", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
