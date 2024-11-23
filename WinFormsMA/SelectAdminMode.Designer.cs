@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectAdminMode));
             buttonLogs = new Button();
             buttonJson = new Button();
             buttonLeft = new Button();
@@ -90,6 +91,7 @@
             Controls.Add(buttonJson);
             Controls.Add(buttonLogs);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SelectAdminMode";
             Text = "SelectAdminMode";
             ResumeLayout(false);

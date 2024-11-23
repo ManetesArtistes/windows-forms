@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewCenter));
             labelNewCenter = new Label();
             textBoxNewCenter = new TextBox();
             buttonAccept = new Button();
@@ -89,6 +90,7 @@
             Controls.Add(buttonAccept);
             Controls.Add(textBoxNewCenter);
             Controls.Add(labelNewCenter);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NewCenter";
             Text = "Nou Centre";
             ResumeLayout(false);

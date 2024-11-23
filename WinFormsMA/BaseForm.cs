@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Drawing;
-
-namespace WinFormsMA
+﻿namespace WinFormsMA
 {
     public class BaseForm : Form
     {
@@ -14,6 +6,12 @@ namespace WinFormsMA
         {
             this.FormClosing += new FormClosingEventHandler(BaseForm_FormClosing);
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            // Configura la finestra perquè no sigui redimensionable
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // Evita redimensionament
+            this.MaximizeBox = false; // Deshabilita el botó de maximitzar
+            this.MinimizeBox = true; // Permet minimitzar si ho desitges
+
             rmFocus();
         }
 

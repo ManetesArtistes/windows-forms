@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Logs));
             labelLogs = new Label();
             buttonLeft = new Button();
             textBoxLogs = new TextBox();
@@ -77,6 +78,7 @@
             Controls.Add(buttonLeft);
             Controls.Add(labelLogs);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Logs";
             Text = "Logs";
             ResumeLayout(false);

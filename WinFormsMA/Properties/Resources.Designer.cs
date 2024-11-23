@@ -93,9 +93,9 @@ namespace WinFormsMA.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pencil {
+        internal static System.Drawing.Bitmap logoPng {
             get {
-                object obj = ResourceManager.GetObject("pencil", resourceCulture);
+                object obj = ResourceManager.GetObject("logoPng", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

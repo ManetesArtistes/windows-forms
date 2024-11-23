@@ -1,8 +1,6 @@
-﻿using System;
-using System.IO;
-using DotNetEnv;
+﻿using DotNetEnv;
 
-namespace WinFormsMA.Logic
+namespace WinFormsMA.Logic.Utilities
 {
     internal class Utils
     {
@@ -33,6 +31,20 @@ namespace WinFormsMA.Logic
         public static void ShowDialogError()
         {
             MessageBox.Show("Credencials Incorrectes, torna a provar-ho.");
+        }
+
+        public static (string ftpUrl, string ftpUsername, string ftpPassword) GetFtpVariables()
+        {
+            if (!EnvLoaded)
+            {
+                throw new InvalidOperationException("El fitxer .env no està carregat.");
+            }
+
+            string ftpUrl = GetEnvVariable("FTP_URL");
+            string ftpUsername = GetEnvVariable("FTP_USERNAME");
+            string ftpPassword = GetEnvVariable("FTP_PASSWORD");
+
+            return (ftpUrl, ftpUsername, ftpPassword);
         }
     }
 }

@@ -29,35 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            labelTitle = new Label();
             labelUser = new Label();
             labelPassword = new Label();
             textBoxUser = new TextBox();
             textBoxPassword = new TextBox();
             buttonLogIn = new Button();
+            pictureBoxLogo = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
             SuspendLayout();
-            // 
-            // labelTitle
-            // 
-            labelTitle.AutoSize = true;
-            labelTitle.BackColor = Color.Transparent;
-            labelTitle.Font = new Font("Comic Sans MS", 35F, FontStyle.Bold);
-            labelTitle.ForeColor = Color.White;
-            labelTitle.Location = new Point(367, 175);
-            labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(537, 65);
-            labelTitle.TabIndex = 0;
-            labelTitle.Text = "MANETES ARTISTES";
             // 
             // labelUser
             // 
             labelUser.AutoSize = true;
             labelUser.BackColor = Color.Transparent;
-            labelUser.Font = new Font("Segoe UI", 18F);
+            labelUser.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             labelUser.ForeColor = SystemColors.Window;
-            labelUser.Location = new Point(396, 307);
+            labelUser.Location = new Point(309, 425);
             labelUser.Name = "labelUser";
-            labelUser.Size = new Size(80, 32);
+            labelUser.Size = new Size(87, 32);
             labelUser.TabIndex = 1;
             labelUser.Text = "Usuari";
             // 
@@ -65,18 +54,18 @@
             // 
             labelPassword.AutoSize = true;
             labelPassword.BackColor = Color.Transparent;
-            labelPassword.Font = new Font("Segoe UI", 18F);
+            labelPassword.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             labelPassword.ForeColor = SystemColors.Window;
-            labelPassword.Location = new Point(394, 361);
+            labelPassword.Location = new Point(307, 479);
             labelPassword.Name = "labelPassword";
-            labelPassword.Size = new Size(146, 32);
+            labelPassword.Size = new Size(156, 32);
             labelPassword.TabIndex = 2;
             labelPassword.Text = "Contrasenya";
             // 
             // textBoxUser
             // 
             textBoxUser.Font = new Font("Segoe UI", 12F);
-            textBoxUser.Location = new Point(552, 312);
+            textBoxUser.Location = new Point(470, 430);
             textBoxUser.Name = "textBoxUser";
             textBoxUser.Size = new Size(299, 29);
             textBoxUser.TabIndex = 3;
@@ -84,7 +73,7 @@
             // textBoxPassword
             // 
             textBoxPassword.Font = new Font("Segoe UI", 12F);
-            textBoxPassword.Location = new Point(552, 365);
+            textBoxPassword.Location = new Point(470, 483);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.Size = new Size(299, 29);
             textBoxPassword.TabIndex = 4;
@@ -93,43 +82,54 @@
             // buttonLogIn
             // 
             buttonLogIn.FlatAppearance.BorderColor = Color.Black;
-            buttonLogIn.Font = new Font("Segoe UI", 20F);
-            buttonLogIn.Location = new Point(627, 426);
+            buttonLogIn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            buttonLogIn.Location = new Point(566, 537);
             buttonLogIn.Name = "buttonLogIn";
-            buttonLogIn.Size = new Size(140, 62);
+            buttonLogIn.Size = new Size(87, 36);
             buttonLogIn.TabIndex = 5;
             buttonLogIn.Text = "Log In";
             buttonLogIn.UseVisualStyleBackColor = true;
             buttonLogIn.Click += buttonLogIn_Click;
             // 
+            // pictureBoxLogo
+            // 
+            pictureBoxLogo.BackColor = Color.Transparent;
+            pictureBoxLogo.BackgroundImage = Properties.Resources.logoPng;
+            pictureBoxLogo.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBoxLogo.Location = new Point(461, 69);
+            pictureBoxLogo.Name = "pictureBoxLogo";
+            pictureBoxLogo.Size = new Size(320, 320);
+            pictureBoxLogo.TabIndex = 6;
+            pictureBoxLogo.TabStop = false;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.background_dark;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1264, 681);
+            Controls.Add(pictureBoxLogo);
             Controls.Add(buttonLogIn);
             Controls.Add(textBoxPassword);
             Controls.Add(textBoxUser);
             Controls.Add(labelPassword);
             Controls.Add(labelUser);
-            Controls.Add(labelTitle);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Login";
             Text = "ManetesArtistes";
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label labelTitle;
         private Label labelUser;
         private Label labelPassword;
         private TextBox textBoxUser;
         private TextBox textBoxPassword;
         private Button buttonLogIn;
+        private PictureBox pictureBoxLogo;
     }
 }
