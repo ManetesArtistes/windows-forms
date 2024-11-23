@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace WinFormsMA
+﻿namespace WinFormsMA
 {
     public partial class Logs : BaseForm
     {
