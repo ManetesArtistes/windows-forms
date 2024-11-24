@@ -1,70 +1,92 @@
-﻿using WinFormsMA.Logic.Entities;
+﻿using Serilog;
+using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
 
 namespace WinFormsMA
 {
-    public partial class NewClass : BaseForm
+    public partial class NewClass : Form
     {
         private List<Center> centers;
+        private JsonManager jsonManager;
         private Center selectedCenter;
 
-        public NewClass(List<Center> centers, Center selectedCenter)
+        public NewClass(JsonManager jsonManager, List<Center> centers, Center selectedCenter)
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+            this.jsonManager = jsonManager;
             this.centers = centers;
             this.selectedCenter = selectedCenter;
+            this.AcceptButton = buttonCreate;
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxNewClass.Text))
+            try
             {
-                MessageBox.Show("Afegeix una classe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (selectedCenter.Groups.Any(g => g.Name.Equals(textBoxNewClass.Text.Trim(), StringComparison.OrdinalIgnoreCase)))
+                string className = textBoxNewClass.Text.Trim();
+
+                if (string.IsNullOrEmpty(className))
                 {
-                    MessageBox.Show("Ja existeix una classe amb aquest nom", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Afegeix un nom per a la classe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                else
+
+                if (selectedCenter.Groups.Any(g => g.Name.Equals(className, StringComparison.OrdinalIgnoreCase)))
                 {
-                    var newGroup = new Group
-                    {
-                        Name = textBoxNewClass.Text.Trim(),
-                        Students = new List<Student>(new Student[16])
-                    };
+                    MessageBox.Show("Ja existeix una classe amb aquest nom.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                    for (int i = 0; i < 16; i++)
-                    {
-                        var textBox = this.Controls.Find($"textBoxStudent{i + 1}", true).FirstOrDefault() as TextBox;
+                // Genera un nou ID per al grup
+                int newGroupId = selectedCenter.Groups.Any() ? selectedCenter.Groups.Max(g => g.Id) + 1 : 0;
 
-                        if (textBox != null && !string.IsNullOrWhiteSpace(textBox.Text))
+                // Crea el nou grup
+                var newGroup = new Group
+                {
+                    Id = newGroupId,
+                    Name = className,
+                    Students = new List<Student>() // Inicialitza amb una llista buida
+                };
+
+                // Afegeix els estudiants introduïts als TextBoxs
+                for (int i = 0; i < 16; i++)
+                {
+                    var textBox = this.Controls.Find($"textBoxStudent{i + 1}", true).FirstOrDefault() as TextBox;
+
+                    if (textBox != null && !string.IsNullOrWhiteSpace(textBox.Text))
+                    {
+                        newGroup.Students.Add(new Student
                         {
-                            newGroup.Students[i] = new Student
+                            Id = i,
+                            Name = textBox.Text.Trim(),
+                            Stats = new Stats
                             {
-                                Name = textBox.Text.Trim(),
-                                Id = i
-                            };
-                        }
+                                Score = 0,
+                                Draws = new List<Draw>() // Inicialitza amb una llista buida de Draw
+                            }
+                        });
                     }
-
-                    selectedCenter.Groups.Add(newGroup);
-                    MessageBox.Show("Classe creada correctament");
-                    this.Hide();
-
-                    SelectProfessor statsForm = new SelectProfessor(new JsonManager(new Ftp("ftpUrl", "ftpUsername", "ftpPassword")));
-                    statsForm.Show();
                 }
+
+                // Afegeix el grup al centre seleccionat
+                selectedCenter.Groups.Add(newGroup);
+
+                // Desa el JSON i el puja al servidor FTP
+                jsonManager.SaveToJson();
+                jsonManager.UploadJsonToFtp("json/manetes_artistes.json");
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error creant la classe: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Error(ex, "Error durant la creació de la classe.");
             }
         }
-
         private void buttonLeft_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-            SelectProfessor statsForm = new SelectProfessor(new JsonManager(new Ftp("ftpUrl", "ftpUsername", "ftpPassword")));
-            statsForm.Show();
+            this.Close();
         }
     }
 }

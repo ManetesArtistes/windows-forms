@@ -96,37 +96,25 @@ namespace WinFormsMA.Logic.Services
             }
         }
 
-        public void AddCenter(Center newCenter)
+        public List<Center> LoadCentersFromFtp(string remoteFilePath)
         {
-            Centers.Add(newCenter);
-            SaveToJson();
-        }
+            try
+            {
+                DownloadJsonFromFtp(remoteFilePath);
+                LoadFromJson();
 
-        public void EditCenter(int centerId, string newName)
-        {
-            var center = Centers.FirstOrDefault(c => c.Id == centerId);
-            if (center != null)
-            {
-                center.Name = newName;
-                SaveToJson();
+                if (Centers == null || Centers.Count == 0)
+                {
+                    Log.Warning("No s'han trobat centres al fitxer JSON.");
+                    return null;
+                }
+                Log.Information("S'han carregat {Count} centres des del JSON.", Centers.Count);
+                return Centers;
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Center not found.");
-            }
-        }
-
-        public void RemoveCenter(int centerId)
-        {
-            var center = Centers.FirstOrDefault(c => c.Id == centerId);
-            if (center != null)
-            {
-                Centers.Remove(center);
-                SaveToJson();
-            }
-            else
-            {
-                Console.WriteLine("Center not found.");
+                Log.Error(ex, "Error carregant els centres des del fitxer JSON.");
+                throw; // Torna a llançar l'excepció perquè el formulari la gestioni
             }
         }
 
