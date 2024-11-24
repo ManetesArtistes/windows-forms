@@ -117,27 +117,5 @@ namespace WinFormsMA.Logic.Services
                 throw; // Torna a llançar l'excepció perquè el formulari la gestioni
             }
         }
-
-        public List<Center> LoadCentersFromFtp(string remoteFilePath)
-        {
-            try
-            {
-                DownloadJsonFromFtp(remoteFilePath);
-                LoadFromJson();
-
-                if (Centers == null || Centers.Count == 0)
-                {
-                    Log.Warning("No s'han trobat centres al fitxer JSON.");
-                    return null;
-                }
-                Log.Information("S'han carregat {Count} centres des del JSON.", Centers.Count);
-                return Centers;
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex, "Error carregant els centres des del fitxer JSON.");
-                throw; // Torna a llançar l'excepció perquè el formulari la gestioni
-            }
-        }
     }
 }
