@@ -35,15 +35,10 @@ namespace WinFormsMA
             this.centers = centers ?? new List<Center>(); // Assegurem que no sigui nul
         }
 
-        public SelectAdminMode()
-        {
-            InitializeComponent();
-        }
-
         private void buttonLogs_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var logsForm = new Logs();
+            var logsForm = new Logs(centers);
             logsForm.Show();
         }
 

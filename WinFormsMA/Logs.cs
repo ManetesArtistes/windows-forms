@@ -1,10 +1,15 @@
-﻿namespace WinFormsMA
+﻿using WinFormsMA.Logic.Entities;
+
+namespace WinFormsMA
 {
     public partial class Logs : BaseForm
     {
-        public Logs()
+        private List<Center> centers;
+
+        public Logs(List<Center> centers)
         {
             InitializeComponent();
+            this.centers = centers;
             LoadLogs();
         }
 
@@ -72,7 +77,7 @@
         {
             this.Hide();
 
-            SelectAdminMode selectAdminMode = new SelectAdminMode();
+            SelectAdminMode selectAdminMode = new SelectAdminMode(centers);
             selectAdminMode.Show();
         }
     }
