@@ -319,7 +319,7 @@ namespace WinFormsMA
                     return;
                 }
 
-                // Obtenir el centre i el grup seleccionats
+                // Obté el centre i el grup seleccionats
                 string selectedCenterName = comboBoxCenter.SelectedItem.ToString();
                 string selectedClassName = comboBoxClass.SelectedItem.ToString();
 
@@ -332,12 +332,12 @@ namespace WinFormsMA
                     return;
                 }
 
-                // Obtenir IDs per filtrar les imatges
+                // Obté IDs per filtrar les imatges
                 int cid = selectedCenter.Id;
                 int gid = selectedGroup.Id;
                 var students = selectedGroup.Students;
 
-                // Obrir un diàleg perquè l'usuari triï una carpeta de descàrrega
+                // Obre un diàleg perquè l'usuari triï una carpeta de descàrrega
                 using (FolderBrowserDialog folderBrowser = new FolderBrowserDialog())
                 {
                     if (folderBrowser.ShowDialog() == DialogResult.OK)
@@ -348,10 +348,10 @@ namespace WinFormsMA
                         var (ftpUrl, ftpUsername, ftpPassword) = Utils.GetFtpVariables();
                         Ftp ftpClient = new Ftp(ftpUrl, ftpUsername, ftpPassword);
 
-                        // Obtenir tots els fitxers de la carpeta /images/ al servidor FTP
+                        // Obté tots els fitxers de la carpeta /images/ al servidor FTP
                         var files = ftpClient.ListDirectory("images");
 
-                        // Filtrar els fitxers que coincideixen amb el patró i els IDs seleccionats
+                        // Filtra els fitxers que coincideixen amb el patró i els IDs seleccionats
                         var matchingFiles = files.Where(file =>
                         {
                             // Patró del nom del fitxer: cid_X_gid_X_sid_X_drawid_X.png
@@ -367,21 +367,21 @@ namespace WinFormsMA
                             return false;
                         }).ToList();
 
-                        // Descarregar els fitxers filtrats amb el canvi de nom
+                        // Descarrega els fitxers filtrats amb el canvi de nom
                         foreach (var file in matchingFiles)
                         {
-                            // Obtenir els IDs des del nom del fitxer
+                            // Obté els IDs des del nom del fitxer
                             var match = Regex.Match(file, @"cid_(\d+)_gid_(\d+)_sid_(\d+)_drawid_\d+\.png");
                             int sid = int.Parse(match.Groups[3].Value);
 
-                            // Trobar l'estudiant corresponent
+                            // Troba l'estudiant corresponent
                             var student = students.FirstOrDefault(s => s.Id == sid);
                             if (student == null) continue;
 
-                            // Comptar quantes imatges del mateix estudiant ja s'han descarregat
+                            // Compta quantes imatges del mateix estudiant ja s'han descarregat
                             int imageCount = Directory.GetFiles(localFolderPath, $"{student.Name}_{selectedGroup.Name}_{selectedCenter.Name}_*.png").Length + 1;
 
-                            // Generar el nou nom local amb número seqüencial
+                            // Genera el nou nom local amb número seqüencial
                             string newFileName = $"{student.Name}_{selectedGroup.Name}_{selectedCenter.Name}_{imageCount}.png";
                             string remoteFilePath = $"images/{file}";
                             string localFilePath = Path.Combine(localFolderPath, newFileName);
@@ -395,7 +395,6 @@ namespace WinFormsMA
                                 Log.Error($"Error descarregant {file}: {ex.Message}");
                             }
                         }
-
                         MessageBox.Show($"S'han descarregat {matchingFiles.Count} imatges a la carpeta seleccionada.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }

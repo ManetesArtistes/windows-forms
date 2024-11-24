@@ -20,11 +20,6 @@ namespace WinFormsMA
             this.AcceptButton = buttonCreate;
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             try
@@ -43,7 +38,7 @@ namespace WinFormsMA
                     return;
                 }
 
-                // Genera un nou identificador únic per al grup
+                // Genera un nou ID per al grup
                 int newGroupId = selectedCenter.Groups.Any() ? selectedCenter.Groups.Max(g => g.Id) + 1 : 0;
 
                 // Crea el nou grup
@@ -54,7 +49,7 @@ namespace WinFormsMA
                     Students = new List<Student>() // Inicialitza amb una llista buida
                 };
 
-                // Afegeix els estudiants introduïts als TextBoxes
+                // Afegeix els estudiants introduïts als TextBoxs
                 for (int i = 0; i < 16; i++)
                 {
                     var textBox = this.Controls.Find($"textBoxStudent{i + 1}", true).FirstOrDefault() as TextBox;
@@ -78,8 +73,8 @@ namespace WinFormsMA
                 selectedCenter.Groups.Add(newGroup);
 
                 // Desa el JSON i el puja al servidor FTP
-                jsonManager.SaveToJson(); // Desa el fitxer localment
-                jsonManager.UploadJsonToFtp("json/manetes_artistes.json"); // Puja el fitxer al FTP
+                jsonManager.SaveToJson();
+                jsonManager.UploadJsonToFtp("json/manetes_artistes.json");
 
                 this.Close();
             }
@@ -91,7 +86,7 @@ namespace WinFormsMA
         }
         private void buttonLeft_Click(object sender, EventArgs e)
         {
-            this.Close(); // Tanca el formulari actual
+            this.Close();
         }
     }
 }

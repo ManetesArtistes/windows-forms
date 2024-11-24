@@ -118,7 +118,7 @@ namespace WinFormsMA
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            this.Close(); // Tanca el formulari sense fer canvis
+            this.Close();
         }
     }
 }

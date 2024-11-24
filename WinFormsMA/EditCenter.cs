@@ -55,7 +55,7 @@ namespace WinFormsMA
                 jsonManager.SaveToJson();
                 jsonManager.UploadJsonToFtp("json/manetes_artistes.json");
 
-                this.Close(); // Tanca el formulari
+                this.Close();
             }
             catch (Exception ex)
             {

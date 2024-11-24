@@ -112,7 +112,6 @@ namespace WinFormsMA.Logic.Services
             {
                 Console.WriteLine($"Error llistant el directori FTP: {ex.Message}");
             }
-
             return files;
         }
     }
