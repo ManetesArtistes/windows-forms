@@ -20,6 +20,7 @@ namespace WinFormsMA
 
                 if (centers == null || centers.Count == 0) // Comprova si s'han carregat centres abans de continuar
                 {
+                    Log.Warning("No s'han trobat centres al fitxer JSON.");
                     MessageBox.Show("No s'han trobat centres al fitxer JSON.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }

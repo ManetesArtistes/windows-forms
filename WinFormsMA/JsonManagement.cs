@@ -252,6 +252,78 @@ namespace WinFormsMA
             }
         }
 
+                var studentToModify = selectedGroup.Students.FirstOrDefault(student => student.Name == studentName);
+
+                if (studentToModify == null)
+                {
+                    MessageBox.Show("No s'ha trobat l'estudiant seleccionat.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Obrir la finestra per editar l'estudiant
+                EditJson formEditJson = new EditJson(JsonConvert.SerializeObject(studentToModify, Formatting.Indented));
+
+                if (formEditJson.ShowDialog() == DialogResult.OK)
+                {
+                    // Recupera el JSON modificat i actualitza l'objecte
+                    string modifiedJson = formEditJson.JsonMod;
+                    var modifiedStudent = JsonConvert.DeserializeObject<Student>(modifiedJson);
+
+                    if (modifiedStudent != null)
+                    {
+                        // Actualitza les propietats de l'estudiant original
+                        studentToModify.Name = modifiedStudent.Name;
+                        studentToModify.Id = modifiedStudent.Id;
+
+                        // Si hi ha més propietats, afegeix-les aquí
+
+                        // Torna a desar els canvis al fitxer
+                        SaveJsonToFile();
+
+                        MessageBox.Show("Canvis guardats correctament.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Refresca la vista
+                        LoadStudents(selectedCenter, selectedGroup.Name);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Si us plau, selecciona una fila per modificar.");
+            }
+        }
+
+        private void SaveJsonToFile()
+        {
+            try
+            {
+                // Defineix el camí complet del fitxer local
+                string localDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "json");
+                string localFilePath = Path.Combine(localDirectory, "manetes_artistes.json");
+
+                if (!Directory.Exists(localDirectory))
+                {
+                    Directory.CreateDirectory(localDirectory);
+                }
+
+                // Comprova que la llista conté les dades correctes
+                Console.WriteLine($"Contingut de centers abans de desar: {JsonConvert.SerializeObject(centers, Formatting.Indented)}");
+
+                // Serialitza la llista de centres
+                var jsonBase = new JsonBase { Centers = centers };
+                string jsonData = JsonConvert.SerializeObject(jsonBase, Formatting.Indented);
+
+                // Desa el JSON al fitxer
+                File.WriteAllText(localFilePath, jsonData);
+
+                Console.WriteLine($"Fitxer JSON desat correctament: {localFilePath}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error desant el fitxer JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (dataGridViewJson.SelectedRows.Count > 0)

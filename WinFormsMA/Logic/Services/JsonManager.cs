@@ -72,6 +72,7 @@ namespace WinFormsMA.Logic.Services
         {
             try
             {
+                // Descarrega el fitxer del servidor FTP a la ruta local
                 ftpClient.DownloadFile(remotePath, localFilePath);
                 Console.WriteLine($"JSON file downloaded from FTP to {localFilePath}");
                 LoadFromJson(); // Carrega el JSON a la memòria
