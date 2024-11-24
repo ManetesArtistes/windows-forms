@@ -260,5 +260,10 @@ namespace WinFormsMA
                 MessageBox.Show("Selecciona una classe per modificar.", "Advertència", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void buttonDownload_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Serilog;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Utilities;
 
@@ -127,6 +128,33 @@ namespace WinFormsMA.Logic.Services
             else
             {
                 Console.WriteLine("Center not found.");
+            }
+        }
+
+        public List<Center> LoadCentersFromFtp(string remoteFilePath)
+        {
+            try
+            {
+                // Descarrega el fitxer JSON des del servidor FTP
+                DownloadJsonFromFtp(remoteFilePath);
+
+                // Carrega els centres des del fitxer JSON
+                LoadFromJson();
+
+                // Comprova si s'han carregat centres
+                if (Centers == null || Centers.Count == 0)
+                {
+                    Log.Warning("No s'han trobat centres al fitxer JSON.");
+                    return null; // Retorna null si no hi ha centres
+                }
+
+                Log.Information("S'han carregat {Count} centres des del JSON.", Centers.Count);
+                return Centers; // Retorna la llista de centres carregats
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error carregant els centres des del fitxer JSON.");
+                throw; // Torna a llançar l'excepció perquè el formulari la gestioni
             }
         }
     }

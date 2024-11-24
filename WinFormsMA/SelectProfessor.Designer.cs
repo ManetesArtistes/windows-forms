@@ -40,8 +40,13 @@
             comboBoxStudent = new ComboBox();
             labelStudent = new Label();
             groupBoxStats = new GroupBox();
+            labelColoringPages = new Label();
+            labelSimon = new Label();
             buttonEditCenter = new Button();
             buttonEditClass = new Button();
+            labelImages = new Label();
+            buttonDownload = new Button();
+            groupBoxStats.SuspendLayout();
             SuspendLayout();
             // 
             // buttonLeft
@@ -139,7 +144,7 @@
             comboBoxStudent.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxStudent.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxStudent.FormattingEnabled = true;
-            comboBoxStudent.Location = new Point(823, 144);
+            comboBoxStudent.Location = new Point(823, 113);
             comboBoxStudent.Name = "comboBoxStudent";
             comboBoxStudent.Size = new Size(309, 31);
             comboBoxStudent.TabIndex = 13;
@@ -150,7 +155,7 @@
             labelStudent.BackColor = Color.Transparent;
             labelStudent.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             labelStudent.ForeColor = SystemColors.Window;
-            labelStudent.Location = new Point(711, 138);
+            labelStudent.Location = new Point(711, 107);
             labelStudent.Name = "labelStudent";
             labelStudent.Size = new Size(97, 35);
             labelStudent.TabIndex = 11;
@@ -158,14 +163,42 @@
             // 
             // groupBoxStats
             // 
+            groupBoxStats.BackColor = Color.Transparent;
             groupBoxStats.BackgroundImage = Properties.Resources.wood_background;
             groupBoxStats.BackgroundImageLayout = ImageLayout.Stretch;
+            groupBoxStats.Controls.Add(labelColoringPages);
+            groupBoxStats.Controls.Add(labelSimon);
+            groupBoxStats.FlatStyle = FlatStyle.Flat;
+            groupBoxStats.ForeColor = Color.Transparent;
             groupBoxStats.Location = new Point(16, 255);
             groupBoxStats.Name = "groupBoxStats";
             groupBoxStats.Size = new Size(1228, 415);
             groupBoxStats.TabIndex = 15;
             groupBoxStats.TabStop = false;
-            groupBoxStats.Text = "Estadístiques";
+            // 
+            // labelColoringPages
+            // 
+            labelColoringPages.AutoSize = true;
+            labelColoringPages.BackColor = Color.Transparent;
+            labelColoringPages.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelColoringPages.ForeColor = Color.White;
+            labelColoringPages.Location = new Point(564, 28);
+            labelColoringPages.Name = "labelColoringPages";
+            labelColoringPages.Size = new Size(210, 37);
+            labelColoringPages.TabIndex = 19;
+            labelColoringPages.Text = "Coloring Pages";
+            // 
+            // labelSimon
+            // 
+            labelSimon.AutoSize = true;
+            labelSimon.BackColor = Color.Transparent;
+            labelSimon.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelSimon.ForeColor = Color.White;
+            labelSimon.Location = new Point(30, 28);
+            labelSimon.Name = "labelSimon";
+            labelSimon.Size = new Size(162, 37);
+            labelSimon.TabIndex = 18;
+            labelSimon.Text = "Simon Says";
             // 
             // buttonEditCenter
             // 
@@ -191,13 +224,38 @@
             buttonEditClass.UseVisualStyleBackColor = true;
             buttonEditClass.Click += buttonEditClass_Click;
             // 
-            // Stats
+            // labelImages
+            // 
+            labelImages.AutoSize = true;
+            labelImages.BackColor = Color.Transparent;
+            labelImages.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
+            labelImages.ForeColor = SystemColors.Window;
+            labelImages.Location = new Point(711, 169);
+            labelImages.Name = "labelImages";
+            labelImages.Size = new Size(109, 35);
+            labelImages.TabIndex = 18;
+            labelImages.Text = "Imatges";
+            // 
+            // buttonDownload
+            // 
+            buttonDownload.Font = new Font("Segoe UI Semibold", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonDownload.Location = new Point(823, 172);
+            buttonDownload.Name = "buttonDownload";
+            buttonDownload.Size = new Size(75, 32);
+            buttonDownload.TabIndex = 19;
+            buttonDownload.Text = "Descarrega";
+            buttonDownload.UseVisualStyleBackColor = true;
+            buttonDownload.Click += buttonDownload_Click;
+            // 
+            // SelectProfessor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.background_dark;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1264, 681);
+            Controls.Add(buttonDownload);
+            Controls.Add(labelImages);
             Controls.Add(buttonEditClass);
             Controls.Add(buttonEditCenter);
             Controls.Add(groupBoxStats);
@@ -213,8 +271,10 @@
             Controls.Add(labelStats);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Stats";
+            Name = "SelectProfessor";
             Text = "Estadístiques";
+            groupBoxStats.ResumeLayout(false);
+            groupBoxStats.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -234,5 +294,9 @@
         private GroupBox groupBoxStats;
         private Button buttonEditCenter;
         private Button buttonEditClass;
+        private Label labelColoringPages;
+        private Label labelSimon;
+        private Label labelImages;
+        private Button buttonDownload;
     }
 }
