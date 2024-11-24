@@ -104,7 +104,7 @@ namespace WinFormsMA
             catch (Exception ex)
             {
                 MessageBox.Show($"Error desant els canvis: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Error(ex, "Error durant l'edició de la classe.");
+                Log.Error(ex, "Error durant l'ediciï¿½ de la classe.");
             }
         }
 
