@@ -183,7 +183,29 @@ namespace WinFormsMA
             if (newCenterForm.ShowDialog() == DialogResult.OK)
             {
                 Log.Information("S'ha creat un nou centre.");
-                LoadCenters();
+                LoadCenters(); // Només refresquem els centres al ComboBox
+            }
+        }
+
+        private void buttonEditCenter_Click(object sender, EventArgs e)
+        {
+            string selectedCenterName = comboBoxCenter.Text;
+            var selectedCenter = centers.FirstOrDefault(center => center.Name == selectedCenterName);
+
+            if (selectedCenter != null)
+            {
+                var editCenterForm = new EditCenter(jsonManager, centers, selectedCenter);
+
+                if (editCenterForm.ShowDialog() == DialogResult.OK)
+                {
+                    Log.Information("S'ha editat el centre {CenterName}.", selectedCenter.Name);
+                    LoadCenters(); // Només refresquem els centres al ComboBox
+                }
+            }
+            else
+            {
+                Log.Warning("No s'ha seleccionat cap centre per editar.");
+                MessageBox.Show("Selecciona un centre per modificar.", "Advertència", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -198,34 +220,12 @@ namespace WinFormsMA
                 if (newClassForm.ShowDialog() == DialogResult.OK)
                 {
                     Log.Information("S'ha creat una nova classe per al centre {CenterName}.", selectedCenter.Name);
-                    LoadClasses(selectedCenter);
+                    LoadClasses(selectedCenter); // Només refresquem els centres al ComboBox
                 }
             }
             else
             {
                 Log.Warning("No s'ha seleccionat cap centre per afegir una classe.");
-            }
-        }
-
-        private void buttonEditCenter_Click(object sender, EventArgs e)
-        {
-            string selectedCenterName = comboBoxCenter.Text;
-            var selectedCenter = centers.FirstOrDefault(center => center.Name == selectedCenterName);
-
-            if (selectedCenter != null)
-            {
-                var editCenterForm = new EditCenter(centers, selectedCenter);
-
-                if (editCenterForm.ShowDialog() == DialogResult.OK)
-                {
-                    Log.Information("S'ha editat el centre {CenterName}.", selectedCenter.Name);
-                    LoadCenters();
-                }
-            }
-            else
-            {
-                Log.Warning("No s'ha seleccionat cap centre per editar.");
-                MessageBox.Show("Selecciona un centre per modificar.", "Advertència", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -241,7 +241,7 @@ namespace WinFormsMA
                 if (editClassForm.ShowDialog() == DialogResult.OK)
                 {
                     Log.Information("S'ha editat la classe {ClassName} del centre {CenterName}.", selectedGroup.Name, selectedCenter.Name);
-                    LoadClasses(selectedCenter);
+                    LoadClasses(selectedCenter); // Només refresquem els centres al ComboBox
                 }
             }
             else

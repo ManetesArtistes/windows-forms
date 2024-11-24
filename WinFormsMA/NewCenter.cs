@@ -24,18 +24,21 @@ namespace WinFormsMA
 
         private void buttonAccept_Click(object sender, EventArgs e)
         {
-            string centerName = textBoxNewCenter.Text.Trim();
+            try
+            {
+                string centerName = textBoxNewCenter.Text.Trim();
 
-            if (string.IsNullOrEmpty(centerName))
-            {
-                MessageBox.Show("Afegeix el nom d'un centre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (centers.Any(c => c.Name.Equals(centerName, StringComparison.OrdinalIgnoreCase)))
-            {
-                MessageBox.Show("Ja existeix un centre amb aquest nom", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
+                if (string.IsNullOrEmpty(centerName))
+                {
+                    MessageBox.Show("Afegeix el nom d'un centre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (centers.Any(c => c.Name.Equals(centerName, StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show("Ja existeix un centre amb aquest nom", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 int centerId = centers.Any() ? centers.Max(c => c.Id) + 1 : 1;
 
                 // Crea el nou objecte Center
@@ -46,10 +49,16 @@ namespace WinFormsMA
                     Groups = new List<Group>() // Inicialitza una llista buida
                 };
 
-                jsonManager.AddCenter(center); // Utilitza JsonManager per afegir el centre i desar els canvis
+                centers.Add(center);
 
-                this.DialogResult = DialogResult.OK;
+                jsonManager.SaveToJson();
+                jsonManager.UploadJsonToFtp("json/manetes_artistes.json");
+
                 this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error creant el centre: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

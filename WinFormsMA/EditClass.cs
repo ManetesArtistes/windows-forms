@@ -1,5 +1,7 @@
+using Serilog;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
+using WinFormsMA.Logic.Utilities;
 
 namespace WinFormsMA
 {
@@ -43,12 +45,14 @@ namespace WinFormsMA
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (selectedCenter.Groups.Any(g => g != selectedGroup && g.Name.Equals(textBoxEditClass.Text.Trim(), StringComparison.OrdinalIgnoreCase)))
+            try
             {
-                MessageBox.Show("Ja existeix una classe amb aquest nom", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
+                if (selectedCenter.Groups.Any(g => g != selectedGroup && g.Name.Equals(textBoxEditClass.Text.Trim(), StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show("Ja existeix una classe amb aquest nom", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 selectedGroup.Name = textBoxEditClass.Text.Trim();
 
                 var updatedStudents = new List<Student>();
@@ -76,12 +80,19 @@ namespace WinFormsMA
                 }
                 selectedGroup.Students = updatedStudents;
 
-                MessageBox.Show("Canvis fets correctament");
-                this.Hide();
+                var (ftpUrl, ftpUsername, ftpPassword) = Utils.GetFtpVariables();
+                var jsonManager = new JsonManager(new Ftp(ftpUrl, ftpUsername, ftpPassword));
+                jsonManager.SaveToJson();
+                jsonManager.UploadJsonToFtp("json/manetes_artistes.json");
 
-                // Torna al formulari principal
-                SelectProfessor statsForm = new SelectProfessor(new JsonManager(new Ftp("ftpUrl", "ftpUsername", "ftpPassword")));
-                statsForm.Show();
+                MessageBox.Show("Canvis fets correctament.");
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error desant els canvis: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Error(ex, "Error durant l'edició de la classe.");
             }
         }
 
