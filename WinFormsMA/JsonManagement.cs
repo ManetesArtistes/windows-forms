@@ -36,6 +36,107 @@ namespace WinFormsMA
             }
         }
 
+        private void LoadClasses(Center selectedCenter)
+        {
+            comboBoxClass.Items.Clear();
+            comboBoxClass.Items.Add("");
+
+            foreach (var group in selectedCenter.Groups)
+            {
+                comboBoxClass.Items.Add(group.Name); // `Name` en lloc de `GroupName`
+            }
+
+            if (comboBoxClass.Items.Count > 0)
+            {
+                comboBoxClass.SelectedIndex = 0;
+            }
+        }
+
+        private void LoadStudents(Center selectedCenter, string selectedClassName)
+        {
+            dataGridViewJson.Rows.Clear();
+
+            var selectedGroup = selectedCenter.Groups.FirstOrDefault(group => group.Name == selectedClassName); // `Name` en lloc de `GroupName`
+
+            if (selectedGroup != null)
+            {
+                foreach (var student in selectedGroup.Students)
+                {
+                    dataGridViewJson.Rows.Add(student.Name, null); // `Name` en lloc de `StudentName`
+                }
+            }
+        }
+
+        private void SaveJsonToFile()
+        {
+            try
+            {
+                // Defineix el camí absolut al directori "Json" dins el projecte
+                string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string solutionDirectory = Path.GetFullPath(Path.Combine(projectDirectory, @"..\..\.."));
+                string jsonDirectory = Path.Combine(solutionDirectory, "Json");
+
+                // Defineix el camí complet del fitxer JSON
+                string localFilePath = Path.Combine(jsonDirectory, "manetes_artistes.json");
+
+                // Crea la carpeta si no existeix
+                if (!Directory.Exists(jsonDirectory))
+                {
+                    Directory.CreateDirectory(jsonDirectory);
+                }
+
+                // Comprova que la llista conté les dades correctes
+                Console.WriteLine($"Contingut de centers abans de desar: {JsonConvert.SerializeObject(centers, Formatting.Indented)}");
+
+                // Serialitza la llista de centres
+                var jsonBase = new JsonBase { Centers = centers };
+                string jsonData = JsonConvert.SerializeObject(jsonBase, Formatting.Indented);
+
+                // Desa el JSON al fitxer
+                File.WriteAllText(localFilePath, jsonData);
+
+                Console.WriteLine($"Fitxer JSON desat correctament a: {localFilePath}");
+
+                // Pujar el fitxer al servidor FTP
+                UploadJsonToFtp(localFilePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error desant el fitxer JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void UploadJsonToFtp(string localFilePath)
+        {
+            try
+            {
+                // Defineix el camí remot al servidor FTP
+                string remoteFilePath = "json/manetes_artistes.json";
+
+                // Obtenir les credencials FTP
+                var (ftpUrl, ftpUsername, ftpPassword) = Utils.GetFtpVariables();
+                Ftp ftpClient = new Ftp(ftpUrl, ftpUsername, ftpPassword);
+
+                // Pujar el fitxer
+                ftpClient.UploadFile(localFilePath, remoteFilePath);
+
+                Console.WriteLine($"Fitxer JSON pujat correctament al servidor FTP a: {remoteFilePath}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error pujant el fitxer JSON al servidor FTP: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string GenerateUniqueFileName(string originalFileName)
+        {
+            string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            string fileExtension = Path.GetExtension(originalFileName);
+            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(originalFileName);
+
+            return $"{fileNameWithoutExtension}_{timestamp}{fileExtension}";
+        }
+
         private void comboBoxCenter_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxCenter.SelectedIndex == 0)
@@ -59,22 +160,6 @@ namespace WinFormsMA
             }
         }
 
-        private void LoadClasses(Center selectedCenter)
-        {
-            comboBoxClass.Items.Clear();
-            comboBoxClass.Items.Add("");
-
-            foreach (var group in selectedCenter.Groups)
-            {
-                comboBoxClass.Items.Add(group.Name); // `Name` en lloc de `GroupName`
-            }
-
-            if (comboBoxClass.Items.Count > 0)
-            {
-                comboBoxClass.SelectedIndex = 0;
-            }
-        }
-
         private void comboBoxClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxClass.SelectedIndex == 0)
@@ -90,21 +175,6 @@ namespace WinFormsMA
                 if (selectedCenter != null)
                 {
                     LoadStudents(selectedCenter, selectedClassName);
-                }
-            }
-        }
-
-        private void LoadStudents(Center selectedCenter, string selectedClassName)
-        {
-            dataGridViewJson.Rows.Clear();
-
-            var selectedGroup = selectedCenter.Groups.FirstOrDefault(group => group.Name == selectedClassName); // `Name` en lloc de `GroupName`
-
-            if (selectedGroup != null)
-            {
-                foreach (var student in selectedGroup.Students)
-                {
-                    dataGridViewJson.Rows.Add(student.Name, null); // `Name` en lloc de `StudentName`
                 }
             }
         }
@@ -166,10 +236,8 @@ namespace WinFormsMA
                         // Actualitza les propietats de l'estudiant original
                         studentToModify.Name = modifiedStudent.Name;
                         studentToModify.Id = modifiedStudent.Id;
+                        studentToModify.Stats = modifiedStudent.Stats;
 
-                        // Si hi ha més propietats, afegeix-les aquí
-
-                        
                         SaveJsonToFile(); // Torna a desar els canvis al fitxer
 
                         MessageBox.Show("Canvis guardats correctament.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -181,36 +249,6 @@ namespace WinFormsMA
             else
             {
                 MessageBox.Show("Si us plau, selecciona una fila per modificar.");
-            }
-        }
-
-        private void SaveJsonToFile()
-        {
-            try
-            {
-                string localDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "json");
-                string localFilePath = Path.Combine(localDirectory, "manetes_artistes.json");
-
-                if (!Directory.Exists(localDirectory))
-                {
-                    Directory.CreateDirectory(localDirectory);
-                }
-
-                // Comprova que la llista conté les dades correctes
-                Console.WriteLine($"Contingut de centers abans de desar: {JsonConvert.SerializeObject(centers, Formatting.Indented)}");
-
-                // Serialitza la llista de centres
-                var jsonBase = new JsonBase { Centers = centers };
-                string jsonData = JsonConvert.SerializeObject(jsonBase, Formatting.Indented);
-
-                // Desa el JSON al fitxer
-                File.WriteAllText(localFilePath, jsonData);
-
-                Console.WriteLine($"Fitxer JSON desat correctament: {localFilePath}");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error desant el fitxer JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -238,12 +276,31 @@ namespace WinFormsMA
                     var studentToRemove = selectedGroup.Students.FirstOrDefault(student => student.Name == studentName);
                     if (studentToRemove != null)
                     {
-                        selectedGroup.Students.Remove(studentToRemove);
-                        SaveJsonToFile(); // Desa els canvis al fitxer JSON
+                        selectedGroup.Students.Remove(studentToRemove); // Elimina l'estudiant de la llista
+                        SaveJsonToFile(); // Desa els canvis localment
                         MessageBox.Show("Estudiant eliminat correctament.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Puja el fitxer JSON actualitzat al servidor FTP
+                        try
+                        {
+                            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                            string solutionDirectory = Path.GetFullPath(Path.Combine(projectDirectory, @"..\..\.."));
+                            string jsonDirectory = Path.Combine(solutionDirectory, "Json");
+                            string localFilePath = Path.Combine(jsonDirectory, "manetes_artistes.json");
+
+                            UploadJsonToFtp(localFilePath); // Pujar el fitxer al servidor FTP
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Error pujant el fitxer JSON al servidor FTP: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
 
                         LoadStudents(selectedCenter, selectedGroup.Name); // Refresca la vista
                     }
+                }
+                else
+                {
+                    MessageBox.Show("No s'ha trobat el grup seleccionat.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -256,7 +313,7 @@ namespace WinFormsMA
         {
             try
             {
-                using (FolderBrowserDialog folderBrowser = new FolderBrowserDialog()) // Crear el diàleg per seleccionar la carpeta
+                using (FolderBrowserDialog folderBrowser = new FolderBrowserDialog()) // Crea el diàleg per seleccionar la carpeta
                 {
                     folderBrowser.ShowNewFolderButton = true;
 
@@ -291,7 +348,7 @@ namespace WinFormsMA
         {
             try
             {
-                using (OpenFileDialog openFileDialog = new OpenFileDialog()) // Crear el diàleg per seleccionar el fitxer
+                using (OpenFileDialog openFileDialog = new OpenFileDialog()) // Crea el diàleg per seleccionar el fitxer
                 {
                     openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
                     openFileDialog.Title = "Selecciona un fitxer JSON per importar";
@@ -301,7 +358,7 @@ namespace WinFormsMA
                         // Obté el camí complet del fitxer seleccionat
                         string selectedFilePath = openFileDialog.FileName;
 
-                        // Obtenir el nom del fitxer seleccionat
+                        // Obté el nom del fitxer seleccionat
                         string originalFileName = Path.GetFileName(selectedFilePath);
 
                         // Genera un nom únic per al servidor
@@ -325,15 +382,6 @@ namespace WinFormsMA
             {
                 MessageBox.Show($"Error pujant el fitxer JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private string GenerateUniqueFileName(string originalFileName)
-        {
-            string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-            string fileExtension = Path.GetExtension(originalFileName);
-            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(originalFileName);
-
-            return $"{fileNameWithoutExtension}_{timestamp}{fileExtension}";
         }
     }
 }

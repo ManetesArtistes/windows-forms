@@ -37,8 +37,7 @@ namespace WinFormsMA
 
                 textBoxLogs.Clear();
 
-                // Llista per guardar totes les línies de tots els fitxers
-                List<string> allLogLines = new List<string>();
+                List<string> allLogLines = new List<string>(); // Llista per guardar totes les línies de tots els fitxers
 
                 foreach (string file in logFiles)
                 {
