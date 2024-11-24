@@ -1,4 +1,4 @@
-﻿namespace WinFormsMA
+namespace WinFormsMA
 {
     partial class SelectProfessor
     {

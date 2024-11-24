@@ -1,4 +1,4 @@
-﻿using WinFormsMA.Logic.Entities;
+using WinFormsMA.Logic.Entities;
 
 namespace WinFormsMA
 {
@@ -74,6 +74,7 @@ namespace WinFormsMA
 
         private void buttonLeft_Click(object sender, EventArgs e)
         {
+            // Tanca aquest formulari i obre l'anterior (p. ex., SelectAdminMode)
             this.Hide();
 
             SelectAdminMode selectAdminMode = new SelectAdminMode(centers);

@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
 using WinFormsMA.Logic.Utilities;
@@ -382,6 +382,15 @@ namespace WinFormsMA
             {
                 MessageBox.Show($"Error pujant el fitxer JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private string GenerateUniqueFileName(string originalFileName)
+        {
+            string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            string fileExtension = Path.GetExtension(originalFileName);
+            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(originalFileName);
+
+            return $"{fileNameWithoutExtension}_{timestamp}{fileExtension}";
         }
     }
 }

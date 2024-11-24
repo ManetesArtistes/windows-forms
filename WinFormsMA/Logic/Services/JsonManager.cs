@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Serilog;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Utilities;

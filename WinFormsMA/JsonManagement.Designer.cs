@@ -1,4 +1,4 @@
-﻿namespace WinFormsMA
+namespace WinFormsMA
 {
     partial class JsonManagement
     {
@@ -41,6 +41,7 @@
             buttonImport = new Button();
             buttonExport = new Button();
             StudentName = new DataGridViewTextBoxColumn();
+
             ((System.ComponentModel.ISupportInitialize)dataGridViewJson).BeginInit();
             SuspendLayout();
             // 

@@ -1,4 +1,4 @@
-﻿using Serilog;
+using Serilog;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
 

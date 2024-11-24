@@ -68,7 +68,7 @@ namespace WinFormsMA
                 ftpClient = new Ftp(ftpUrl, ftpUsername, ftpPassword);
                 if (!ftpClient.TestConnection())
                 {
-                    MessageBox.Show("No es pot establir la connexió amb el servidor FTP.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No es pot establir la connexiÃ³ amb el servidor FTP.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
