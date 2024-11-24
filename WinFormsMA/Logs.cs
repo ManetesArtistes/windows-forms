@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace WinFormsMA
+﻿namespace WinFormsMA
 {
     public partial class Logs : BaseForm
     {
@@ -14,7 +12,6 @@ namespace WinFormsMA
         {
             try
             {
-                // Camí per pujar dos nivells al directori del projecte
                 string basePath = AppDomain.CurrentDomain.BaseDirectory;
                 string projectPath = Path.GetFullPath(Path.Combine(basePath, "..", "..", "..")); // Puja tres nivells
                 string logPath = Path.Combine(projectPath, "Logs");
@@ -73,11 +70,9 @@ namespace WinFormsMA
 
         private void buttonLeft_Click(object sender, EventArgs e)
         {
-            // Tanca aquest formulari i obre l'anterior (p. ex., SelectAdminMode)
             this.Hide();
 
-            // Exemple d'obertura d'un altre formulari
-            SelectAdminMode selectAdminMode = new SelectAdminMode(null); // Passa la llista de centres si és necessari
+            SelectAdminMode selectAdminMode = new SelectAdminMode();
             selectAdminMode.Show();
         }
     }

@@ -169,13 +169,12 @@ namespace WinFormsMA
 
                         // Si hi ha més propietats, afegeix-les aquí
 
-                        // Torna a desar els canvis al fitxer
-                        SaveJsonToFile();
+                        
+                        SaveJsonToFile(); // Torna a desar els canvis al fitxer
 
                         MessageBox.Show("Canvis guardats correctament.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Refresca la vista
-                        LoadStudents(selectedCenter, selectedGroup.Name);
+                        LoadStudents(selectedCenter, selectedGroup.Name); // Refresca la vista
                     }
                 }
             }
@@ -189,7 +188,6 @@ namespace WinFormsMA
         {
             try
             {
-                // Defineix el camí complet del fitxer local
                 string localDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "json");
                 string localFilePath = Path.Combine(localDirectory, "manetes_artistes.json");
 
@@ -244,8 +242,7 @@ namespace WinFormsMA
                         SaveJsonToFile(); // Desa els canvis al fitxer JSON
                         MessageBox.Show("Estudiant eliminat correctament.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Refresca la vista
-                        LoadStudents(selectedCenter, selectedGroup.Name);
+                        LoadStudents(selectedCenter, selectedGroup.Name); // Refresca la vista
                     }
                 }
             }
@@ -259,8 +256,7 @@ namespace WinFormsMA
         {
             try
             {
-                // Crear el diàleg per seleccionar la carpeta
-                using (FolderBrowserDialog folderBrowser = new FolderBrowserDialog())
+                using (FolderBrowserDialog folderBrowser = new FolderBrowserDialog()) // Crear el diàleg per seleccionar la carpeta
                 {
                     folderBrowser.ShowNewFolderButton = true;
 
@@ -295,8 +291,7 @@ namespace WinFormsMA
         {
             try
             {
-                // Crear el diàleg per seleccionar el fitxer
-                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                using (OpenFileDialog openFileDialog = new OpenFileDialog()) // Crear el diàleg per seleccionar el fitxer
                 {
                     openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
                     openFileDialog.Title = "Selecciona un fitxer JSON per importar";

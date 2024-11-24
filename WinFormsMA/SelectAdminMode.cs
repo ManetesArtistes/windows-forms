@@ -1,5 +1,4 @@
-﻿using Serilog;
-using WinFormsMA.Logic.Entities;
+﻿using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
 
 namespace WinFormsMA
@@ -9,19 +8,16 @@ namespace WinFormsMA
         private List<Center> centers;
         private JsonManager jsonManager;
 
-        public SelectAdminMode()
+        public SelectAdminMode(JsonManager jsonManager)
         {
             InitializeComponent();
-
-            this.jsonManager = new JsonManager(new Ftp("ftp://example.com", "username", "password"));
+            this.jsonManager = jsonManager;
 
             try
             {
-                // Utilitza el nou mètode per carregar els centres
                 centers = jsonManager.LoadCentersFromFtp("json/manetes_artistes.json");
 
-                // Comprova si s'han carregat centres abans de continuar
-                if (centers == null || centers.Count == 0)
+                if (centers == null || centers.Count == 0) // Comprova si s'han carregat centres abans de continuar
                 {
                     MessageBox.Show("No s'han trobat centres al fitxer JSON.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -39,6 +35,11 @@ namespace WinFormsMA
             this.centers = centers ?? new List<Center>(); // Assegurem que no sigui nul
         }
 
+        public SelectAdminMode()
+        {
+            InitializeComponent();
+        }
+
         private void buttonLogs_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -49,7 +50,7 @@ namespace WinFormsMA
         private void buttonJson_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var jsonForm = new JsonManagement(centers); // Passa la llista de centres al formulari de gestió JSON
+            var jsonForm = new JsonManagement(centers);
             jsonForm.Show();
         }
 

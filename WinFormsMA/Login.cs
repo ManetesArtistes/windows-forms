@@ -40,17 +40,17 @@ namespace WinFormsMA
                 jsonManager = new JsonManager(ftpClient);
                 jsonManager.LoadFromJson(); // Carrega els centres abans d'obrir el formulari
 
-                SelectProfessor statsForm = new SelectProfessor(jsonManager); // Passa `JsonManager` com a argument
+                SelectProfessor statsForm = new SelectProfessor(jsonManager);
                 statsForm.Show();
             }
             else if (username == user2 && password == pass2)
             {
                 this.Hide();
 
-                jsonManager = new JsonManager(ftpClient); // Proporciona el camí correcte
+                jsonManager = new JsonManager(ftpClient);
                 jsonManager.LoadFromJson(); // Carrega els centres abans d'obrir el formulari
 
-                SelectAdminMode selectForm = new SelectAdminMode(jsonManager.Centers); // Passa la llista de centres
+                SelectAdminMode selectForm = new SelectAdminMode(jsonManager);
                 selectForm.Show();
             }
             else

@@ -46,8 +46,7 @@ namespace WinFormsMA
                     Groups = new List<Group>() // Inicialitza una llista buida
                 };
 
-                // Utilitza JsonManager per afegir el centre i desar els canvis
-                jsonManager.AddCenter(center);
+                jsonManager.AddCenter(center); // Utilitza JsonManager per afegir el centre i desar els canvis
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
