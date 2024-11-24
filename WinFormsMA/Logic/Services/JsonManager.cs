@@ -96,40 +96,6 @@ namespace WinFormsMA.Logic.Services
             }
         }
 
-        public void AddCenter(Center newCenter)
-        {
-            Centers.Add(newCenter);
-            SaveToJson();
-        }
-
-        public void EditCenter(int centerId, string newName)
-        {
-            var center = Centers.FirstOrDefault(c => c.Id == centerId);
-            if (center != null)
-            {
-                center.Name = newName;
-                SaveToJson();
-            }
-            else
-            {
-                Console.WriteLine("Center not found.");
-            }
-        }
-
-        public void RemoveCenter(int centerId)
-        {
-            var center = Centers.FirstOrDefault(c => c.Id == centerId);
-            if (center != null)
-            {
-                Centers.Remove(center);
-                SaveToJson();
-            }
-            else
-            {
-                Console.WriteLine("Center not found.");
-            }
-        }
-
         public List<Center> LoadCentersFromFtp(string remoteFilePath)
         {
             try

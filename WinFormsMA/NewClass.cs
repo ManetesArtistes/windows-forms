@@ -1,46 +1,60 @@
 ﻿using Serilog;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
-using WinFormsMA.Logic.Utilities;
 
 namespace WinFormsMA
 {
-    public partial class NewClass : BaseForm
+    public partial class NewClass : Form
     {
         private List<Center> centers;
+        private JsonManager jsonManager;
         private Center selectedCenter;
 
-        public NewClass(List<Center> centers, Center selectedCenter)
+        public NewClass(JsonManager jsonManager, List<Center> centers, Center selectedCenter)
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+            this.jsonManager = jsonManager;
             this.centers = centers;
             this.selectedCenter = selectedCenter;
+            this.AcceptButton = buttonCreate;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(textBoxNewClass.Text))
+                string className = textBoxNewClass.Text.Trim();
+
+                if (string.IsNullOrEmpty(className))
                 {
                     MessageBox.Show("Afegeix un nom per a la classe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                string newClassName = textBoxNewClass.Text.Trim();
-
-                if (selectedCenter.Groups.Any(g => g.Name.Equals(newClassName, StringComparison.OrdinalIgnoreCase)))
+                if (selectedCenter.Groups.Any(g => g.Name.Equals(className, StringComparison.OrdinalIgnoreCase)))
                 {
                     MessageBox.Show("Ja existeix una classe amb aquest nom.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
+                // Genera un nou identificador únic per al grup
+                int newGroupId = selectedCenter.Groups.Any() ? selectedCenter.Groups.Max(g => g.Id) + 1 : 0;
+
+                // Crea el nou grup
                 var newGroup = new Group
                 {
-                    Name = newClassName,
+                    Id = newGroupId,
+                    Name = className,
                     Students = new List<Student>() // Inicialitza amb una llista buida
                 };
 
+                // Afegeix els estudiants introduïts als TextBoxes
                 for (int i = 0; i < 16; i++)
                 {
                     var textBox = this.Controls.Find($"textBoxStudent{i + 1}", true).FirstOrDefault() as TextBox;
@@ -49,22 +63,24 @@ namespace WinFormsMA
                     {
                         newGroup.Students.Add(new Student
                         {
+                            Id = i,
                             Name = textBox.Text.Trim(),
-                            Id = i
+                            Stats = new Stats
+                            {
+                                Score = 0,
+                                Draws = new List<Draw>() // Inicialitza amb una llista buida de Draw
+                            }
                         });
                     }
                 }
 
+                // Afegeix el grup al centre seleccionat
                 selectedCenter.Groups.Add(newGroup);
 
-                var (ftpUrl, ftpUsername, ftpPassword) = Utils.GetFtpVariables();
+                // Desa el JSON i el puja al servidor FTP
+                jsonManager.SaveToJson(); // Desa el fitxer localment
+                jsonManager.UploadJsonToFtp("json/manetes_artistes.json"); // Puja el fitxer al FTP
 
-                var jsonManager = new JsonManager(new Ftp(ftpUrl, ftpUsername, ftpPassword));
-                jsonManager.SaveToJson();
-                jsonManager.UploadJsonToFtp("json/manetes_artistes.json");
-
-                MessageBox.Show("Classe creada correctament.");
-                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)
@@ -73,13 +89,9 @@ namespace WinFormsMA
                 Log.Error(ex, "Error durant la creació de la classe.");
             }
         }
-
         private void buttonLeft_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-            SelectProfessor statsForm = new SelectProfessor(new JsonManager(new Ftp("", "", "")));
-            statsForm.Show();
+            this.Close(); // Tanca el formulari actual
         }
     }
 }

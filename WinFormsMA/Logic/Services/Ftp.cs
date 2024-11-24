@@ -86,5 +86,34 @@ namespace WinFormsMA.Logic.Services
                 Console.WriteLine($"Error downloading file: {ex.Message}");
             }
         }
+
+        public List<string> ListDirectory(string remoteDirectory)
+        {
+            var files = new List<string>();
+            try
+            {
+                // Crear la petició FTP
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create($"{ftpUrl}/{remoteDirectory}");
+                request.Method = WebRequestMethods.Ftp.ListDirectory;
+                request.Credentials = new NetworkCredential(username, password); // Corregit aquí
+
+                // Obtenir la resposta del servidor FTP
+                using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+                using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        files.Add(line);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error llistant el directori FTP: {ex.Message}");
+            }
+
+            return files;
+        }
     }
 }
