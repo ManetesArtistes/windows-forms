@@ -1,4 +1,4 @@
-﻿namespace WinFormsMA
+namespace WinFormsMA
 {
     partial class JsonManagement
     {
@@ -36,12 +36,12 @@
             comboBoxClass = new ComboBox();
             labelClass = new Label();
             dataGridViewJson = new DataGridView();
-            StudentName = new DataGridViewTextBoxColumn();
-            Importacio = new DataGridViewTextBoxColumn();
             buttonModify = new Button();
             buttonDelete = new Button();
             buttonImport = new Button();
             buttonExport = new Button();
+            StudentName = new DataGridViewTextBoxColumn();
+
             ((System.ComponentModel.ISupportInitialize)dataGridViewJson).BeginInit();
             SuspendLayout();
             // 
@@ -119,25 +119,13 @@
             dataGridViewJson.AllowUserToAddRows = false;
             dataGridViewJson.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewJson.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewJson.Columns.AddRange(new DataGridViewColumn[] { StudentName, Importacio });
+            dataGridViewJson.Columns.AddRange(new DataGridViewColumn[] { StudentName });
             dataGridViewJson.Location = new Point(102, 220);
             dataGridViewJson.Name = "dataGridViewJson";
             dataGridViewJson.ReadOnly = true;
             dataGridViewJson.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewJson.Size = new Size(1065, 424);
             dataGridViewJson.TabIndex = 8;
-            // 
-            // StudentName
-            // 
-            StudentName.HeaderText = "Estudiant";
-            StudentName.Name = "StudentName";
-            StudentName.ReadOnly = true;
-            // 
-            // Importacio
-            // 
-            Importacio.HeaderText = "Data importació";
-            Importacio.Name = "Importacio";
-            Importacio.ReadOnly = true;
             // 
             // buttonModify
             // 
@@ -178,6 +166,12 @@
             buttonExport.Text = "Exportar JSON";
             buttonExport.UseVisualStyleBackColor = true;
             buttonExport.Click += button1_Click_1;
+            // 
+            // StudentName
+            // 
+            StudentName.HeaderText = "Estudiant";
+            StudentName.Name = "StudentName";
+            StudentName.ReadOnly = true;
             // 
             // JsonManagement
             // 
@@ -220,6 +214,5 @@
         private Button buttonImport;
         private Button buttonExport;
         private DataGridViewTextBoxColumn StudentName;
-        private DataGridViewTextBoxColumn Importacio;
     }
 }

@@ -1,4 +1,4 @@
-﻿using Serilog;
+using Serilog;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
 
@@ -16,28 +16,18 @@ namespace WinFormsMA
 
             try
             {
-                // Descarrega i carrega el JSON des del servidor
-                jsonManager.DownloadJsonFromFtp("json/manetes_artistes.json");
-                jsonManager.LoadFromJson();
+                centers = jsonManager.LoadCentersFromFtp("json/manetes_artistes.json");
 
-                // Assigna els centres carregats des de JsonManager
-                centers = jsonManager.Centers;
-
-                // Comprova si s'han carregat centres abans de continuar
-                if (centers == null || centers.Count == 0)
+                if (centers == null || centers.Count == 0) // Comprova si s'han carregat centres abans de continuar
                 {
-                    Log.Warning("No s'han trobat centres al fitxer JSON.");
                     MessageBox.Show("No s'han trobat centres al fitxer JSON.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
-                Log.Information("S'han carregat {Count} centres des del JSON.", centers.Count);
-                LoadCenters();
+                LoadCenters(); // Carrega els centres al ComboBox
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "Error carregant el JSON.");
-                MessageBox.Show($"Error carregant el JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error carregant els centres: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -259,6 +249,11 @@ namespace WinFormsMA
                 Log.Warning("No s'ha seleccionat cap classe per editar.");
                 MessageBox.Show("Selecciona una classe per modificar.", "Advertència", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void buttonDownload_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

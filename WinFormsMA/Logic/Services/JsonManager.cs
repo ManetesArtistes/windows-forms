@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
+using Serilog;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Utilities;
 
@@ -16,10 +17,10 @@ namespace WinFormsMA.Logic.Services
             // Obtén el directori base del projecte
             string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-            // Pujar un nivell per sortir de bin\Debug
+            // Pujar tres nivells per sortir de bin\Debug
             string solutionDirectory = Path.GetFullPath(Path.Combine(projectDirectory, @"..\..\.."));
 
-            // Assegura't que la carpeta Json existeix
+            // Assegura que la carpeta Json existeix i la crea
             string jsonDirectory = Path.Combine(solutionDirectory, "Json");
             Directory.CreateDirectory(jsonDirectory);
 
@@ -71,7 +72,6 @@ namespace WinFormsMA.Logic.Services
         {
             try
             {
-                // Descarrega el fitxer del servidor FTP a la ruta local
                 ftpClient.DownloadFile(remotePath, localFilePath);
                 Console.WriteLine($"JSON file downloaded from FTP to {localFilePath}");
                 LoadFromJson(); // Carrega el JSON a la memòria
@@ -127,6 +127,28 @@ namespace WinFormsMA.Logic.Services
             else
             {
                 Console.WriteLine("Center not found.");
+            }
+        }
+
+        public List<Center> LoadCentersFromFtp(string remoteFilePath)
+        {
+            try
+            {
+                DownloadJsonFromFtp(remoteFilePath);
+                LoadFromJson();
+
+                if (Centers == null || Centers.Count == 0)
+                {
+                    Log.Warning("No s'han trobat centres al fitxer JSON.");
+                    return null;
+                }
+                Log.Information("S'han carregat {Count} centres des del JSON.", Centers.Count);
+                return Centers;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error carregant els centres des del fitxer JSON.");
+                throw; // Torna a llançar l'excepció perquè el formulari la gestioni
             }
         }
     }

@@ -1,15 +1,32 @@
-﻿using WinFormsMA.Logic.Entities;
+using WinFormsMA.Logic.Entities;
+using WinFormsMA.Logic.Services;
 
 namespace WinFormsMA
 {
     public partial class SelectAdminMode : BaseForm
     {
         private List<Center> centers;
+        private JsonManager jsonManager;
 
-        public SelectAdminMode()
+        public SelectAdminMode(JsonManager jsonManager)
         {
             InitializeComponent();
-            this.centers = new List<Center>(); // Inicialització de la llista de centres
+            this.jsonManager = jsonManager;
+
+            try
+            {
+                centers = jsonManager.LoadCentersFromFtp("json/manetes_artistes.json");
+
+                if (centers == null || centers.Count == 0) // Comprova si s'han carregat centres abans de continuar
+                {
+                    MessageBox.Show("No s'han trobat centres al fitxer JSON.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error carregant els centres: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public SelectAdminMode(List<Center> centers)
@@ -21,14 +38,14 @@ namespace WinFormsMA
         private void buttonLogs_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var logsForm = new Logs();
+            var logsForm = new Logs(centers);
             logsForm.Show();
         }
 
         private void buttonJson_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var jsonForm = new JsonManagement(centers); // Passa la llista de centres al formulari de gestió JSON
+            var jsonForm = new JsonManagement(centers);
             jsonForm.Show();
         }
 

@@ -1,10 +1,15 @@
-﻿namespace WinFormsMA
+using WinFormsMA.Logic.Entities;
+
+namespace WinFormsMA
 {
     public partial class Logs : BaseForm
     {
-        public Logs()
+        private List<Center> centers;
+
+        public Logs(List<Center> centers)
         {
             InitializeComponent();
+            this.centers = centers;
             LoadLogs();
         }
 
@@ -12,7 +17,6 @@
         {
             try
             {
-                // Camí per pujar dos nivells al directori del projecte
                 string basePath = AppDomain.CurrentDomain.BaseDirectory;
                 string projectPath = Path.GetFullPath(Path.Combine(basePath, "..", "..", "..")); // Puja tres nivells
                 string logPath = Path.Combine(projectPath, "Logs");
@@ -33,8 +37,7 @@
 
                 textBoxLogs.Clear();
 
-                // Llista per guardar totes les línies de tots els fitxers
-                List<string> allLogLines = new List<string>();
+                List<string> allLogLines = new List<string>(); // Llista per guardar totes les línies de tots els fitxers
 
                 foreach (string file in logFiles)
                 {
@@ -74,8 +77,7 @@
             // Tanca aquest formulari i obre l'anterior (p. ex., SelectAdminMode)
             this.Hide();
 
-            // Exemple d'obertura d'un altre formulari
-            SelectAdminMode selectAdminMode = new SelectAdminMode(null); // Passa la llista de centres si és necessari
+            SelectAdminMode selectAdminMode = new SelectAdminMode(centers);
             selectAdminMode.Show();
         }
     }
