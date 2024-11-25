@@ -40,13 +40,26 @@ namespace WinFormsMA
             comboBoxStudent = new ComboBox();
             labelStudent = new Label();
             groupBoxStats = new GroupBox();
-            labelColoringPages = new Label();
+            labelTime = new Label();
+            labelTimestamp = new Label();
+            labelDraws = new Label();
+            buttonRightDraw = new Button();
+            buttonLeftDraw = new Button();
+            pictureBox1 = new PictureBox();
             labelSimon = new Label();
+            pictureBoxSimon = new PictureBox();
+            labelDrawsDone = new Label();
             buttonEditCenter = new Button();
             buttonEditClass = new Button();
             labelImages = new Label();
             buttonDownload = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            labelUsedColors = new Label();
             groupBoxStats.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSimon).BeginInit();
             SuspendLayout();
             // 
             // buttonLeft
@@ -166,8 +179,19 @@ namespace WinFormsMA
             groupBoxStats.BackColor = Color.Transparent;
             groupBoxStats.BackgroundImage = Properties.Resources.wood_background;
             groupBoxStats.BackgroundImageLayout = ImageLayout.Stretch;
-            groupBoxStats.Controls.Add(labelColoringPages);
+            groupBoxStats.Controls.Add(label3);
+            groupBoxStats.Controls.Add(labelUsedColors);
+            groupBoxStats.Controls.Add(label1);
+            groupBoxStats.Controls.Add(label2);
+            groupBoxStats.Controls.Add(labelTime);
+            groupBoxStats.Controls.Add(labelTimestamp);
+            groupBoxStats.Controls.Add(labelDraws);
+            groupBoxStats.Controls.Add(buttonRightDraw);
+            groupBoxStats.Controls.Add(buttonLeftDraw);
+            groupBoxStats.Controls.Add(pictureBox1);
             groupBoxStats.Controls.Add(labelSimon);
+            groupBoxStats.Controls.Add(pictureBoxSimon);
+            groupBoxStats.Controls.Add(labelDrawsDone);
             groupBoxStats.FlatStyle = FlatStyle.Flat;
             groupBoxStats.ForeColor = Color.Transparent;
             groupBoxStats.Location = new Point(16, 255);
@@ -176,29 +200,108 @@ namespace WinFormsMA
             groupBoxStats.TabIndex = 15;
             groupBoxStats.TabStop = false;
             // 
-            // labelColoringPages
+            // labelTime
             // 
-            labelColoringPages.AutoSize = true;
-            labelColoringPages.BackColor = Color.Transparent;
-            labelColoringPages.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelColoringPages.ForeColor = Color.White;
-            labelColoringPages.Location = new Point(564, 28);
-            labelColoringPages.Name = "labelColoringPages";
-            labelColoringPages.Size = new Size(210, 37);
-            labelColoringPages.TabIndex = 19;
-            labelColoringPages.Text = "Coloring Pages";
+            labelTime.AutoSize = true;
+            labelTime.BackColor = Color.Transparent;
+            labelTime.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTime.ForeColor = Color.White;
+            labelTime.Location = new Point(529, 93);
+            labelTime.Name = "labelTime";
+            labelTime.Size = new Size(169, 37);
+            labelTime.TabIndex = 24;
+            labelTime.Text = "10/12/2024";
+            // 
+            // labelTimestamp
+            // 
+            labelTimestamp.AutoSize = true;
+            labelTimestamp.BackColor = Color.Transparent;
+            labelTimestamp.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
+            labelTimestamp.ForeColor = SystemColors.Window;
+            labelTimestamp.Location = new Point(412, 92);
+            labelTimestamp.Name = "labelTimestamp";
+            labelTimestamp.Size = new Size(85, 37);
+            labelTimestamp.TabIndex = 20;
+            labelTimestamp.Text = "Data:";
+            // 
+            // labelDraws
+            // 
+            labelDraws.AutoSize = true;
+            labelDraws.BackColor = Color.Transparent;
+            labelDraws.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelDraws.ForeColor = Color.White;
+            labelDraws.Location = new Point(858, 28);
+            labelDraws.Name = "labelDraws";
+            labelDraws.Size = new Size(33, 37);
+            labelDraws.TabIndex = 23;
+            labelDraws.Text = "4";
+            // 
+            // buttonRightDraw
+            // 
+            buttonRightDraw.BackColor = Color.Transparent;
+            buttonRightDraw.Font = new Font("Segoe UI", 15F);
+            buttonRightDraw.ForeColor = Color.Black;
+            buttonRightDraw.Location = new Point(1171, 71);
+            buttonRightDraw.Name = "buttonRightDraw";
+            buttonRightDraw.Size = new Size(35, 59);
+            buttonRightDraw.TabIndex = 22;
+            buttonRightDraw.Text = "→";
+            buttonRightDraw.UseVisualStyleBackColor = false;
+            // 
+            // buttonLeftDraw
+            // 
+            buttonLeftDraw.BackColor = Color.Transparent;
+            buttonLeftDraw.Font = new Font("Segoe UI", 15F);
+            buttonLeftDraw.ForeColor = Color.Black;
+            buttonLeftDraw.Location = new Point(941, 71);
+            buttonLeftDraw.Name = "buttonLeftDraw";
+            buttonLeftDraw.Size = new Size(35, 59);
+            buttonLeftDraw.TabIndex = 20;
+            buttonLeftDraw.Text = "←";
+            buttonLeftDraw.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(996, 28);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(150, 150);
+            pictureBox1.TabIndex = 21;
+            pictureBox1.TabStop = false;
             // 
             // labelSimon
             // 
             labelSimon.AutoSize = true;
-            labelSimon.BackColor = Color.Transparent;
-            labelSimon.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelSimon.BackColor = Color.FromArgb(15, 13, 19);
+            labelSimon.Font = new Font("Segoe UI", 35.25F, FontStyle.Bold);
             labelSimon.ForeColor = Color.White;
-            labelSimon.Location = new Point(30, 28);
+            labelSimon.Location = new Point(107, 175);
             labelSimon.Name = "labelSimon";
-            labelSimon.Size = new Size(162, 37);
+            labelSimon.Size = new Size(81, 62);
             labelSimon.TabIndex = 18;
-            labelSimon.Text = "Simon Says";
+            labelSimon.Text = "10";
+            labelSimon.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBoxSimon
+            // 
+            pictureBoxSimon.BackgroundImage = (Image)resources.GetObject("pictureBoxSimon.BackgroundImage");
+            pictureBoxSimon.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBoxSimon.Location = new Point(23, 82);
+            pictureBoxSimon.Name = "pictureBoxSimon";
+            pictureBoxSimon.Size = new Size(250, 250);
+            pictureBoxSimon.TabIndex = 20;
+            pictureBoxSimon.TabStop = false;
+            // 
+            // labelDrawsDone
+            // 
+            labelDrawsDone.AutoSize = true;
+            labelDrawsDone.BackColor = Color.Transparent;
+            labelDrawsDone.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelDrawsDone.ForeColor = Color.White;
+            labelDrawsDone.Location = new Point(662, 28);
+            labelDrawsDone.Name = "labelDrawsDone";
+            labelDrawsDone.Size = new Size(196, 37);
+            labelDrawsDone.TabIndex = 19;
+            labelDrawsDone.Text = "Dibuixos Fets:";
             // 
             // buttonEditCenter
             // 
@@ -247,6 +350,54 @@ namespace WinFormsMA
             buttonDownload.UseVisualStyleBackColor = true;
             buttonDownload.Click += buttonDownload_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(529, 142);
+            label1.Name = "label1";
+            label1.Size = new Size(145, 37);
+            label1.TabIndex = 26;
+            label1.Text = "12123232";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
+            label2.ForeColor = SystemColors.Window;
+            label2.Location = new Point(412, 141);
+            label2.Name = "label2";
+            label2.Size = new Size(107, 37);
+            label2.TabIndex = 25;
+            label2.Text = "Temps:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(531, 195);
+            label3.Name = "label3";
+            label3.Size = new Size(33, 37);
+            label3.TabIndex = 28;
+            label3.Text = "7";
+            // 
+            // labelUsedColors
+            // 
+            labelUsedColors.AutoSize = true;
+            labelUsedColors.BackColor = Color.Transparent;
+            labelUsedColors.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
+            labelUsedColors.ForeColor = SystemColors.Window;
+            labelUsedColors.Location = new Point(414, 194);
+            labelUsedColors.Name = "labelUsedColors";
+            labelUsedColors.Size = new Size(106, 37);
+            labelUsedColors.TabIndex = 27;
+            labelUsedColors.Text = "Colors:";
+            // 
             // SelectProfessor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -275,6 +426,8 @@ namespace WinFormsMA
             Text = "Estadístiques";
             groupBoxStats.ResumeLayout(false);
             groupBoxStats.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSimon).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -294,9 +447,20 @@ namespace WinFormsMA
         private GroupBox groupBoxStats;
         private Button buttonEditCenter;
         private Button buttonEditClass;
-        private Label labelColoringPages;
-        private Label labelSimon;
+        private Label labelDrawsDone;
         private Label labelImages;
         private Button buttonDownload;
+        private PictureBox pictureBoxSimon;
+        private Label labelSimon;
+        private Button buttonRightDraw;
+        private Button buttonLeftDraw;
+        private PictureBox pictureBox1;
+        private Label labelDraws;
+        private Label labelTimestamp;
+        private Label labelTime;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label labelUsedColors;
     }
 }

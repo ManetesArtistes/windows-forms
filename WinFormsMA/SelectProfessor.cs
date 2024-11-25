@@ -312,6 +312,8 @@ namespace WinFormsMA
         {
             try
             {
+                refreshTimer.Stop(); // Desactiva el temporitzador per evitar interferències
+
                 // Validació prèvia: que s'hagin seleccionat el centre i la classe
                 if (comboBoxCenter.SelectedIndex == 0 || comboBoxClass.SelectedIndex == 0)
                 {
@@ -398,6 +400,7 @@ namespace WinFormsMA
                         MessageBox.Show($"S'han descarregat {matchingFiles.Count} imatges a la carpeta seleccionada.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
+                refreshTimer.Start(); // Torna a activar el temporitzador
             }
             catch (Exception ex)
             {
