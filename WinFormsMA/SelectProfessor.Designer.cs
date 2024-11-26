@@ -40,12 +40,19 @@ namespace WinFormsMA
             comboBoxStudent = new ComboBox();
             labelStudent = new Label();
             groupBoxStats = new GroupBox();
-            labelTime = new Label();
+            comboBoxDraws = new ComboBox();
+            labelAccuracyNum = new Label();
+            labelAccuracy = new Label();
+            labelUsedColorsNum = new Label();
+            labelUsedColors = new Label();
+            labelDurationNum = new Label();
+            labelDuration = new Label();
+            labelTimestampNum = new Label();
             labelTimestamp = new Label();
             labelDraws = new Label();
             buttonRightDraw = new Button();
             buttonLeftDraw = new Button();
-            pictureBox1 = new PictureBox();
+            pictureBoxDraw = new PictureBox();
             labelSimon = new Label();
             pictureBoxSimon = new PictureBox();
             labelDrawsDone = new Label();
@@ -53,20 +60,17 @@ namespace WinFormsMA
             buttonEditClass = new Button();
             labelImages = new Label();
             buttonDownload = new Button();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            labelUsedColors = new Label();
             groupBoxStats.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxDraw).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxSimon).BeginInit();
             SuspendLayout();
             // 
             // buttonLeft
             // 
-            buttonLeft.Location = new Point(22, 25);
+            buttonLeft.Location = new Point(25, 33);
+            buttonLeft.Margin = new Padding(3, 4, 3, 4);
             buttonLeft.Name = "buttonLeft";
-            buttonLeft.Size = new Size(35, 35);
+            buttonLeft.Size = new Size(40, 47);
             buttonLeft.TabIndex = 4;
             buttonLeft.Text = "←";
             buttonLeft.UseVisualStyleBackColor = true;
@@ -78,9 +82,9 @@ namespace WinFormsMA
             labelStats.BackColor = Color.Transparent;
             labelStats.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelStats.ForeColor = SystemColors.ControlLightLight;
-            labelStats.Location = new Point(66, 29);
+            labelStats.Location = new Point(75, 39);
             labelStats.Name = "labelStats";
-            labelStats.Size = new Size(126, 25);
+            labelStats.Size = new Size(163, 32);
             labelStats.TabIndex = 3;
             labelStats.Text = "Estadístiques";
             // 
@@ -90,9 +94,9 @@ namespace WinFormsMA
             labelCenter.BackColor = Color.Transparent;
             labelCenter.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             labelCenter.ForeColor = SystemColors.Window;
-            labelCenter.Location = new Point(105, 109);
+            labelCenter.Location = new Point(120, 145);
             labelCenter.Name = "labelCenter";
-            labelCenter.Size = new Size(92, 35);
+            labelCenter.Size = new Size(115, 41);
             labelCenter.TabIndex = 5;
             labelCenter.Text = "Centre";
             // 
@@ -102,9 +106,9 @@ namespace WinFormsMA
             labelClass.BackColor = Color.Transparent;
             labelClass.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             labelClass.ForeColor = SystemColors.Window;
-            labelClass.Location = new Point(105, 169);
+            labelClass.Location = new Point(120, 225);
             labelClass.Name = "labelClass";
-            labelClass.Size = new Size(87, 35);
+            labelClass.Size = new Size(109, 41);
             labelClass.TabIndex = 6;
             labelClass.Text = "Classe";
             // 
@@ -113,9 +117,10 @@ namespace WinFormsMA
             comboBoxCenter.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCenter.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxCenter.FormattingEnabled = true;
-            comboBoxCenter.Location = new Point(217, 115);
+            comboBoxCenter.Location = new Point(248, 153);
+            comboBoxCenter.Margin = new Padding(3, 4, 3, 4);
             comboBoxCenter.Name = "comboBoxCenter";
-            comboBoxCenter.Size = new Size(309, 31);
+            comboBoxCenter.Size = new Size(353, 36);
             comboBoxCenter.TabIndex = 7;
             comboBoxCenter.SelectedIndexChanged += comboBoxCenter_SelectedIndexChanged;
             // 
@@ -124,18 +129,20 @@ namespace WinFormsMA
             comboBoxClass.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxClass.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxClass.FormattingEnabled = true;
-            comboBoxClass.Location = new Point(217, 173);
+            comboBoxClass.Location = new Point(248, 231);
+            comboBoxClass.Margin = new Padding(3, 4, 3, 4);
             comboBoxClass.Name = "comboBoxClass";
-            comboBoxClass.Size = new Size(309, 31);
+            comboBoxClass.Size = new Size(353, 36);
             comboBoxClass.TabIndex = 8;
             comboBoxClass.SelectedIndexChanged += comboBoxClass_SelectedIndexChanged;
             // 
             // buttonCentre
             // 
             buttonCentre.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonCentre.Location = new Point(546, 115);
+            buttonCentre.Location = new Point(624, 153);
+            buttonCentre.Margin = new Padding(3, 4, 3, 4);
             buttonCentre.Name = "buttonCentre";
-            buttonCentre.Size = new Size(32, 32);
+            buttonCentre.Size = new Size(37, 43);
             buttonCentre.TabIndex = 9;
             buttonCentre.Text = "+";
             buttonCentre.UseVisualStyleBackColor = true;
@@ -144,9 +151,10 @@ namespace WinFormsMA
             // buttonClass
             // 
             buttonClass.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonClass.Location = new Point(546, 173);
+            buttonClass.Location = new Point(624, 231);
+            buttonClass.Margin = new Padding(3, 4, 3, 4);
             buttonClass.Name = "buttonClass";
-            buttonClass.Size = new Size(32, 32);
+            buttonClass.Size = new Size(37, 43);
             buttonClass.TabIndex = 10;
             buttonClass.Text = "+";
             buttonClass.UseVisualStyleBackColor = true;
@@ -157,10 +165,12 @@ namespace WinFormsMA
             comboBoxStudent.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxStudent.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxStudent.FormattingEnabled = true;
-            comboBoxStudent.Location = new Point(823, 113);
+            comboBoxStudent.Location = new Point(941, 151);
+            comboBoxStudent.Margin = new Padding(3, 4, 3, 4);
             comboBoxStudent.Name = "comboBoxStudent";
-            comboBoxStudent.Size = new Size(309, 31);
+            comboBoxStudent.Size = new Size(353, 36);
             comboBoxStudent.TabIndex = 13;
+            comboBoxStudent.SelectedIndexChanged += comboBoxStudent_SelectedIndexChanged;
             // 
             // labelStudent
             // 
@@ -168,9 +178,9 @@ namespace WinFormsMA
             labelStudent.BackColor = Color.Transparent;
             labelStudent.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             labelStudent.ForeColor = SystemColors.Window;
-            labelStudent.Location = new Point(711, 107);
+            labelStudent.Location = new Point(813, 143);
             labelStudent.Name = "labelStudent";
-            labelStudent.Size = new Size(97, 35);
+            labelStudent.Size = new Size(120, 41);
             labelStudent.TabIndex = 11;
             labelStudent.Text = "Alumne";
             // 
@@ -179,38 +189,127 @@ namespace WinFormsMA
             groupBoxStats.BackColor = Color.Transparent;
             groupBoxStats.BackgroundImage = Properties.Resources.wood_background;
             groupBoxStats.BackgroundImageLayout = ImageLayout.Stretch;
-            groupBoxStats.Controls.Add(label3);
+            groupBoxStats.Controls.Add(comboBoxDraws);
+            groupBoxStats.Controls.Add(labelAccuracyNum);
+            groupBoxStats.Controls.Add(labelAccuracy);
+            groupBoxStats.Controls.Add(labelUsedColorsNum);
             groupBoxStats.Controls.Add(labelUsedColors);
-            groupBoxStats.Controls.Add(label1);
-            groupBoxStats.Controls.Add(label2);
-            groupBoxStats.Controls.Add(labelTime);
+            groupBoxStats.Controls.Add(labelDurationNum);
+            groupBoxStats.Controls.Add(labelDuration);
+            groupBoxStats.Controls.Add(labelTimestampNum);
             groupBoxStats.Controls.Add(labelTimestamp);
             groupBoxStats.Controls.Add(labelDraws);
             groupBoxStats.Controls.Add(buttonRightDraw);
             groupBoxStats.Controls.Add(buttonLeftDraw);
-            groupBoxStats.Controls.Add(pictureBox1);
+            groupBoxStats.Controls.Add(pictureBoxDraw);
             groupBoxStats.Controls.Add(labelSimon);
             groupBoxStats.Controls.Add(pictureBoxSimon);
             groupBoxStats.Controls.Add(labelDrawsDone);
             groupBoxStats.FlatStyle = FlatStyle.Flat;
             groupBoxStats.ForeColor = Color.Transparent;
-            groupBoxStats.Location = new Point(16, 255);
+            groupBoxStats.Location = new Point(18, 340);
+            groupBoxStats.Margin = new Padding(3, 4, 3, 4);
             groupBoxStats.Name = "groupBoxStats";
-            groupBoxStats.Size = new Size(1228, 415);
+            groupBoxStats.Padding = new Padding(3, 4, 3, 4);
+            groupBoxStats.Size = new Size(1403, 553);
             groupBoxStats.TabIndex = 15;
             groupBoxStats.TabStop = false;
             // 
-            // labelTime
+            // comboBoxDraws
             // 
-            labelTime.AutoSize = true;
-            labelTime.BackColor = Color.Transparent;
-            labelTime.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelTime.ForeColor = Color.White;
-            labelTime.Location = new Point(529, 93);
-            labelTime.Name = "labelTime";
-            labelTime.Size = new Size(169, 37);
-            labelTime.TabIndex = 24;
-            labelTime.Text = "10/12/2024";
+            comboBoxDraws.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxDraws.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBoxDraws.FormattingEnabled = true;
+            comboBoxDraws.Location = new Point(1042, 98);
+            comboBoxDraws.Margin = new Padding(3, 4, 3, 4);
+            comboBoxDraws.Name = "comboBoxDraws";
+            comboBoxDraws.Size = new Size(287, 36);
+            comboBoxDraws.TabIndex = 20;
+            comboBoxDraws.SelectedIndexChanged += comboBoxDraws_SelectedIndexChanged;
+            // 
+            // labelAccuracyNum
+            // 
+            labelAccuracyNum.AutoSize = true;
+            labelAccuracyNum.BackColor = Color.Transparent;
+            labelAccuracyNum.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelAccuracyNum.ForeColor = Color.White;
+            labelAccuracyNum.Location = new Point(693, 426);
+            labelAccuracyNum.Name = "labelAccuracyNum";
+            labelAccuracyNum.Size = new Size(40, 46);
+            labelAccuracyNum.TabIndex = 30;
+            labelAccuracyNum.Text = "7";
+            // 
+            // labelAccuracy
+            // 
+            labelAccuracy.AutoSize = true;
+            labelAccuracy.BackColor = Color.Transparent;
+            labelAccuracy.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
+            labelAccuracy.ForeColor = SystemColors.Window;
+            labelAccuracy.Location = new Point(488, 426);
+            labelAccuracy.Name = "labelAccuracy";
+            labelAccuracy.Size = new Size(155, 46);
+            labelAccuracy.TabIndex = 29;
+            labelAccuracy.Text = "Precició:";
+            // 
+            // labelUsedColorsNum
+            // 
+            labelUsedColorsNum.AutoSize = true;
+            labelUsedColorsNum.BackColor = Color.Transparent;
+            labelUsedColorsNum.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelUsedColorsNum.ForeColor = Color.White;
+            labelUsedColorsNum.Location = new Point(693, 333);
+            labelUsedColorsNum.Name = "labelUsedColorsNum";
+            labelUsedColorsNum.Size = new Size(40, 46);
+            labelUsedColorsNum.TabIndex = 28;
+            labelUsedColorsNum.Text = "7";
+            // 
+            // labelUsedColors
+            // 
+            labelUsedColors.AutoSize = true;
+            labelUsedColors.BackColor = Color.Transparent;
+            labelUsedColors.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
+            labelUsedColors.ForeColor = SystemColors.Window;
+            labelUsedColors.Location = new Point(512, 333);
+            labelUsedColors.Name = "labelUsedColors";
+            labelUsedColors.Size = new Size(131, 46);
+            labelUsedColors.TabIndex = 27;
+            labelUsedColors.Text = "Colors:";
+            // 
+            // labelDurationNum
+            // 
+            labelDurationNum.AutoSize = true;
+            labelDurationNum.BackColor = Color.Transparent;
+            labelDurationNum.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelDurationNum.ForeColor = Color.White;
+            labelDurationNum.Location = new Point(693, 233);
+            labelDurationNum.Name = "labelDurationNum";
+            labelDurationNum.Size = new Size(180, 46);
+            labelDurationNum.TabIndex = 26;
+            labelDurationNum.Text = "12123232";
+            // 
+            // labelDuration
+            // 
+            labelDuration.AutoSize = true;
+            labelDuration.BackColor = Color.Transparent;
+            labelDuration.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
+            labelDuration.ForeColor = SystemColors.Window;
+            labelDuration.Location = new Point(512, 233);
+            labelDuration.Name = "labelDuration";
+            labelDuration.Size = new Size(131, 46);
+            labelDuration.TabIndex = 25;
+            labelDuration.Text = "Temps:";
+            // 
+            // labelTimestampNum
+            // 
+            labelTimestampNum.AutoSize = true;
+            labelTimestampNum.BackColor = Color.Transparent;
+            labelTimestampNum.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTimestampNum.ForeColor = Color.White;
+            labelTimestampNum.Location = new Point(693, 142);
+            labelTimestampNum.Name = "labelTimestampNum";
+            labelTimestampNum.Size = new Size(210, 46);
+            labelTimestampNum.TabIndex = 24;
+            labelTimestampNum.Text = "10/12/2024";
             // 
             // labelTimestamp
             // 
@@ -218,9 +317,9 @@ namespace WinFormsMA
             labelTimestamp.BackColor = Color.Transparent;
             labelTimestamp.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
             labelTimestamp.ForeColor = SystemColors.Window;
-            labelTimestamp.Location = new Point(412, 92);
+            labelTimestamp.Location = new Point(540, 142);
             labelTimestamp.Name = "labelTimestamp";
-            labelTimestamp.Size = new Size(85, 37);
+            labelTimestamp.Size = new Size(103, 46);
             labelTimestamp.TabIndex = 20;
             labelTimestamp.Text = "Data:";
             // 
@@ -230,9 +329,9 @@ namespace WinFormsMA
             labelDraws.BackColor = Color.Transparent;
             labelDraws.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelDraws.ForeColor = Color.White;
-            labelDraws.Location = new Point(858, 28);
+            labelDraws.Location = new Point(923, 37);
             labelDraws.Name = "labelDraws";
-            labelDraws.Size = new Size(33, 37);
+            labelDraws.Size = new Size(40, 46);
             labelDraws.TabIndex = 23;
             labelDraws.Text = "4";
             // 
@@ -241,9 +340,10 @@ namespace WinFormsMA
             buttonRightDraw.BackColor = Color.Transparent;
             buttonRightDraw.Font = new Font("Segoe UI", 15F);
             buttonRightDraw.ForeColor = Color.Black;
-            buttonRightDraw.Location = new Point(1171, 71);
+            buttonRightDraw.Location = new Point(1330, 269);
+            buttonRightDraw.Margin = new Padding(3, 4, 3, 4);
             buttonRightDraw.Name = "buttonRightDraw";
-            buttonRightDraw.Size = new Size(35, 59);
+            buttonRightDraw.Size = new Size(40, 79);
             buttonRightDraw.TabIndex = 22;
             buttonRightDraw.Text = "→";
             buttonRightDraw.UseVisualStyleBackColor = false;
@@ -253,20 +353,22 @@ namespace WinFormsMA
             buttonLeftDraw.BackColor = Color.Transparent;
             buttonLeftDraw.Font = new Font("Segoe UI", 15F);
             buttonLeftDraw.ForeColor = Color.Black;
-            buttonLeftDraw.Location = new Point(941, 71);
+            buttonLeftDraw.Location = new Point(994, 269);
+            buttonLeftDraw.Margin = new Padding(3, 4, 3, 4);
             buttonLeftDraw.Name = "buttonLeftDraw";
-            buttonLeftDraw.Size = new Size(35, 59);
+            buttonLeftDraw.Size = new Size(40, 79);
             buttonLeftDraw.TabIndex = 20;
             buttonLeftDraw.Text = "←";
             buttonLeftDraw.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // pictureBoxDraw
             // 
-            pictureBox1.Location = new Point(996, 28);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(150, 150);
-            pictureBox1.TabIndex = 21;
-            pictureBox1.TabStop = false;
+            pictureBoxDraw.Location = new Point(1054, 182);
+            pictureBoxDraw.Margin = new Padding(3, 4, 3, 4);
+            pictureBoxDraw.Name = "pictureBoxDraw";
+            pictureBoxDraw.Size = new Size(250, 250);
+            pictureBoxDraw.TabIndex = 21;
+            pictureBoxDraw.TabStop = false;
             // 
             // labelSimon
             // 
@@ -274,20 +376,21 @@ namespace WinFormsMA
             labelSimon.BackColor = Color.FromArgb(15, 13, 19);
             labelSimon.Font = new Font("Segoe UI", 35.25F, FontStyle.Bold);
             labelSimon.ForeColor = Color.White;
-            labelSimon.Location = new Point(107, 175);
+            labelSimon.Location = new Point(173, 233);
             labelSimon.Name = "labelSimon";
-            labelSimon.Size = new Size(81, 62);
+            labelSimon.Size = new Size(67, 78);
             labelSimon.TabIndex = 18;
-            labelSimon.Text = "10";
-            labelSimon.TextAlign = ContentAlignment.MiddleCenter;
+            labelSimon.Text = "0";
+            labelSimon.TextAlign = ContentAlignment.TopCenter;
             // 
             // pictureBoxSimon
             // 
             pictureBoxSimon.BackgroundImage = (Image)resources.GetObject("pictureBoxSimon.BackgroundImage");
             pictureBoxSimon.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBoxSimon.Location = new Point(23, 82);
+            pictureBoxSimon.Location = new Point(61, 109);
+            pictureBoxSimon.Margin = new Padding(3, 4, 3, 4);
             pictureBoxSimon.Name = "pictureBoxSimon";
-            pictureBoxSimon.Size = new Size(250, 250);
+            pictureBoxSimon.Size = new Size(286, 333);
             pictureBoxSimon.TabIndex = 20;
             pictureBoxSimon.TabStop = false;
             // 
@@ -297,9 +400,9 @@ namespace WinFormsMA
             labelDrawsDone.BackColor = Color.Transparent;
             labelDrawsDone.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelDrawsDone.ForeColor = Color.White;
-            labelDrawsDone.Location = new Point(662, 28);
+            labelDrawsDone.Location = new Point(660, 37);
             labelDrawsDone.Name = "labelDrawsDone";
-            labelDrawsDone.Size = new Size(196, 37);
+            labelDrawsDone.Size = new Size(243, 46);
             labelDrawsDone.TabIndex = 19;
             labelDrawsDone.Text = "Dibuixos Fets:";
             // 
@@ -307,9 +410,10 @@ namespace WinFormsMA
             // 
             buttonEditCenter.BackgroundImageLayout = ImageLayout.None;
             buttonEditCenter.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonEditCenter.Location = new Point(593, 115);
+            buttonEditCenter.Location = new Point(678, 153);
+            buttonEditCenter.Margin = new Padding(3, 4, 3, 4);
             buttonEditCenter.Name = "buttonEditCenter";
-            buttonEditCenter.Size = new Size(32, 32);
+            buttonEditCenter.Size = new Size(37, 43);
             buttonEditCenter.TabIndex = 16;
             buttonEditCenter.Text = "☼";
             buttonEditCenter.UseVisualStyleBackColor = true;
@@ -319,9 +423,10 @@ namespace WinFormsMA
             // 
             buttonEditClass.BackgroundImageLayout = ImageLayout.None;
             buttonEditClass.Font = new Font("Comic Sans MS", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonEditClass.Location = new Point(593, 174);
+            buttonEditClass.Location = new Point(678, 232);
+            buttonEditClass.Margin = new Padding(3, 4, 3, 4);
             buttonEditClass.Name = "buttonEditClass";
-            buttonEditClass.Size = new Size(32, 32);
+            buttonEditClass.Size = new Size(37, 43);
             buttonEditClass.TabIndex = 17;
             buttonEditClass.Text = "☼";
             buttonEditClass.UseVisualStyleBackColor = true;
@@ -333,78 +438,31 @@ namespace WinFormsMA
             labelImages.BackColor = Color.Transparent;
             labelImages.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             labelImages.ForeColor = SystemColors.Window;
-            labelImages.Location = new Point(711, 169);
+            labelImages.Location = new Point(813, 225);
             labelImages.Name = "labelImages";
-            labelImages.Size = new Size(109, 35);
+            labelImages.Size = new Size(136, 41);
             labelImages.TabIndex = 18;
             labelImages.Text = "Imatges";
             // 
             // buttonDownload
             // 
             buttonDownload.Font = new Font("Segoe UI Semibold", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonDownload.Location = new Point(823, 172);
+            buttonDownload.Location = new Point(941, 229);
+            buttonDownload.Margin = new Padding(3, 4, 3, 4);
             buttonDownload.Name = "buttonDownload";
-            buttonDownload.Size = new Size(75, 32);
+            buttonDownload.Size = new Size(86, 43);
             buttonDownload.TabIndex = 19;
             buttonDownload.Text = "Descarrega";
             buttonDownload.UseVisualStyleBackColor = true;
             buttonDownload.Click += buttonDownload_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(529, 142);
-            label1.Name = "label1";
-            label1.Size = new Size(145, 37);
-            label1.TabIndex = 26;
-            label1.Text = "12123232";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
-            label2.ForeColor = SystemColors.Window;
-            label2.Location = new Point(412, 141);
-            label2.Name = "label2";
-            label2.Size = new Size(107, 37);
-            label2.TabIndex = 25;
-            label2.Text = "Temps:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(531, 195);
-            label3.Name = "label3";
-            label3.Size = new Size(33, 37);
-            label3.TabIndex = 28;
-            label3.Text = "7";
-            // 
-            // labelUsedColors
-            // 
-            labelUsedColors.AutoSize = true;
-            labelUsedColors.BackColor = Color.Transparent;
-            labelUsedColors.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
-            labelUsedColors.ForeColor = SystemColors.Window;
-            labelUsedColors.Location = new Point(414, 194);
-            labelUsedColors.Name = "labelUsedColors";
-            labelUsedColors.Size = new Size(106, 37);
-            labelUsedColors.TabIndex = 27;
-            labelUsedColors.Text = "Colors:";
-            // 
             // SelectProfessor
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.background_dark;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1264, 681);
+            ClientSize = new Size(1445, 908);
             Controls.Add(buttonDownload);
             Controls.Add(labelImages);
             Controls.Add(buttonEditClass);
@@ -422,11 +480,12 @@ namespace WinFormsMA
             Controls.Add(labelStats);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             Name = "SelectProfessor";
             Text = "Estadístiques";
             groupBoxStats.ResumeLayout(false);
             groupBoxStats.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxDraw).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxSimon).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -454,13 +513,16 @@ namespace WinFormsMA
         private Label labelSimon;
         private Button buttonRightDraw;
         private Button buttonLeftDraw;
-        private PictureBox pictureBox1;
+        private PictureBox pictureBoxDraw;
         private Label labelDraws;
         private Label labelTimestamp;
-        private Label labelTime;
-        private Label label1;
-        private Label label2;
-        private Label label3;
+        private Label labelTimestampNum;
+        private Label labelDurationNum;
+        private Label labelDuration;
+        private Label labelUsedColorsNum;
         private Label labelUsedColors;
+        private Label labelAccuracy;
+        private Label labelAccuracyNum;
+        private ComboBox comboBoxDraws;
     }
 }

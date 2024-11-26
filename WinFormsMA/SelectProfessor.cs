@@ -1,4 +1,5 @@
 using Serilog;
+using System.Numerics;
 using System.Text.RegularExpressions;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
@@ -30,7 +31,7 @@ namespace WinFormsMA
 
                 // Timer per actualitzar les ComboBox
                 refreshTimer = new System.Windows.Forms.Timer();
-                refreshTimer.Interval = 10000; // Actualitza cada 5 segons
+                refreshTimer.Interval = 1000000; // Actualitza cada 5 segons
                 refreshTimer.Tick += RefreshData; // Vincula el Tick amb la funció
                 refreshTimer.Start(); // Comença el temporitzador
             }
@@ -207,6 +208,94 @@ namespace WinFormsMA
                     LoadStudents(selectedCenter, selectedClassName);
                     comboBoxStudent.Enabled = true;
                 }
+            }
+        }
+
+        private void comboBoxStudent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxStudent.SelectedIndex == 0)
+            {
+                StatsEnable(false);
+            }
+            else
+            {
+                StatsEnable(true);
+                string studentName = comboBoxStudent.SelectedItem.ToString();
+                var selectedCenter = centers.FirstOrDefault(center => center.Name == comboBoxCenter.SelectedItem.ToString());
+                var selectedGroup = selectedCenter?.Groups.FirstOrDefault(group => group.Name == comboBoxClass.SelectedItem.ToString());
+                var selectedStudent = selectedGroup?.Students.FirstOrDefault(student => student.Name == studentName);
+
+                if (selectedStudent?.Stats != null)
+                {
+                    labelSimon.Text = selectedStudent.Stats?.Score.ToString();
+                    if (selectedStudent.Stats?.Score < 10)
+                    {
+                        labelSimon.Location = new Point(173, 233);
+                    }
+                    else
+                    {
+                        labelSimon.Location = new Point(153, 233);
+                    }
+
+                    comboBoxDraws.Items.Clear();
+                    foreach (var draw in selectedStudent.Stats?.Draws ?? new List<Draw>())
+                    {
+                        comboBoxDraws.Items.Add($"Draw {draw.Id}");
+                    }
+                }
+                else
+                {
+                    labelSimon.Text = "";
+                    comboBoxDraws.Items.Clear();
+                }
+            }
+        }
+
+        private void StatsEnable(bool enable)
+        {
+            pictureBoxSimon.Visible = enable;
+            labelSimon.Visible = enable;
+
+            comboBoxDraws.Visible = enable;
+            pictureBoxDraw.Visible = enable;
+            buttonLeftDraw.Visible = enable;
+            buttonRightDraw.Visible = enable;
+            labelDrawsDone.Visible = enable;
+            labelDraws.Visible = enable;
+            labelTimestamp.Visible = enable;
+            labelTimestampNum.Visible = enable;
+            labelDuration.Visible = enable;
+            labelDurationNum.Visible = enable;
+            labelUsedColors.Visible = enable;
+            labelUsedColorsNum.Visible = enable;
+            labelAccuracy.Visible = enable;
+            labelAccuracyNum.Visible = enable;
+        }
+
+        private void comboBoxDraws_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string studentName = comboBoxStudent.SelectedItem.ToString();
+            var selectedCenter = centers.FirstOrDefault(center => center.Name == comboBoxCenter.SelectedItem.ToString());
+            var selectedGroup = selectedCenter?.Groups.FirstOrDefault(group => group.Name == comboBoxClass.SelectedItem.ToString());
+            var selectedStudent = selectedGroup?.Students.FirstOrDefault(student => student.Name == studentName);
+
+            
+            if (selectedStudent?.Stats?.Draws != null && comboBoxDraws.SelectedIndex >= 0)
+            {
+                var selectedDraw = selectedStudent.Stats.Draws[comboBoxDraws.SelectedIndex];
+                
+                labelTimestampNum.Text = !string.IsNullOrEmpty(selectedDraw.Timestamp) ? selectedDraw.Timestamp : "";
+                labelDurationNum.Text = !string.IsNullOrEmpty(selectedDraw.Duration) ? selectedDraw.Duration : "";
+                labelUsedColorsNum.Text = (selectedDraw.UsedColors != null && selectedDraw.UsedColors.Any())
+                                            ? string.Join(",", selectedDraw.UsedColors): "";
+                labelAccuracyNum.Text = selectedDraw.Accuracity >= 0 ? selectedDraw.Accuracity.ToString() : "";
+            }
+            else
+            {
+                labelTimestampNum.Text = "---";
+                labelDurationNum.Text = "---";
+                labelUsedColorsNum.Text = "---";
+                labelAccuracyNum.Text = "---";
             }
         }
 
