@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <Folder Include="Json\" />
+    <Folder Include="Draws\" />
   </ItemGroup>
 
 </Project>

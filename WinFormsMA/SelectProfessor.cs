@@ -228,25 +228,23 @@ namespace WinFormsMA
                 if (selectedStudent?.Stats != null)
                 {
                     labelSimon.Text = selectedStudent.Stats?.Score.ToString();
-                    if (selectedStudent.Stats?.Score < 10)
-                    {
-                        labelSimon.Location = new Point(173, 233);
-                    }
-                    else
-                    {
-                        labelSimon.Location = new Point(153, 233);
-                    }
 
                     comboBoxDraws.Items.Clear();
                     foreach (var draw in selectedStudent.Stats?.Draws ?? new List<Draw>())
                     {
                         comboBoxDraws.Items.Add($"Draw {draw.Id}");
                     }
+
+                    labelDraws.Text = $"{selectedStudent.Stats.Draws?.Count ?? 0}";
+
+                    ResetDrawStatsLabels();
                 }
                 else
                 {
                     labelSimon.Text = "";
                     comboBoxDraws.Items.Clear();
+                    labelDraws.Text = "0";
+                    ResetDrawStatsLabels();
                 }
             }
         }
@@ -258,8 +256,6 @@ namespace WinFormsMA
 
             comboBoxDraws.Visible = enable;
             pictureBoxDraw.Visible = enable;
-            buttonLeftDraw.Visible = enable;
-            buttonRightDraw.Visible = enable;
             labelDrawsDone.Visible = enable;
             labelDraws.Visible = enable;
             labelTimestamp.Visible = enable;
@@ -270,6 +266,14 @@ namespace WinFormsMA
             labelUsedColorsNum.Visible = enable;
             labelAccuracy.Visible = enable;
             labelAccuracyNum.Visible = enable;
+        }
+
+        private void ResetDrawStatsLabels()
+        {
+            labelTimestampNum.Text = "---";
+            labelDurationNum.Text = "---";
+            labelUsedColorsNum.Text = "---";
+            labelAccuracyNum.Text = "---";
         }
 
         private void comboBoxDraws_SelectedIndexChanged(object sender, EventArgs e)
@@ -284,18 +288,15 @@ namespace WinFormsMA
             {
                 var selectedDraw = selectedStudent.Stats.Draws[comboBoxDraws.SelectedIndex];
                 
-                labelTimestampNum.Text = !string.IsNullOrEmpty(selectedDraw.Timestamp) ? selectedDraw.Timestamp : "";
-                labelDurationNum.Text = !string.IsNullOrEmpty(selectedDraw.Duration) ? selectedDraw.Duration : "";
+                labelTimestampNum.Text = !string.IsNullOrWhiteSpace(selectedDraw.Timestamp) ? selectedDraw.Timestamp : "";
+                labelDurationNum.Text = !string.IsNullOrWhiteSpace(selectedDraw.Duration) ? selectedDraw.Duration : "";
                 labelUsedColorsNum.Text = (selectedDraw.UsedColors != null && selectedDraw.UsedColors.Any())
                                             ? string.Join(",", selectedDraw.UsedColors): "";
                 labelAccuracyNum.Text = selectedDraw.Accuracity >= 0 ? selectedDraw.Accuracity.ToString() : "";
             }
             else
             {
-                labelTimestampNum.Text = "---";
-                labelDurationNum.Text = "---";
-                labelUsedColorsNum.Text = "---";
-                labelAccuracyNum.Text = "---";
+                ResetDrawStatsLabels();
             }
         }
 
