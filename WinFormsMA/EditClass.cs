@@ -99,6 +99,8 @@ namespace WinFormsMA
                 jsonManager.SaveToJson();
                 jsonManager.UploadJsonToFtp("json/manetes_artistes.json");
 
+                this.DialogResult = DialogResult.OK;
+
                 this.Close();
             }
             catch (Exception ex)

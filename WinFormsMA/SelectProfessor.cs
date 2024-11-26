@@ -11,7 +11,6 @@ namespace WinFormsMA
     {
         private List<Center> centers;
         private JsonManager jsonManager;
-        private System.Windows.Forms.Timer refreshTimer;
 
         public SelectProfessor(JsonManager jsonManager)
         {
@@ -29,11 +28,6 @@ namespace WinFormsMA
                 }
                 LoadCenters(); // Carrega els centres al ComboBox
 
-                // Timer per actualitzar les ComboBox
-                refreshTimer = new System.Windows.Forms.Timer();
-                refreshTimer.Interval = 1000000; // Actualitza cada 5 segons
-                refreshTimer.Tick += RefreshData; // Vincula el Tick amb la funció
-                refreshTimer.Start(); // Comença el temporitzador
             }
             catch (Exception ex)
             {
@@ -352,7 +346,6 @@ namespace WinFormsMA
 
             if (selectedCenter != null)
             {
-                refreshTimer.Stop(); // Desactiva el temporitzador per evitar interferències
 
                 var newClassForm = new NewClass(jsonManager, centers, selectedCenter);
 
@@ -362,7 +355,6 @@ namespace WinFormsMA
                     LoadClasses(selectedCenter); // Refresca les classes del centre seleccionat
                 }
 
-                refreshTimer.Start(); // Torna a activar el temporitzador
             }
             else
             {
@@ -378,7 +370,6 @@ namespace WinFormsMA
 
             if (selectedGroup != null && selectedCenter != null)
             {
-                refreshTimer.Stop(); // Parar el temporitzador abans d'obrir el formulari
 
                 // Crear i mostrar el formulari d'edició
                 var editClassForm = new EditClass(jsonManager, centers, selectedGroup, selectedCenter);
@@ -389,7 +380,6 @@ namespace WinFormsMA
                     LoadClasses(selectedCenter); // Refrescar les classes del centre seleccionat
                 }
 
-                refreshTimer.Start(); // Reiniciar el temporitzador després de tancar el formulari
             }
             else
             {
@@ -402,7 +392,6 @@ namespace WinFormsMA
         {
             try
             {
-                refreshTimer.Stop(); // Desactiva el temporitzador per evitar interferències
 
                 // Validació prèvia: que s'hagin seleccionat el centre i la classe
                 if (comboBoxCenter.SelectedIndex == 0 || comboBoxClass.SelectedIndex == 0)
@@ -490,7 +479,6 @@ namespace WinFormsMA
                         MessageBox.Show($"S'han descarregat {matchingFiles.Count} imatges a la carpeta seleccionada.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                refreshTimer.Start(); // Torna a activar el temporitzador
             }
             catch (Exception ex)
             {

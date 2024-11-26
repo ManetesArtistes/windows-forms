@@ -326,6 +326,7 @@ namespace WinFormsMA
             // 
             pictureBoxDraw.Location = new Point(910, 135);
             pictureBoxDraw.Name = "pictureBoxDraw";
+            pictureBoxDraw.Padding = new Padding(15);
             pictureBoxDraw.Size = new Size(250, 250);
             pictureBoxDraw.TabIndex = 21;
             pictureBoxDraw.TabStop = false;
