@@ -137,7 +137,7 @@ namespace WinFormsMA
 
                                     if (student != null)
                                     {
-                                        if (studentData.Stats?.Score != null && studentData.Stats.Score[0] != 0)
+                                        if (studentData.Stats?.Score != null)
                                         {
                                             student.Stats = studentData.Stats;
                                         }
