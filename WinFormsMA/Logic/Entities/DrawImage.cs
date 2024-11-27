@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace WinFormsMA.Logic.Entities
 {
-    internal class DrawImage
+    public class DrawImage
     {
         [JsonProperty("id")]
         public int id { get; set; }
@@ -18,6 +18,6 @@ namespace WinFormsMA.Logic.Entities
         [JsonProperty("square_background_image")]
         public string background { get; set; }
 
-
+        public DrawImage(){ }
     }
 }

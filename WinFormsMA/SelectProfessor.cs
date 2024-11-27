@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using Serilog;
 using System.Numerics;
 using System.Text.RegularExpressions;
@@ -11,7 +12,7 @@ namespace WinFormsMA
     {
         private List<Center> centers;
         private JsonManager jsonManager;
-
+        private List<DrawImage> drawImages;
         public SelectProfessor(JsonManager jsonManager)
         {
             InitializeComponent();
@@ -32,6 +33,36 @@ namespace WinFormsMA
             catch (Exception ex)
             {
                 MessageBox.Show($"Error carregant els centres: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Draws", "draws.json");
+            try
+            {
+                if (!File.Exists(jsonFilePath))
+                {
+                    MessageBox.Show("El arxiu no existeix en la ruta especificada");
+                    drawImages = new List<DrawImage>();
+                    return;
+                }
+
+                string jsonContent = File.ReadAllText(jsonFilePath);
+                if(string.IsNullOrEmpty(jsonContent))
+                {
+                    MessageBox.Show("El arxiu json esta buit");
+                    drawImages = new List<DrawImage>();
+                    return;
+                }
+
+                drawImages = JsonConvert.DeserializeObject<List<DrawImage>>(jsonContent) ?? new List<DrawImage>();
+            }
+            catch (JsonException jsonEx)
+            {
+                MessageBox.Show("Error Json");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al carregar la lista de imatges");
+                drawImages = new List<DrawImage>();
             }
         }
 
@@ -121,38 +152,6 @@ namespace WinFormsMA
             }
         }
 
-        private void RefreshData(object sender, EventArgs e)
-        {
-            try
-            {
-                var updatedCenters = jsonManager.LoadCentersFromFtp("json/manetes_artistes.json"); // Torna a carregar els centres del JSON al servidor FTP
-
-                if (updatedCenters != null && !updatedCenters.SequenceEqual(centers))
-                {
-                    centers = updatedCenters;
-                    LoadCenters(); // Actualitza el ComboBox dels centres
-
-                    // Si hi ha un centre seleccionat, actualitza les seves classes
-                    if (comboBoxCenter.SelectedIndex > 0)
-                    {
-                        string selectedCenterName = comboBoxCenter.SelectedItem.ToString();
-                        var selectedCenter = centers.FirstOrDefault(c => c.Name == selectedCenterName);
-
-                        if (selectedCenter != null)
-                        {
-                            LoadClasses(selectedCenter);
-                        }
-                    }
-
-                    Log.Information("Dades refrescades automàticament.");
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex, "Error refrescant les dades.");
-            }
-        }
-
         private void ClearComboBox(ComboBox comboBox)
         {
             comboBox.Items.Clear();
@@ -221,6 +220,7 @@ namespace WinFormsMA
 
                 if (selectedStudent?.Stats != null)
                 {
+                    //Mostra el score del Simon
                     labelSimon.Text = selectedStudent.Stats?.Score.ToString();
 
                     comboBoxDraws.Items.Clear();
@@ -232,6 +232,12 @@ namespace WinFormsMA
                     labelDraws.Text = $"{selectedStudent.Stats.Draws?.Count ?? 0}";
 
                     ResetDrawStatsLabels();
+
+                    if (selectedStudent.Stats.Draws?.Count > 0)
+                    {
+                        comboBoxDraws.SelectedIndex = 0;
+                        comboBoxDraws_SelectedIndexChanged(null, null);
+                    }
                 }
                 else
                 {
@@ -245,6 +251,7 @@ namespace WinFormsMA
 
         private void StatsEnable(bool enable)
         {
+            //Fa que es les stats siguin visibles o no
             pictureBoxSimon.Visible = enable;
             labelSimon.Visible = enable;
 
@@ -272,26 +279,53 @@ namespace WinFormsMA
 
         private void comboBoxDraws_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string studentName = comboBoxStudent.SelectedItem.ToString();
-            var selectedCenter = centers.FirstOrDefault(center => center.Name == comboBoxCenter.SelectedItem.ToString());
-            var selectedGroup = selectedCenter?.Groups.FirstOrDefault(group => group.Name == comboBoxClass.SelectedItem.ToString());
-            var selectedStudent = selectedGroup?.Students.FirstOrDefault(student => student.Name == studentName);
+            pictureBoxDraw.Image = null;
+            pictureBoxDraw.BackgroundImage = null;
 
+            if( comboBoxDraws.SelectedIndex >= 0)
+            {
+                string studentName = comboBoxStudent.SelectedItem.ToString();
+                var selectedCenter = centers.FirstOrDefault(center => center.Name == comboBoxCenter.SelectedItem.ToString());
+                var selectedGroup = selectedCenter?.Groups.FirstOrDefault(group => group.Name == comboBoxClass.SelectedItem.ToString());
+                var selectedStudent = selectedGroup?.Students.FirstOrDefault(student => student.Name == studentName);
+
+
+                if (selectedStudent?.Stats?.Draws != null)
+                {
+                    var selectedDraw = selectedStudent.Stats.Draws[comboBoxDraws.SelectedIndex];
+
+                    labelTimestampNum.Text = !string.IsNullOrWhiteSpace(selectedDraw.Timestamp) ? selectedDraw.Timestamp : "";
+                    labelDurationNum.Text = !string.IsNullOrWhiteSpace(selectedDraw.Duration) ? selectedDraw.Duration : "";
+                    labelUsedColorsNum.Text = (selectedDraw.UsedColors != null && selectedDraw.UsedColors.Any())
+                                                ? string.Join(",", selectedDraw.UsedColors) : "";
+                    labelAccuracyNum.Text = selectedDraw.Accuracity >= 0 ? selectedDraw.Accuracity.ToString() : "";
+
+                    var drawImage = drawImages.FirstOrDefault(di => di.id == selectedDraw.Id);
+
+                    if (drawImage != null)
+                    {
+                        try
+                        {
+                            var imageResource = Properties.Resources.ResourceManager.GetObject(drawImage.image) as Image;
+                            var backgroundResource = Properties.Resources.ResourceManager.GetObject(drawImage.background) as Image;
+
+                            pictureBoxDraw.Image = imageResource;
+                            pictureBoxDraw.BackgroundImage = backgroundResource;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al carregar les imatges del dibuix");
+                            pictureBoxDraw.Image = null;
+                            pictureBoxDraw.BackgroundImage = null;
+                        }
+                    }
+                }
+                else
+                {
+                    ResetDrawStatsLabels();
+                }
+            }
             
-            if (selectedStudent?.Stats?.Draws != null && comboBoxDraws.SelectedIndex >= 0)
-            {
-                var selectedDraw = selectedStudent.Stats.Draws[comboBoxDraws.SelectedIndex];
-                
-                labelTimestampNum.Text = !string.IsNullOrWhiteSpace(selectedDraw.Timestamp) ? selectedDraw.Timestamp : "";
-                labelDurationNum.Text = !string.IsNullOrWhiteSpace(selectedDraw.Duration) ? selectedDraw.Duration : "";
-                labelUsedColorsNum.Text = (selectedDraw.UsedColors != null && selectedDraw.UsedColors.Any())
-                                            ? string.Join(",", selectedDraw.UsedColors): "";
-                labelAccuracyNum.Text = selectedDraw.Accuracity >= 0 ? selectedDraw.Accuracity.ToString() : "";
-            }
-            else
-            {
-                ResetDrawStatsLabels();
-            }
         }
 
         private void buttonLeft_Click(object sender, EventArgs e)

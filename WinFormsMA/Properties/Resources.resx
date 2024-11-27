@@ -121,6 +121,9 @@
   <data name="Itim-Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Itim-Regular.ttf;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="logoPng" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logoPng1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -130,7 +133,67 @@
   <data name="background_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logoPng" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoPng1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="background_square_sky" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background_square_sky.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="background_square_ocean" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background_square_ocean.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="background_square_landscape" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background_square_landscape.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="background_square_jungle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background_square_jungle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_lion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_lion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_bee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_bee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_caterpillar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_caterpillar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_elephant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_elephant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_fish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_fish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_jellyfish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_jellyfish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_monkey_easy_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_monkey_easy_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_monkey_easy_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_monkey_easy_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_monkey_hard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_monkey_hard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_moon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_moon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_mushroom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_mushroom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_octopus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_octopus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_rain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_rain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_rainbow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_rainbow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_snail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_snail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_vulcano" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_vulcano.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="draw_colored_worm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_colored_worm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -71,6 +71,216 @@ namespace WinFormsMA.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap background_square_jungle {
+            get {
+                object obj = ResourceManager.GetObject("background_square_jungle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap background_square_landscape {
+            get {
+                object obj = ResourceManager.GetObject("background_square_landscape", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap background_square_ocean {
+            get {
+                object obj = ResourceManager.GetObject("background_square_ocean", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap background_square_sky {
+            get {
+                object obj = ResourceManager.GetObject("background_square_sky", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_bee {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_bee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_caterpillar {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_caterpillar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_elephant {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_elephant", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_fish {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_fish", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_jellyfish {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_jellyfish", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_lion {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_lion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_monkey_easy_1 {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_monkey_easy_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_monkey_easy_2 {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_monkey_easy_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_monkey_hard {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_monkey_hard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_moon {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_moon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_mushroom {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_mushroom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_octopus {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_octopus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_rain {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_rain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_rainbow {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_rainbow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_snail {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_snail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_vulcano {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_vulcano", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap draw_colored_worm {
+            get {
+                object obj = ResourceManager.GetObject("draw_colored_worm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a GDEF� �PGPOSM,��r(N\GSUB�c�-7LOS/2aL��(`cmap~��&gt;8`cvt ]b�8fpgmp�(m�ogaspglyf�q�����
         ///head�Oh6hheaaD$hmtx@W^P|loca	�ұ(��maxp1}$ nameHk�*post��ݜST�prep���������4Ds�p�����������CR_&lt;��џȄѵU���&lt;��eeSS{�������&quot;��|�������&quot;��(�������� [resto de la cadena truncado]&quot;;.
         /// </summary>
