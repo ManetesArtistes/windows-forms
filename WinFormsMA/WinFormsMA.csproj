@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <Content Include="Draws\draws.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
@@ -43,6 +43,7 @@
 
   <ItemGroup>
     <Folder Include="Json\" />
+    <Folder Include="Stats\" />
   </ItemGroup>
 
 </Project>

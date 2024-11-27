@@ -36,6 +36,34 @@ namespace WinFormsMA.Logic.Services
             }
         }
 
+        public void DownloadStatsJsons (string localStatsFolder)
+        {
+            try
+            {
+                var files = ListDirectory("stats");
+
+                var jsonFiles = files.Where(f => f.EndsWith(".json", StringComparison.OrdinalIgnoreCase)).ToList();
+
+                if (!Directory.Exists(localStatsFolder))
+                {
+                    Directory.CreateDirectory(localStatsFolder);
+                }
+
+                foreach(var file in jsonFiles)
+                {
+                    string remoteFilePath = $"stats/{file}";
+                    string localFilePath = Path.Combine(localStatsFolder, file);
+
+                    DownloadFile(remoteFilePath, localFilePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al descargar los archivos JSON de stats");
+                throw;
+            }
+        }
+
         public void UploadFile(string localFilePath, string remoteFilePath)
         {
             try

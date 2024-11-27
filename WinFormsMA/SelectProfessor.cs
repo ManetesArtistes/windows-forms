@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Serilog;
-using System.Numerics;
 using System.Text.RegularExpressions;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
@@ -18,6 +18,27 @@ namespace WinFormsMA
             InitializeComponent();
             this.jsonManager = jsonManager;
 
+            InitialzeData();
+        }
+
+        private void InitialzeData()
+        {
+            //Carrega el centres desde el Json
+            LoadCentersFromJson();
+
+            //Carrega la lista de imatges dels dibuixos
+            LoadDrawImages();
+
+            //Descarrega el jsons de stats
+            DownloadStatsJson();
+
+            //Actualitza les stats del estudiants
+            UpdateStudentStats();
+
+        }
+
+        private void LoadCentersFromJson()
+        {
             try
             {
                 centers = jsonManager.LoadCentersFromFtp("json/manetes_artistes.json");
@@ -34,8 +55,12 @@ namespace WinFormsMA
             {
                 MessageBox.Show($"Error carregant els centres: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
-            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Draws", "draws.json");
+        private void LoadDrawImages()
+        {
+            string basePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..");
+            string jsonFilePath = Path.Combine(basePath, "Draws", "draws.json");
             try
             {
                 if (!File.Exists(jsonFilePath))
@@ -46,7 +71,7 @@ namespace WinFormsMA
                 }
 
                 string jsonContent = File.ReadAllText(jsonFilePath);
-                if(string.IsNullOrEmpty(jsonContent))
+                if (string.IsNullOrEmpty(jsonContent))
                 {
                     MessageBox.Show("El arxiu json esta buit");
                     drawImages = new List<DrawImage>();
@@ -64,6 +89,90 @@ namespace WinFormsMA
                 MessageBox.Show("Error al carregar la lista de imatges");
                 drawImages = new List<DrawImage>();
             }
+        }
+
+        private void DownloadStatsJson()
+        {
+            try
+            {
+                string basePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..");
+                string localStatsFolder = Path.Combine(basePath, "Stats");
+
+                var (ftpUrl, ftpUsername, ftpPassword) = Utils.GetFtpVariables();
+                Ftp ftpClient = new Ftp(ftpUrl, ftpUsername, ftpPassword);
+
+                ftpClient.DownloadStatsJsons(localStatsFolder);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("No s'han pogut descarregar els jsons de Stats");
+            }
+        }
+
+        private void UpdateStudentStats()
+        {
+            try
+            {
+                // Ruta de la carpeta on hi han els jsons de Stats
+                string statsFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Stats");
+                // Agafa el nom de tots els json de la carpeta Stats
+                string[] statsFiles = Directory.GetFiles(statsFolderPath, "stats_*.json");
+
+                foreach (var statsFile in statsFiles)
+                {
+                    string statsJson = File.ReadAllText(statsFile);
+
+                    List<Center> statsData = JsonConvert.DeserializeObject<List<Center>>(statsJson);
+
+                    if (statsData != null)
+                    {
+                        foreach (var center in statsData)
+                        {
+                            foreach (var group in center.Groups)
+                            {
+                                foreach (var studentData in group.Students)
+                                {
+                                    // Aquí estamos buscando el estudiante dentro de los centros previamente cargados, no en statsData
+                                    var student = FindStudentById(centers, studentData.Id);
+
+                                    if (student != null)
+                                    {
+                                        if (studentData.Stats?.Score != null && studentData.Stats.Score[0] != 0)
+                                        {
+                                            student.Stats = studentData.Stats;
+                                        }
+                                        else
+                                        {
+                                            student.Stats.Score = [5];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al actualizar las estadísticas: {ex.Message}");
+            }
+        }
+
+        private Student FindStudentById (List<Center> centers, int studentId)
+        {
+            foreach (var center in centers)
+            {
+                foreach(var group in center.Groups)
+                {
+                    var student = group.Students.FirstOrDefault(s => s.Id == studentId);
+                    if (student != null)
+                    {
+                        return student;
+                    }
+
+                }
+            }
+            return null;
         }
 
         private void LoadCenters()
@@ -221,7 +330,7 @@ namespace WinFormsMA
                 if (selectedStudent?.Stats != null)
                 {
                     //Mostra el score del Simon
-                    labelSimon.Text = selectedStudent.Stats?.Score.ToString();
+                    labelSimon.Text = selectedStudent.Stats?.Score[0].ToString();
 
                     comboBoxDraws.Items.Clear();
                     foreach (var draw in selectedStudent.Stats?.Draws ?? new List<Draw>())
@@ -294,11 +403,10 @@ namespace WinFormsMA
                 {
                     var selectedDraw = selectedStudent.Stats.Draws[comboBoxDraws.SelectedIndex];
 
-                    labelTimestampNum.Text = !string.IsNullOrWhiteSpace(selectedDraw.Timestamp) ? selectedDraw.Timestamp : "";
-                    labelDurationNum.Text = !string.IsNullOrWhiteSpace(selectedDraw.Duration) ? selectedDraw.Duration : "";
-                    labelUsedColorsNum.Text = (selectedDraw.UsedColors != null && selectedDraw.UsedColors.Any())
-                                                ? string.Join(",", selectedDraw.UsedColors) : "";
-                    labelAccuracyNum.Text = selectedDraw.Accuracity >= 0 ? selectedDraw.Accuracity.ToString() : "";
+                    labelTimestampNum.Text = selectedDraw.Timestamp != 0 ? selectedDraw.Timestamp.ToString() : "";
+                    labelDurationNum.Text = selectedDraw.Duration != 0 ? selectedDraw.Duration.ToString() : "";
+                    labelUsedColorsNum.Text = selectedDraw.UsedColors > 0 ? selectedDraw.UsedColors.ToString() : "0";
+
 
                     var drawImage = drawImages.FirstOrDefault(di => di.id == selectedDraw.Id);
 

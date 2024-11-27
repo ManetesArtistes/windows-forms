@@ -7,16 +7,13 @@ namespace WinFormsMA.Logic.Entities
         [JsonProperty("draw_id")]
         public int Id { get; set; }
 
+        [JsonProperty("durationSeconds")]
+        public int Duration { get; set; }
+
         [JsonProperty("timestamp")]
-        public string Timestamp { get; set; }
+        public int Timestamp { get; set; }
 
-        [JsonProperty("duration")]
-        public string Duration { get; set; }
-
-        [JsonProperty("usedColors")]
-        public List<int> UsedColors { get; set; }
-
-        [JsonProperty("accuracity")]
-        public int Accuracity { get; set; }
+        [JsonProperty("usedColorsAmount")]
+        public int UsedColors { get; set; }
     }
 }

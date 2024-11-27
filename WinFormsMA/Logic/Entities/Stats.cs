@@ -5,7 +5,7 @@ namespace WinFormsMA.Logic.Entities
     public class Stats
     {
         [JsonProperty("score")]
-        public int Score { get; set; }
+        public int[] Score { get; set; }
 
         [JsonProperty("draws")]
         public List<Draw> Draws { get; set; }
