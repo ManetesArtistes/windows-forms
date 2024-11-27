@@ -59,6 +59,7 @@
             textBoxJson.Location = new Point(12, 12);
             textBoxJson.Multiline = true;
             textBoxJson.Name = "textBoxJson";
+            textBoxJson.ScrollBars = ScrollBars.Vertical;
             textBoxJson.Size = new Size(776, 379);
             textBoxJson.TabIndex = 12;
             // 

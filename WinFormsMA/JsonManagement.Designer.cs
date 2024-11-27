@@ -36,12 +36,11 @@ namespace WinFormsMA
             comboBoxClass = new ComboBox();
             labelClass = new Label();
             dataGridViewJson = new DataGridView();
+            StudentName = new DataGridViewTextBoxColumn();
             buttonModify = new Button();
             buttonDelete = new Button();
             buttonImport = new Button();
             buttonExport = new Button();
-            StudentName = new DataGridViewTextBoxColumn();
-
             ((System.ComponentModel.ISupportInitialize)dataGridViewJson).BeginInit();
             SuspendLayout();
             // 
@@ -127,6 +126,12 @@ namespace WinFormsMA
             dataGridViewJson.Size = new Size(1065, 424);
             dataGridViewJson.TabIndex = 8;
             // 
+            // StudentName
+            // 
+            StudentName.HeaderText = "Estudiant";
+            StudentName.Name = "StudentName";
+            StudentName.ReadOnly = true;
+            // 
             // buttonModify
             // 
             buttonModify.Location = new Point(101, 176);
@@ -149,29 +154,23 @@ namespace WinFormsMA
             // 
             // buttonImport
             // 
-            buttonImport.Location = new Point(958, 184);
+            buttonImport.Location = new Point(937, 184);
             buttonImport.Name = "buttonImport";
-            buttonImport.Size = new Size(95, 30);
+            buttonImport.Size = new Size(104, 30);
             buttonImport.TabIndex = 11;
-            buttonImport.Text = "Importar JSON";
+            buttonImport.Text = "Exportar JSON";
             buttonImport.UseVisualStyleBackColor = true;
             buttonImport.Click += buttonImport_Click;
             // 
             // buttonExport
             // 
-            buttonExport.Location = new Point(1077, 184);
+            buttonExport.Location = new Point(1063, 184);
             buttonExport.Name = "buttonExport";
-            buttonExport.Size = new Size(90, 30);
+            buttonExport.Size = new Size(104, 30);
             buttonExport.TabIndex = 12;
-            buttonExport.Text = "Exportar JSON";
+            buttonExport.Text = "Importar JSON";
             buttonExport.UseVisualStyleBackColor = true;
             buttonExport.Click += button1_Click_1;
-            // 
-            // StudentName
-            // 
-            StudentName.HeaderText = "Estudiant";
-            StudentName.Name = "StudentName";
-            StudentName.ReadOnly = true;
             // 
             // JsonManagement
             // 
