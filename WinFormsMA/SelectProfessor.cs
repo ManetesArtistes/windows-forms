@@ -360,8 +360,15 @@ namespace WinFormsMA
 
                     if (selectedStudent.Stats.Draws?.Count > 0)
                     {
+                        comboBoxDraws.Enabled = true;
                         comboBoxDraws.SelectedIndex = 0;
-                        comboBoxDraws_SelectedIndexChanged(null, null);
+                        
+                    }
+                    else
+                    {
+                        comboBoxDraws.Enabled = false;
+                        pictureBoxDraw.Image = null;
+                        pictureBoxDraw.BackgroundImage = Properties.Resources.background_square_landscape;
                     }
                 }
                 else
