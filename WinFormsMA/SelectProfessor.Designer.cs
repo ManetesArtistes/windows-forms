@@ -325,7 +325,7 @@ namespace WinFormsMA
             labelDraws.BackColor = Color.Transparent;
             labelDraws.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelDraws.ForeColor = Color.White;
-            labelDraws.Location = new Point(906, 43);
+            labelDraws.Location = new Point(906, 39);
             labelDraws.Name = "labelDraws";
             labelDraws.Size = new Size(40, 46);
             labelDraws.TabIndex = 23;
@@ -351,9 +351,9 @@ namespace WinFormsMA
             labelSimon.BackColor = Color.FromArgb(15, 13, 19);
             labelSimon.Font = new Font("Segoe UI", 35.25F, FontStyle.Bold);
             labelSimon.ForeColor = Color.White;
-            labelSimon.Location = new Point(160, 233);
+            labelSimon.Location = new Point(152, 233);
             labelSimon.Name = "labelSimon";
-            labelSimon.Size = new Size(94, 83);
+            labelSimon.Size = new Size(103, 83);
             labelSimon.TabIndex = 18;
             labelSimon.Text = "99";
             labelSimon.TextAlign = ContentAlignment.MiddleCenter;

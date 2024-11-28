@@ -343,17 +343,17 @@ namespace WinFormsMA
                 var selectedGroup = selectedCenter?.Groups.FirstOrDefault(group => group.Name == comboBoxClass.SelectedItem.ToString());
                 var selectedStudent = selectedGroup?.Students.FirstOrDefault(student => student.Name == studentName);
 
-                if (selectedStudent?.Stats != null)
+                if (selectedStudent?.Stats != null && selectedStudent.Stats.Score.Any())
                 {
                     //Mostra el score del Simon
-                    labelSimon.Text = selectedStudent.Stats?.Score[0].ToString();
+                    int highestScore = selectedStudent.Stats.Score.Max();
+                    labelSimon.Text = highestScore.ToString();
 
                     comboBoxDraws.Items.Clear();
                     foreach (var draw in selectedStudent.Stats?.Draws ?? new List<Draw>())
                     {
                         comboBoxDraws.Items.Add($"Draw {draw.Id}");
                     }
-
                     labelDraws.Text = $"{selectedStudent.Stats.Draws?.Count ?? 0}";
 
                     ResetDrawStatsLabels();
@@ -447,6 +447,8 @@ namespace WinFormsMA
                 else
                 {
                     ResetDrawStatsLabels();
+                    pictureBoxDraw.Image = null;
+                    pictureBoxDraw.BackgroundImage = null;
                 }
             }
             
