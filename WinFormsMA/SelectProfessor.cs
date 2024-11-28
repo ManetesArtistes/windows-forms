@@ -38,7 +38,7 @@ namespace WinFormsMA
         }
 
 
-        private void LoadCentersFromJson() 
+        private void LoadCentersFromJson()
         {
             try
             {
@@ -174,11 +174,11 @@ namespace WinFormsMA
             }
         }
 
-        private Student FindStudentById (List<Center> centers, int studentId)
+        private Student FindStudentById(List<Center> centers, int studentId)
         {
             foreach (var center in centers)
             {
-                foreach(var group in center.Groups)
+                foreach (var group in center.Groups)
                 {
                     var student = group.Students.FirstOrDefault(s => s.Id == studentId);
                     if (student != null)
@@ -349,6 +349,8 @@ namespace WinFormsMA
                     int highestScore = selectedStudent.Stats.Score.Max();
                     labelSimon.Text = highestScore.ToString();
 
+                    labelSimonTotal.Text = string.Join(",", selectedStudent.Stats.Score);
+
                     comboBoxDraws.Items.Clear();
                     foreach (var draw in selectedStudent.Stats?.Draws ?? new List<Draw>())
                     {
@@ -362,7 +364,7 @@ namespace WinFormsMA
                     {
                         comboBoxDraws.Enabled = true;
                         comboBoxDraws.SelectedIndex = 0;
-                        
+
                     }
                     else
                     {
@@ -374,6 +376,7 @@ namespace WinFormsMA
                 else
                 {
                     labelSimon.Text = "";
+                    labelSimonTotal.Text = "";
                     comboBoxDraws.Items.Clear();
                     labelDraws.Text = "0";
                     ResetDrawStatsLabels();
@@ -386,6 +389,7 @@ namespace WinFormsMA
             //Fa que es les stats siguin visibles o no
             pictureBoxSimon.Visible = enable;
             labelSimon.Visible = enable;
+            labelSimonTotal.Visible = enable;
 
             comboBoxDraws.Visible = enable;
             pictureBoxDraw.Visible = enable;
@@ -397,8 +401,7 @@ namespace WinFormsMA
             labelDurationNum.Visible = enable;
             labelUsedColors.Visible = enable;
             labelUsedColorsNum.Visible = enable;
-            labelAccuracy.Visible = enable;
-            labelAccuracyNum.Visible = enable;
+
         }
 
         private void ResetDrawStatsLabels()
@@ -406,7 +409,6 @@ namespace WinFormsMA
             labelTimestampNum.Text = "---";
             labelDurationNum.Text = "---";
             labelUsedColorsNum.Text = "---";
-            labelAccuracyNum.Text = "---";
         }
 
         private void comboBoxDraws_SelectedIndexChanged(object sender, EventArgs e)
@@ -414,7 +416,7 @@ namespace WinFormsMA
             pictureBoxDraw.Image = null;
             pictureBoxDraw.BackgroundImage = null;
 
-            if( comboBoxDraws.SelectedIndex >= 0)
+            if (comboBoxDraws.SelectedIndex >= 0)
             {
                 string studentName = comboBoxStudent.SelectedItem.ToString();
                 var selectedCenter = centers.FirstOrDefault(center => center.Name == comboBoxCenter.SelectedItem.ToString());
@@ -458,7 +460,7 @@ namespace WinFormsMA
                     pictureBoxDraw.BackgroundImage = null;
                 }
             }
-            
+
         }
 
         private void buttonLeft_Click(object sender, EventArgs e)
