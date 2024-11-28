@@ -142,5 +142,19 @@ namespace WinFormsMA.Logic.Services
             }
             return files;
         }
+
+        public void DeleteFiles(string remoteFilePath)
+        {
+            try
+            {
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create($"{ftpUrl}/{remoteFilePath}");
+                request.Method = WebRequestMethods.Ftp.DeleteFile;
+                request.Credentials = new NetworkCredential(username, password);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al eliminar el archivo en el servidor FTP");
+            }
+        }
     }
 }

@@ -37,7 +37,8 @@ namespace WinFormsMA
 
         }
 
-        private void LoadCentersFromJson()
+
+        private void LoadCentersFromJson() 
         {
             try
             {
@@ -143,13 +144,28 @@ namespace WinFormsMA
                                         }
                                         else
                                         {
-                                            student.Stats.Score = [5];
+                                            student.Stats.Score = [0];
                                         }
                                     }
                                 }
                             }
                         }
                     }
+                }
+                var (ftpUrl, ftpUsername, ftpPassword) = Utils.GetFtpVariables();
+                Ftp ftpClient = new Ftp(ftpUrl, ftpUsername, ftpPassword);
+
+                foreach (var statsFile in statsFiles)
+                {
+                    string fileName = Path.GetFileName(statsFile);
+
+                    ftpClient.DeleteFiles($"stats/{fileName}");
+                    File.Delete(statsFile);
+                }
+
+                if (Directory.Exists(statsFolderPath) && Directory.GetFiles(statsFolderPath).Length == 0)
+                {
+                    Directory.Delete(statsFolderPath);
                 }
             }
             catch (Exception ex)
