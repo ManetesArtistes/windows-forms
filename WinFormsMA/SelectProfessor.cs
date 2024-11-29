@@ -136,16 +136,12 @@ namespace WinFormsMA
                                     // Aquí estamos buscando el estudiante dentro de los centros previamente cargados, no en statsData
                                     var student = FindStudentById(centers, studentData.Id);
 
-                                    if (student != null)
+                                    student.Stats = studentData.Stats;
+
+
+                                    if (studentData.Stats.Score == null)
                                     {
-                                        if (studentData.Stats?.Score != null)
-                                        {
-                                            student.Stats = studentData.Stats;
-                                        }
-                                        else
-                                        {
-                                            student.Stats.Score = [0];
-                                        }
+                                        student.Stats.Score = [0];
                                     }
                                 }
                             }
@@ -343,13 +339,21 @@ namespace WinFormsMA
                 var selectedGroup = selectedCenter?.Groups.FirstOrDefault(group => group.Name == comboBoxClass.SelectedItem.ToString());
                 var selectedStudent = selectedGroup?.Students.FirstOrDefault(student => student.Name == studentName);
 
-                if (selectedStudent?.Stats != null && selectedStudent.Stats.Score.Any())
+                if (selectedStudent?.Stats != null)
                 {
-                    //Mostra el score del Simon
-                    int highestScore = selectedStudent.Stats.Score.Max();
-                    labelSimon.Text = highestScore.ToString();
 
-                    labelSimonTotal.Text = string.Join(",", selectedStudent.Stats.Score);
+                    if (selectedStudent.Stats.Score.Any())
+                    {
+                        //Mostra el score del Simon
+                        int highestScore = selectedStudent.Stats.Score.Max();
+                        labelSimon.Text = highestScore.ToString();
+                        labelSimonTotal.Text = string.Join(",", selectedStudent.Stats.Score);
+                    }
+                    else
+                    {
+                        labelSimon.Text = "---";
+                        labelSimonTotal.Text = "---";
+                    }
 
                     comboBoxDraws.Items.Clear();
                     foreach (var draw in selectedStudent.Stats?.Draws ?? new List<Draw>())
@@ -428,7 +432,11 @@ namespace WinFormsMA
                 {
                     var selectedDraw = selectedStudent.Stats.Draws[comboBoxDraws.SelectedIndex];
 
-                    labelTimestampNum.Text = selectedDraw.Timestamp != 0 ? selectedDraw.Timestamp.ToString() : "";
+                    if (selectedDraw.Timestamp != 0)
+                    {
+                        DateTime dateTime = DateTimeOffset.FromUnixTimeSeconds(selectedDraw.Timestamp).DateTime;
+                        labelTimestampNum.Text = dateTime.ToString("dd/MM/yyyy");
+                    }
                     labelDurationNum.Text = selectedDraw.Duration != 0 ? selectedDraw.Duration.ToString() : "";
                     labelUsedColorsNum.Text = selectedDraw.UsedColors > 0 ? selectedDraw.UsedColors.ToString() : "0";
 

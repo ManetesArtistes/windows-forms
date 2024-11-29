@@ -84,7 +84,7 @@ namespace WinFormsMA
                                 Id = i,
                                 Stats = new Stats
                                 {
-                                    Score = [5],
+                                    Score = [0],
                                     Draws = new List<Draw>() // Inicialitza amb una llista buida de Draw
                                 }
                             });
