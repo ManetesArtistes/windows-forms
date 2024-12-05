@@ -7,8 +7,8 @@ The **ManetesArtistes** Windows Forms application is designed to manage data, st
 - **Data Management**: Manage and organize data from the Android application, including drawing and gameplay records.
 - **Statistics and Reports**: View detailed statistics and generate reports based on children's performance in the Simon Says and coloring modes.
 - **Admin and Educator Modes**:
-  - **Admin Mode**: Configure settings, manage user data, and control overall application features.
-  - **Educator Mode**: Access individual or group progress, generate educational insights, and monitor activity.
+  - **Admin Mode**: View logs, manage user data, and control overall application features.
+  - **Educator Mode**: Download students creations, organize centers and classes, assign students to groups with customizable stickers, and access educational insights to track progress and plan activities.
 
 ## Getting Started
 
@@ -29,6 +29,7 @@ The **ManetesArtistes** Windows Forms application is designed to manage data, st
 
 3. **Build and Run**
    - Open the solution file (`.sln`) in Visual Studio.
+   - Before running the application, ensure the .env file is properly configured. Use the .env.example file provided in the project as a reference, as it contains the essential environment variables required for the application to function correctly.
    - Build the project and run the application.
 
 ## Usage
@@ -40,7 +41,7 @@ The **ManetesArtistes** Windows Forms application is designed to manage data, st
 
 - **Enhanced Reporting**: Add more detailed reports and customizable charts for better insights.
 - **User Roles**: Add different user roles with varying levels of access and permissions.
-- **Integration with Cloud Services**: Enable data synchronization with cloud storage for easier backup and access.
+- **Integration with FTP Services:**: Enable data synchronization with FTP servers for easier backup and access, ensuring compliance with the non-cloud requirement. Note that configuring the .env file is essential for setting up FTP connections. Use the .env.example file provided in the project as a reference, as it contains the necessary environment variables required for proper functionality.
 
 ## Contributing
 
