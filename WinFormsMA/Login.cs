@@ -11,7 +11,7 @@ namespace WinFormsMA
         public Login()
         {
             InitializeComponent();
-            Utils.LoadEnvFile();
+            //Utils.LoadEnvFile();
             InitializeFtpClient();
 
             this.AcceptButton = buttonLogIn;
@@ -22,16 +22,17 @@ namespace WinFormsMA
             string username = textBoxUser.Text;
             string password = textBoxPassword.Text;
 
-            string user1 = Utils.GetEnvVariable("WF_USER1");
-            string pass1 = Utils.GetEnvVariable("WF_PASSWORD1");
-            string user2 = Utils.GetEnvVariable("WF_USER2");
-            string pass2 = Utils.GetEnvVariable("WF_PASSWORD2");
+            //string user1 = Utils.GetEnvVariable("WF_USER1");
+            //string pass1 = Utils.GetEnvVariable("WF_PASSWORD1");
+            //string user2 = Utils.GetEnvVariable("WF_USER2");
+            //string pass2 = Utils.GetEnvVariable("WF_PASSWORD2");
+            var (user1, pass1, user2, pass2) = Utils.GetEnvVariable();
 
-            if (!Utils.EnvLoaded)
-            {
-                MessageBox.Show("No s'ha carregat el fitxer .env. Login incorrecte.");
-                return;
-            }
+            //if (!Utils.EnvLoaded)
+            //{
+            //    MessageBox.Show("No s'ha carregat el fitxer .env. Login incorrecte.");
+            //    return;
+            //}
 
             if (username == user1 && password == pass1)
             {
