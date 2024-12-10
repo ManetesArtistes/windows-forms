@@ -90,6 +90,23 @@ namespace WinFormsMA
                             });
                         }
                     }
+                    else
+                    {
+                        if (i < selectedGroup.Students.Count && selectedGroup.Students[i] != null)
+                        {
+                            selectedGroup.Students[i] = null;
+                        }
+                        updatedStudents.Add(new Student
+                        {
+                            Id = i,
+                            Name = null,
+                            Stats = new Stats
+                            {
+                                Score = null,
+                                Draws = null
+                            }
+                        });
+                    }
                 }
 
                 // Assigna la nova llista d'estudiants al grup

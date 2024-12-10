@@ -67,6 +67,21 @@ namespace WinFormsMA
                             }
                         });
                     }
+                    else
+                    {
+                        newGroup.Students.Add(new Student
+                        {
+                            Id = i,
+                            Name = null,
+                            Stats = new Stats
+                            {
+                                Score = null,
+                                Draws = null
+
+                            }
+                        });
+
+                    }
                 }
 
                 // Afegeix el grup al centre seleccionat

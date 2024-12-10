@@ -1,5 +1,4 @@
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Serilog;
 using System.Text.RegularExpressions;
 using WinFormsMA.Logic.Entities;
