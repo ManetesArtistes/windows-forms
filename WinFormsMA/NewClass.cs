@@ -75,8 +75,8 @@ namespace WinFormsMA
                             Name = null,
                             Stats = new Stats
                             {
-                                Score = null,
-                                Draws = null
+                                Score = [0],
+                                Draws = new List<Draw>()
 
                             }
                         });
