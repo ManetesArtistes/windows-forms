@@ -1,3 +1,4 @@
+using WinFormsMA.Forms;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
 
@@ -8,6 +9,12 @@ namespace WinFormsMA
         private List<Center> centers;
         private JsonManager jsonManager;
 
+        /// <summary>
+        /// This method starts the form and download the json from ftp and
+        /// put the centers from the json in the centers list
+        /// 
+        /// </summary>
+        /// <param name="jsonManager"></param>
         public SelectAdminMode(JsonManager jsonManager)
         {
             InitializeComponent();
@@ -29,12 +36,23 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method ensures that the centers list is not null
+        /// 
+        /// /// </summary>
+        /// <param name="centers"></param>
         public SelectAdminMode(List<Center> centers)
         {
             InitializeComponent();
             this.centers = centers ?? new List<Center>(); // Assegurem que no sigui nul
         }
 
+        /// <summary>
+        /// This method open the Logs form
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLogs_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -42,6 +60,12 @@ namespace WinFormsMA
             logsForm.Show();
         }
 
+        /// <summary>
+        /// This method open the Json forms
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonJson_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -49,6 +73,12 @@ namespace WinFormsMA
             jsonForm.Show();
         }
 
+        /// <summary>
+        /// This method returns you to the form before
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLeft_Click(object sender, EventArgs e)
         {
             this.Hide();

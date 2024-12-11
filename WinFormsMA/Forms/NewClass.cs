@@ -10,6 +10,13 @@ namespace WinFormsMA
         private JsonManager jsonManager;
         private Center selectedCenter;
 
+        /// <summary>
+        /// This method starts the form
+        /// 
+        /// </summary>
+        /// <param name="jsonManager"></param>
+        /// <param name="centers"></param>
+        /// <param name="selectedCenter"></param>
         public NewClass(JsonManager jsonManager, List<Center> centers, Center selectedCenter)
         {
             InitializeComponent();
@@ -20,6 +27,14 @@ namespace WinFormsMA
             this.AcceptButton = buttonCreate;
         }
 
+        /// <summary>
+        /// This method save the new class name and students taking into
+        /// account that there are not 2 classes with the same name witthin the
+        /// same center
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             try
@@ -100,6 +115,13 @@ namespace WinFormsMA
                 Log.Error(ex, "Error durant la creació de la classe.");
             }
         }
+
+        /// <summary>
+        /// This method close the form without save the changes
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLeft_Click(object sender, EventArgs e)
         {
             this.Close();

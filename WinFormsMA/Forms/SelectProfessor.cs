@@ -1,6 +1,7 @@
 using Newtonsoft.Json;
 using Serilog;
 using System.Text.RegularExpressions;
+using WinFormsMA.Forms;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
 using WinFormsMA.Logic.Utilities;
@@ -12,6 +13,12 @@ namespace WinFormsMA
         private List<Center> centers;
         private JsonManager jsonManager;
         private List<DrawImage> drawImages;
+
+        /// <summary>
+        /// This method starts the form
+        /// 
+        /// </summary>
+        /// <param name="jsonManager"></param>
         public SelectProfessor(JsonManager jsonManager)
         {
             InitializeComponent();
@@ -20,6 +27,9 @@ namespace WinFormsMA
             InitialzeData();
         }
 
+        /// <summary>
+        /// This method initializes the form data
+        /// </summary>
         private void InitialzeData()
         {
             //Carrega el centres desde el Json
@@ -36,7 +46,10 @@ namespace WinFormsMA
 
         }
 
-
+        /// <summary>
+        /// This method try to download the centers json from the ftp server
+        /// 
+        /// </summary>
         private void LoadCentersFromJson()
         {
             try
@@ -57,6 +70,10 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method takes the name of the draw images from a json file
+        /// and creates a class list of them
+        /// </summary>
         private void LoadDrawImages()
         {
             string basePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..");
@@ -91,6 +108,10 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method try to download all the jsons files from the Stats folder from the 
+        /// ftp server and if any it creates the stats folder in the application
+        /// </summary>
         private void DownloadStatsJson()
         {
             try
@@ -109,6 +130,12 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method tries to check if there are json filen in the stats folder, and
+        /// if there are it checks that each students of each json file exists in the centers list,
+        /// if they exists it replaces the student stats from the centers list with those of the json file
+        /// 
+        /// </summary>
         private void UpdateStudentStats()
         {
             try
@@ -169,6 +196,14 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method searches if there is any student with the same center id,
+        /// group id and student id in the centers list with the one in json file
+        /// 
+        /// </summary>
+        /// <param name="centers"></param>
+        /// <param name="studentId"></param>
+        /// <returns student or null></returns>
         private Student FindStudentById(List<Center> centers, int studentId)
         {
             foreach (var center in centers)
@@ -186,6 +221,12 @@ namespace WinFormsMA
             return null;
         }
 
+        /// <summary>
+        /// This method loads the name of the groups from the center selected
+        /// in the comboBoxGroups
+        /// 
+        /// </summary>
+        /// <param name="selectedCenter"></param>
         private void LoadCenters()
         {
             try
@@ -221,6 +262,12 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method loads the name of the groups from the center selected
+        /// in the comboBoxGroups
+        /// 
+        /// </summary>
+        /// <param name="selectedCenter"></param>
         private void LoadClasses(Center selectedCenter)
         {
             ClearComboBox(comboBoxClass);
@@ -249,6 +296,13 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method loads the name of the students from the group selected
+        /// in the comboBoxStudents
+        /// 
+        /// </summary>
+        /// <param name="selectedCenter"></param>
+        /// <param name="selectedClassName"></param
         private void LoadStudents(Center selectedCenter, string selectedClassName)
         {
             ClearComboBox(comboBoxStudent);
@@ -272,6 +326,10 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method deletes all the content of a comboBox
+        /// </summary>
+        /// <param name="comboBox"></param>
         private void ClearComboBox(ComboBox comboBox)
         {
             comboBox.Items.Clear();
@@ -279,6 +337,13 @@ namespace WinFormsMA
             comboBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// This method disables the comboBoxClass if there's no center selected and
+        /// if there's one it shows its groups in the comboBoxClass
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxCenter_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxCenter.SelectedIndex == 0)
@@ -303,6 +368,13 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method disables the comboBoxStudent if there's no group selected and
+        /// if tehre's one it shows its students in the comboBoxStudents
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxClass.SelectedIndex == 0)
@@ -324,6 +396,13 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method shows the stats of the selected student and 
+        /// enables the comboBoxDraws in case it has
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxStudent_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxStudent.SelectedIndex == 0)
@@ -387,6 +466,10 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method put enable true or false the stats
+        /// </summary>
+        /// <param name="enable"></param>
         private void StatsEnable(bool enable)
         {
             //Fa que es les stats siguin visibles o no
@@ -407,6 +490,9 @@ namespace WinFormsMA
 
         }
 
+        /// <summary>
+        /// This method reset de draws stats
+        /// </summary>
         private void ResetDrawStatsLabels()
         {
             labelTimestampNum.Text = "---";
@@ -414,6 +500,13 @@ namespace WinFormsMA
             labelUsedColorsNum.Text = "---";
         }
 
+        /// <summary>
+        /// This method displays the stats for the selected draw of selected student.
+        /// Also shows the image of the selected draw with that of the image list
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxDraws_SelectedIndexChanged(object sender, EventArgs e)
         {
             pictureBoxDraw.Image = null;
@@ -470,6 +563,12 @@ namespace WinFormsMA
 
         }
 
+        /// <summary>
+        /// This method returns you to the form before
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLeft_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -477,6 +576,12 @@ namespace WinFormsMA
             loginForm.Show();
         }
 
+        /// <summary>
+        /// This method open a form to create a new center
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCentre_Click(object sender, EventArgs e)
         {
             var newCenterForm = new NewCenter(jsonManager, centers);
@@ -491,6 +596,12 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method open a form to edit the selected center
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonEditCenter_Click(object sender, EventArgs e)
         {
             string selectedCenterName = comboBoxCenter.Text;
@@ -516,6 +627,12 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method open a form to create a new class in the selected center
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonClass_Click(object sender, EventArgs e)
         {
             var selectedCenter = centers.FirstOrDefault(center => center.Name == comboBoxCenter.SelectedItem.ToString());
@@ -539,6 +656,12 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method open a form to edit the selected class in the selected center
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonEditClass_Click(object sender, EventArgs e)
         {
             var selectedCenter = centers.FirstOrDefault(center => center.Name == comboBoxCenter.SelectedItem.ToString());
@@ -563,7 +686,13 @@ namespace WinFormsMA
                 MessageBox.Show("Selecciona una classe per modificar.", "Advertència", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        /// <summary>
+        /// This method connects to the download all the images of all the students of
+        /// the selected class and center in the directory that we choose
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonDownload_Click(object sender, EventArgs e)
         {
             try

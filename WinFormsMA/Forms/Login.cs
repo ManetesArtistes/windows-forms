@@ -1,3 +1,4 @@
+using WinFormsMA.Forms;
 using WinFormsMA.Logic.Services;
 using WinFormsMA.Logic.Utilities;
 
@@ -17,6 +18,13 @@ namespace WinFormsMA
             this.AcceptButton = buttonLogIn;
         }
 
+        /// <summary>
+        /// This method chechs that the username and password written
+        /// are correct and depending on the user it takes you to one form or another
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
             string username = textBoxUser.Text;
@@ -60,6 +68,10 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method tries to establish a connection with the ftp server
+        /// 
+        /// </summary>
         private void InitializeFtpClient()
         {
             try

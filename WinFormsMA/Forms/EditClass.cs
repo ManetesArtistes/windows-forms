@@ -11,6 +11,14 @@ namespace WinFormsMA
         private Center selectedCenter;
         private JsonManager jsonManager;
 
+        /// <summary>
+        /// This method starts the form
+        /// 
+        /// </summary>
+        /// <param name="jsonManager"></param>
+        /// <param name="centers"></param>
+        /// <param name="groupToEdit"></param>
+        /// <param name="selectedCenter"></param>
         public EditClass(JsonManager jsonManager, List<Center> centers, Group groupToEdit, Center selectedCenter)
         {
             InitializeComponent();
@@ -24,6 +32,11 @@ namespace WinFormsMA
             this.AcceptButton = buttonSave; // Permet acceptar amb "Enter"
         }
 
+        /// <summary>
+        /// This method initializes the data of the students in the class by putting
+        /// each student in their correponding textBox and the class name in theirs
+        /// 
+        /// </summary>
         private void InitializeGroupData()
         {
             // Inicialitza el TextBox amb el nom de la classe seleccionada
@@ -48,6 +61,14 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method saves the changes made in the class taking into
+        /// account that there are not 2 classes with the same name witthin the
+        /// same center
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
             try
@@ -127,17 +148,18 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method returns you to the form before without save the changes
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLeft_Click(object sender, EventArgs e)
         {
             this.Hide();
 
             var selectProfessorForm = new SelectProfessor(jsonManager);
             selectProfessorForm.Show();
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

@@ -9,6 +9,14 @@ namespace WinFormsMA
         private Center centerToEdit;
         private JsonManager jsonManager;
 
+        /// <summary>
+        /// This method starts the form with the name of the selected center
+        /// in the textBox
+        /// 
+        /// </summary>
+        /// <param name="jsonManager"></param>
+        /// <param name="centers"></param>
+        /// <param name="centerToEdit"></param>
         public EditCenter(JsonManager jsonManager, List<Center> centers, Center centerToEdit)
         {
             InitializeComponent();
@@ -22,11 +30,24 @@ namespace WinFormsMA
             this.AcceptButton = buttonAccept; // Permet acceptar amb "Enter"
         }
 
+        /// <summary>
+        /// This method close the form without save the changes
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// This button save the new center name taking into account 
+        /// that there is a name in the textBox
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAccept_Click(object sender, EventArgs e)
         {
             try

@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using WinFormsMA.Forms;
 using WinFormsMA.Logic.Entities;
 using WinFormsMA.Logic.Services;
 using WinFormsMA.Logic.Utilities;
@@ -16,6 +17,11 @@ namespace WinFormsMA
             LoadCenters();
         }
 
+        /// <summary>
+        /// This method loads the name of the centers from the centers list
+        /// in the comboBoxCenter
+        /// 
+        /// </summary>
         private void LoadCenters()
         {
             comboBoxCenter.Items.Clear();
@@ -36,6 +42,12 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method loads the name of the groups from the center selected
+        /// in the comboBoxGroups
+        /// 
+        /// </summary>
+        /// <param name="selectedCenter"></param>
         private void LoadClasses(Center selectedCenter)
         {
             comboBoxClass.Items.Clear();
@@ -52,6 +64,13 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method loads the name of the students from the group selected
+        /// in the dataGridViewJson
+        /// 
+        /// </summary>
+        /// <param name="selectedCenter"></param>
+        /// <param name="selectedClassName"></param>
         private void LoadStudents(Center selectedCenter, string selectedClassName)
         {
             dataGridViewJson.Rows.Clear();
@@ -67,6 +86,11 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method takes the centers list and converts it into a json
+        /// file to upload to the ftp server
+        /// 
+        /// </summary>
         private void SaveJsonToFile()
         {
             try
@@ -106,6 +130,11 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This methods upload the json file into the ftp server
+        /// 
+        /// </summary>
+        /// <param name="localFilePath"></param>
         private void UploadJsonToFtp(string localFilePath)
         {
             try
@@ -128,6 +157,12 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method creates a unique name for the file that is uploaded to the ftp server
+        /// 
+        /// </summary>
+        /// <param name="originalFileName"></param>
+        /// <return ></returns>
         private string GenerateUniqueFileName(string originalFileName)
         {
             string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
@@ -137,6 +172,13 @@ namespace WinFormsMA
             return $"{fileNameWithoutExtension}_{timestamp}{fileExtension}";
         }
 
+        /// <summary>
+        /// This method shows the groups in the comboBoxClasses depending
+        /// on the center we select in the comboBoxCenter
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxCenter_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxCenter.SelectedIndex == 0)
@@ -160,6 +202,13 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// This method shows the students in the dataGriedViewJson depending
+        /// on the group we select in the comboBoxClasses
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxClass.SelectedIndex == 0)
@@ -179,6 +228,13 @@ namespace WinFormsMA
             }
         }
 
+
+        /// <summary>
+        /// This method returns you to the form before
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -187,6 +243,11 @@ namespace WinFormsMA
             selectForm.Show();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonModify_Click(object sender, EventArgs e)
         {
             if (dataGridViewJson.SelectedRows.Count > 0)

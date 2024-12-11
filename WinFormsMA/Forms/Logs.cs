@@ -1,3 +1,4 @@
+using WinFormsMA.Forms;
 using WinFormsMA.Logic.Entities;
 
 namespace WinFormsMA
@@ -13,6 +14,11 @@ namespace WinFormsMA
             LoadLogs();
         }
 
+        /// <summary>
+        /// This method loads the logs that have been
+        /// made and shows them
+        /// 
+        /// </summary>
         private void LoadLogs()
         {
             try
@@ -72,6 +78,12 @@ namespace WinFormsMA
             }
         }
 
+        /// <summary>
+        /// 
+        /// This method returns you to the form before
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLeft_Click(object sender, EventArgs e)
         {
             this.Hide();

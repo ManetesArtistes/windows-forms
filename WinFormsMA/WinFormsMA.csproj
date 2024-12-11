@@ -43,7 +43,6 @@
 
   <ItemGroup>
     <Folder Include="Json\" />
-    <Folder Include="Stats\" />
   </ItemGroup>
 
 </Project>

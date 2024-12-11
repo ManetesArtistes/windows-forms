@@ -8,6 +8,12 @@ namespace WinFormsMA
         private List<Center> centers;
         private JsonManager jsonManager;
 
+        /// <summary>
+        /// This method starts the form
+        /// 
+        /// </summary>
+        /// <param name="jsonManager"></param>
+        /// <param name="centers"></param>
         public NewCenter(JsonManager jsonManager, List<Center> centers)
         {
             InitializeComponent();
@@ -17,11 +23,24 @@ namespace WinFormsMA
             this.AcceptButton = buttonAccept;
         }
 
+        /// <summary>
+        /// This method close the form without saving the changes
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// This method save the name of the new center taking into account 
+        /// that there is a name in the textBox
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAccept_Click(object sender, EventArgs e)
         {
             try
