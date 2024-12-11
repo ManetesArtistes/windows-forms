@@ -10,7 +10,6 @@
             // Configura la finestra perquè no sigui redimensionable
             FormBorderStyle = FormBorderStyle.FixedSingle; // Evita redimensionament
             MaximizeBox = false; // Deshabilita el botó de maximitzar
-            MinimizeBox = true; // Permet minimitzar si ho desitges
 
             rmFocus();
         }
