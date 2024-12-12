@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "draw_colored_image": "draw_colored_fish",
+    "square_background_image": "background_square_ocean"
+  },
+  {
+    "id": 2,
+    "draw_colored_image": "draw_colored_monkey_easy_1",
+    "square_background_image": "background_square_jungle"
+  },
+  {
+    "id": 3,
+    "draw_colored_image": "draw_colored_bee",
+    "square_background_image": "background_square_sky"
+  },
+  {
+    "id": 4,
+    "draw_colored_image": "draw_colored_moon",
+    "square_background_image": "background_square_sky"
+  },
+  {
+    "id": 5,
+    "draw_colored_image": "draw_colored_snail",
+    "square_background_image": "background_square_landscape"
+  },
+  {
+    "id": 6,
+    "draw_colored_image": "draw_colored_worm",
+    "square_background_image": "background_square_landscape"
+  },
+  {
+    "id": 7,
+    "draw_colored_image": "draw_colored_monkey_easy_2",
+    "square_background_image": "background_square_jungle"
+  },
+  {
+    "id": 8,
+    "draw_colored_image": "draw_colored_rain",
+    "square_background_image": "background_square_sky"
+  },
+  {
+    "id": 9,
+    "draw_colored_image": "draw_colored_vulcano",
+    "square_background_image": "background_square_landscape"
+  },
+  {
+    "id": 10,
+    "draw_colored_image": "draw_colored_jellyfish",
+    "square_background_image": "background_square_ocean"
+  },
+  {
+    "id": 11,
+    "draw_colored_image": "draw_colored_mushroom",
+    "square_background_image": "background_square_landscape"
+  },
+  {
+    "id": 12,
+    "draw_colored_image": "draw_colored_rainbow",
+    "square_background_image": "background_square_sky"
+  },
+  {
+    "id": 13,
+    "draw_colored_image": "draw_colored_octopus",
+    "square_background_image": "background_square_ocean"
+  },
+  {
+    "id": 14,
+    "draw_colored_image": "draw_colored_caterpillar",
+    "square_background_image": "background_square_landscape"
+  },
+  {
+    "id": 15,
+    "draw_colored_image": "draw_colored_elephant",
+    "square_background_image": "background_square_landscape"
+  },
+  {
+    "id": 16,
+    "draw_colored_image": "draw_colored_monkey_hard",
+    "square_background_image": "background_square_jungle"
+  }
+]
