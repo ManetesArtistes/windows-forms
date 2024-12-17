@@ -12,6 +12,10 @@ namespace WinFormsMA.Logic.Services
 
         public List<Center> Centers { get; private set; }
 
+        /// <summary>
+        /// This method creates the json folder
+        /// </summary>
+        /// <param name="ftpClient"></param>
         public JsonManager(Ftp ftpClient)
         {
             // Obtén el directori base del projecte
@@ -31,6 +35,9 @@ namespace WinFormsMA.Logic.Services
             Centers = new List<Center>();
         }
 
+        /// <summary>
+        /// This method try to convert the json file in a list of centers
+        /// </summary>
         public void LoadFromJson()
         {
             try
@@ -53,6 +60,9 @@ namespace WinFormsMA.Logic.Services
             }
         }
 
+        /// <summary>
+        /// This method save the list of centers in a json file
+        /// </summary>
         public void SaveToJson()
         {
             try
@@ -68,6 +78,10 @@ namespace WinFormsMA.Logic.Services
             }
         }
 
+        /// <summary>
+        /// This method try to download the json file from the ftp server
+        /// </summary>
+        /// <param name="remotePath"></param>
         public void DownloadJsonFromFtp(string remotePath)
         {
             try
@@ -82,6 +96,10 @@ namespace WinFormsMA.Logic.Services
             }
         }
 
+        /// <summary>
+        /// This method try to upload the json file from the ftp server
+        /// </summary>
+        /// <param name="remotePath"></param>
         public void UploadJsonToFtp(string remotePath)
         {
             try
@@ -96,6 +114,11 @@ namespace WinFormsMA.Logic.Services
             }
         }
 
+        /// <summary>
+        /// This method search if there are centers in the ftp and how many there are
+        /// </summary>
+        /// <param name="remoteFilePath"></param>
+        /// <returns>List of centers</returns>
         public List<Center> LoadCentersFromFtp(string remoteFilePath)
         {
             try

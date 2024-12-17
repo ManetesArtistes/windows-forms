@@ -8,6 +8,13 @@ namespace WinFormsMA.Logic.Services
         private readonly string username;
         private readonly string password;
 
+        /// <summary>
+        /// This method create the Ftp with a ftpUrl, username and password to
+        /// connect to the ftp server
+        /// </summary>
+        /// <param name="ftpUrl"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
         public Ftp(string ftpUrl, string username, string password)
         {
             this.ftpUrl = ftpUrl;
@@ -15,6 +22,13 @@ namespace WinFormsMA.Logic.Services
             this.password = password;
         }
 
+        /// <summary>
+        /// This method try to connect to de ftp using the propierties
+        /// </summary>
+        /// <returns>
+        /// true if the connection is correct
+        /// false if the connection fails
+        /// </returns>
         public bool TestConnection()
         {
             try
@@ -36,6 +50,11 @@ namespace WinFormsMA.Logic.Services
             }
         }
 
+        /// <summary>
+        /// This method try to download the json file from stats folder in the ftp server
+        /// if exists any json file
+        /// </summary>
+        /// <param name="localStatsFolder"></param>
         public void DownloadStatsJsons (string localStatsFolder)
         {
             try
@@ -64,6 +83,11 @@ namespace WinFormsMA.Logic.Services
             }
         }
 
+        /// <summary>
+        /// This method try to upload the json file to the ftp server
+        /// </summary>
+        /// <param name="localFilePath"></param>
+        /// <param name="remoteFilePath"></param>
         public void UploadFile(string localFilePath, string remoteFilePath)
         {
             try
@@ -92,6 +116,11 @@ namespace WinFormsMA.Logic.Services
             }
         }
 
+        /// <summary>
+        /// This method tri to download the json file from the ftp server
+        /// </summary>
+        /// <param name="remoteFilePath"></param>
+        /// <param name="localFilePath"></param>
         public void DownloadFile(string remoteFilePath, string localFilePath)
         {
             try
@@ -115,6 +144,13 @@ namespace WinFormsMA.Logic.Services
             }
         }
 
+        /// <summary>
+        /// This method try to return a list from files on a directory
+        /// </summary>
+        /// <param name="remoteDirectory"></param>
+        /// <returns>
+        /// The files from the directory 
+        /// </returns>
         public List<string> ListDirectory(string remoteDirectory)
         {
             var files = new List<string>();
@@ -143,6 +179,10 @@ namespace WinFormsMA.Logic.Services
             return files;
         }
 
+        /// <summary>
+        /// This method try to delete a file from ftp server
+        /// </summary>
+        /// <param name="remoteFilePath"></param>
         public void DeleteFiles(string remoteFilePath)
         {
             try
