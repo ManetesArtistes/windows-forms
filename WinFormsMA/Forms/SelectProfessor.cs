@@ -161,13 +161,15 @@ namespace WinFormsMA
                                 {
                                     // Aquí estamos buscando el estudiante dentro de los centros previamente cargados, no en statsData
                                     var student = FindStudentById(centers, studentData.Id);
-
-                                    student.Stats = studentData.Stats;
-
-
-                                    if (studentData.Stats.Score == null)
+                                    
+                                    if (student != null)
                                     {
-                                        student.Stats.Score = [0];
+                                        student.Stats = studentData.Stats;
+
+                                        if (studentData.Stats.Score == null)
+                                        {
+                                            student.Stats.Score = [0];
+                                        }
                                     }
                                 }
                             }
@@ -215,6 +217,7 @@ namespace WinFormsMA
                     {
                         return student;
                     }
+                    return null;
 
                 }
             }
